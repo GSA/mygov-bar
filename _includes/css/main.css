@@ -1,0 +1,15 @@
+* {}
+#logo { z-index: 1000; position: absolute; }
+.container { }
+#bar { display: block; background: red; position: absolute; left: 50px; bottom: 50px; z-index: 100; }
+
+
+
+
+
+
+
+
+
+
+
