@@ -17,6 +17,8 @@ permalink: /index.html
 
 ## Browser Plugin
 
-*coming soon...*
+* [Chrome](/chrome-extension/mygov-bar.crx)
+
+*Right click, select save as, navigate to window->extensions, drag file into extensions window*
 
 {% include embed-code.html %}
