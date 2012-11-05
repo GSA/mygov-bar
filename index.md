@@ -10,15 +10,16 @@ permalink: /index.html
 
     {% include embed-code.html %}
 
-
 ## Bookmarklet
 
-*coming soon...*
+<p><a class="bookmarklet" href='javascript:{% include bookmarklet-code.js %}'>MyGov</a></p>
+
+*Instructions: Drag to your bookmark bar and click to enable MyGov on any webpage*
 
 ## Browser Plugin
 
 * [Chrome](chrome-extension/mygov-bar.crx)
 
-*Right click, select save as, navigate to window->extensions, drag file into extensions window*
+*Instructions: Right click, select save as, navigate to window->extensions, drag file into extensions window*
 
 {% include embed-code.html %}
