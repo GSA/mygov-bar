@@ -29,7 +29,12 @@ class MyGovLoader
         script.src = @domain + src
         document.body.appendChild script
 
-    load: =>
+    load: (event) =>
+            
+        if event.preventDefault 
+          event.preventDefault()
+          
+        event.returnValue = false
         
         if @loaded
             return false
@@ -38,7 +43,8 @@ class MyGovLoader
         @loadJS src for src in @js
         
         @loaded = true
-        return false
-
+        
+        false
+        
 loader = new MyGovLoader
 loader.init()
