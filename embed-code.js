@@ -1,4 +1,4 @@
 ---
 layout: nil
 ---
-$(document).ready(function(){ $('body').append( $('{% include embed-code.html %}') ) });
+jQuery(document).ready(function($){ $('body').append( $('{% include embed-code.html %}') ) });
