@@ -1,3 +1,4 @@
 server: true
 auto: true
 url: http://gsa-ocsit.github.com/mygov-bar/
+api_url: http://localhost:3000

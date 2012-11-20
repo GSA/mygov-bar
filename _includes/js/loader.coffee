@@ -1,8 +1,9 @@
 class MyGovLoader
     
     el: 'logo'
-    css: ['css/mygov-bar.css']
-    js: ['js/mygov-bar.js']
+    domain: 'http://localhost:3000'
+    css: ['/assets/application.css']
+    js: ['/assets/application.js']
     loaded: false
     
     init: ->
@@ -20,12 +21,12 @@ class MyGovLoader
     loadCSS: (src) ->
         css = document.createElement 'link'
         css.rel = 'stylesheet'
-        css.href = src
+        css.href = @domain + src
         document.body.appendChild css
         
     loadJS: (src) ->
         script = document.createElement 'script'
-        script.src = src
+        script.src = @domain + src
         document.body.appendChild script
 
     load: =>
