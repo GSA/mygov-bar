@@ -64,13 +64,15 @@ class MyGovLoader
   #append iframe to parent page    
   load: ->
     el = document.createElement 'iframe'
+    el.name = @id
     el.id = @id
-    el.src = @rootUrl + 'mygov-bar.html'    
+    el.src = @rootUrl + 'mygov-bar.html#' + encodeURIComponent document.location.href    
     
     for key,value of @style
       el.style[key] = value
 
     document.body.appendChild el
+    XD.receiveMessage @recieve, @rootUrl.replace( /\/$/, '')
     @loaded = true    
   
   #set width of MyGovBar iframe
@@ -86,17 +88,24 @@ class MyGovLoader
     if !@loaded
       @load()
   
-    @setWidth '20%';
+    @setWidth '20%'
     @state = 'shown'
-  
+    @send @state
+    
   #hide iframe
   hide: ->
     
     if @state is 'hidden'
       return
-    console.log 'hiding'
     @setWidth '0px'
     @state = 'hidden'
-        
+    @send @state
+  
+  send: (msg) ->
+    iframe = document.getElementById @id
+    XD.postMessage msg, iframe.src, frames[0] 
     
+  recieve: (msg) ->
+    alert msg.data
+  
 window.MyGovLoader = new MyGovLoader()

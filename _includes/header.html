@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width">
         <meta name="keywords" content="test, testing, foo, bar" />
         {% if page.layout == 'demo' %}<link rel="stylesheet" href="css/demo.css">{% endif %}
+        {% if page.layout != 'demo' %}<link rel="stylesheet" href="http://localhost:3000/assets/application.css">{% endif %}
         <title>MyGov Bar</title>
     </head>
     <body>

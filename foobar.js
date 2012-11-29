@@ -67,14 +67,16 @@
     MyGovLoader.prototype.load = function() {
       var el, key, value, _ref;
       el = document.createElement('iframe');
+      el.name = this.id;
       el.id = this.id;
-      el.src = this.rootUrl + 'mygov-bar.html';
+      el.src = this.rootUrl + 'mygov-bar.html#' + encodeURIComponent(document.location.href);
       _ref = this.style;
       for (key in _ref) {
         value = _ref[key];
         el.style[key] = value;
       }
       document.body.appendChild(el);
+      XD.receiveMessage(this.recieve, this.rootUrl.replace(/\/$/, ''));
       return this.loaded = true;
     };
 
@@ -90,16 +92,27 @@
         this.load();
       }
       this.setWidth('20%');
-      return this.state = 'shown';
+      this.state = 'shown';
+      return this.send(this.state);
     };
 
     MyGovLoader.prototype.hide = function() {
       if (this.state === 'hidden') {
         return;
       }
-      console.log('hiding');
       this.setWidth('0px');
-      return this.state = 'hidden';
+      this.state = 'hidden';
+      return this.send(this.state);
+    };
+
+    MyGovLoader.prototype.send = function(msg) {
+      var iframe;
+      iframe = document.getElementById(this.id);
+      return XD.postMessage(msg, iframe.src, frames[0]);
+    };
+
+    MyGovLoader.prototype.recieve = function(msg) {
+      return alert(msg.data);
     };
 
     return MyGovLoader;
