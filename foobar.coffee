@@ -12,7 +12,7 @@ class MyGovLoader
     bottom: 0
     left: 0
     background: 'transparent'
-    width: '20%'
+    width: '100%'
     height: '110px'
     border: 0
     'z-index': 9999999
@@ -88,7 +88,7 @@ class MyGovLoader
     if !@loaded
       @load()
   
-    @setWidth '20%'
+    @setWidth '100%'
     @state = 'shown'
     @send @state
     

@@ -20,7 +20,7 @@
       bottom: 0,
       left: 0,
       background: 'transparent',
-      width: '20%',
+      width: '100%',
       height: '110px',
       border: 0,
       'z-index': 9999999,
@@ -91,7 +91,7 @@
       if (!this.loaded) {
         this.load();
       }
-      this.setWidth('20%');
+      this.setWidth('100%');
       this.state = 'shown';
       return this.send(this.state);
     };
