@@ -5,7 +5,7 @@
 
   MyGovLoader = (function() {
 
-    MyGovLoader.prototype.rootUrl = 'http://gsa-ocsit.github.com/mygov-bar/';
+    MyGovLoader.prototype.rootUrl = 'http://gsa-ocsit.github.com/';
 
     MyGovLoader.prototype.scrollTrigger = 80;
 
@@ -69,7 +69,7 @@
       el = document.createElement('iframe');
       el.name = this.id;
       el.id = this.id;
-      el.src = this.rootUrl + 'mygov-bar.html#' + encodeURIComponent(document.location.href);
+      el.src = this.rootUrl + 'mygov-bar/mygov-bar.html#' + encodeURIComponent(document.location.host);
       _ref = this.style;
       for (key in _ref) {
         value = _ref[key];
