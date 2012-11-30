@@ -69,7 +69,7 @@
       el = document.createElement('iframe');
       el.name = this.id;
       el.id = this.id;
-      el.src = this.rootUrl + 'mygov-bar/mygov-bar.html#' + encodeURIComponent(document.location.host);
+      el.src = this.rootUrl + 'mygov-bar/mygov-bar.html#' + encodeURIComponent(document.location.href);
       _ref = this.style;
       for (key in _ref) {
         value = _ref[key];
