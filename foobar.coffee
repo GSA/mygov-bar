@@ -66,7 +66,7 @@ class MyGovLoader
     el = document.createElement 'iframe'
     el.name = @id
     el.id = @id
-    el.src = @rootUrl + 'mygov-bar/mygov-bar.html#' + encodeURIComponent document.location.host    
+    el.src = @rootUrl + 'mygov-bar/mygov-bar.html#' + encodeURIComponent document.location.href    
     
     for key,value of @style
       el.style[key] = value
