@@ -1,6 +1,6 @@
 class MyGovLoader
   
-  rootUrl: 'http://gsa-ocsit.github.com/mygov-bar/'
+  rootUrl: 'http://gsa-ocsit.github.com/'
   scrollTrigger: 80
   loaded: false
   state: 'hidden'
@@ -66,7 +66,7 @@ class MyGovLoader
     el = document.createElement 'iframe'
     el.name = @id
     el.id = @id
-    el.src = @rootUrl + 'mygov-bar.html#' + encodeURIComponent document.location.href    
+    el.src = @rootUrl + 'mygov-bar/mygov-bar.html#' + encodeURIComponent document.location.href    
     
     for key,value of @style
       el.style[key] = value
