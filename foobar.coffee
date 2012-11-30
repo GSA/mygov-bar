@@ -1,6 +1,6 @@
 class MyGovLoader
   
-  rootUrl: 'http://localhost:4000/'
+  rootUrl: 'http://gsa-ocsit.github.com/mygov-bar/'
   scrollTrigger: 80
   loaded: false
   state: 'hidden'

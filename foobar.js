@@ -5,7 +5,7 @@
 
   MyGovLoader = (function() {
 
-    MyGovLoader.prototype.rootUrl = 'http://localhost:4000/';
+    MyGovLoader.prototype.rootUrl = 'http://gsa-ocsit.github.com/mygov-bar/';
 
     MyGovLoader.prototype.scrollTrigger = 80;
 
