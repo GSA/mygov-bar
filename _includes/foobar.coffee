@@ -103,7 +103,7 @@ class MyGovLoader
   
   send: (msg) ->
     iframe = document.getElementById @id
-    XD.postMessage msg, iframe.src, frames[0] 
+    XD.postMessage msg, iframe.src, frames.myGovBar
     
   recieve: (msg) ->
     alert msg.data

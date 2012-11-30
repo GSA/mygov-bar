@@ -108,7 +108,7 @@
     MyGovLoader.prototype.send = function(msg) {
       var iframe;
       iframe = document.getElementById(this.id);
-      return XD.postMessage(msg, iframe.src, frames[0]);
+      return XD.postMessage(msg, iframe.src, frames.myGovBar);
     };
 
     MyGovLoader.prototype.recieve = function(msg) {
