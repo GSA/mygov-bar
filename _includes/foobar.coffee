@@ -1,10 +1,10 @@
 class MyGovLoader
   
-  rootUrl: 'http://gsa-ocsit.github.com/'
-  scrollTrigger: 80
-  loaded: false
-  state: 'hidden'
-  id: 'myGovBar'
+  #settings
+  rootUrl: 'http://localhost:4000' #domain of iframe to embed
+  scrollTrigger: 80 # % down document to display disovery bar
+  widthExpanded: '100%' # % of screen to take up when expanded
+  widthMinimized: '20%' # % of screen to consume when minimized
   
   #css to be applied to iframe
   style:
@@ -12,11 +12,17 @@ class MyGovLoader
     bottom: 0
     left: 0
     background: 'transparent'
-    width: '100%'
+    width: '20%'
+    display: 'none'
     height: '110px'
     border: 0
     'z-index': 9999999
     overflow: 'hidden'
+  
+  #state and other instance variables
+  isLoaded: false
+  id: 'myGovBar'
+  el: false
   
   #fire on init
   constructor: ->
@@ -63,18 +69,34 @@ class MyGovLoader
 
   #append iframe to parent page    
   load: ->
-    el = document.createElement 'iframe'
-    el.name = @id
-    el.id = @id
-    el.src = @rootUrl + 'mygov-bar/mygov-bar.html#' + encodeURIComponent document.location.href    
+    @el = document.createElement 'iframe'
+    @el.name = @id
+    @el.id = @id
+    @el.src = @rootUrl + '/mygov-bar.html#' + encodeURIComponent document.location.href    
     
     for key,value of @style
-      el.style[key] = value
+      @el.style[key] = value
 
-    document.body.appendChild el
-    XD.receiveMessage @recieve, @rootUrl.replace( /\/$/, '')
-    @loaded = true    
+    document.body.appendChild @el
+    XD.receiveMessage @recieve, @rootUrl
+    @isLoaded = true    
+
+  #bar completely hidden
+  isHidden: ->
+    
+    if !@el
+      return true
+        
+    @el.style.display == 'none'
   
+  #bar visibile
+  isShown: ->
+    !@isHidden()
+  
+  #bar minimized
+  isMinimized: ->
+    @el.style.widht == @widthMinimized
+    
   #set width of MyGovBar iframe
   setWidth: (width) ->
     document.getElementById( @id ).style.width = width
@@ -82,30 +104,42 @@ class MyGovLoader
   #show iframe
   show: ->
     
-    if @state is 'shown'
+    if @isShown()
       return
     
-    if !@loaded
+    if !@isLoaded
       @load()
   
-    @setWidth '100%'
-    @state = 'shown'
-    @send @state
+    @el.style.display = 'block'
+    @send 'shown'
     
   #hide iframe
   hide: ->
-    
-    if @state is 'hidden'
+
+    if @isHidden()
       return
-    @setWidth '0px'
-    @state = 'hidden'
-    @send @state
+    
+    @el.style.display = 'none'
+    @send 'hidden'
+        
+  maximize: ->
+    @setWidth @widthMaximized
+    
+  minimize: ->
+    @setWidth @widthMinimized
+  
+  toggleMore: ->
+    if @el.style.width is @widthMinimized
+      @setWidth @widthExpanded
+    else
+      @setWidth @widthMinimized
   
   send: (msg) ->
     iframe = document.getElementById @id
     XD.postMessage msg, iframe.src, frames.myGovBar
     
-  recieve: (msg) ->
-    alert msg.data
+  recieve: (msg) =>
+    switch msg.data
+      when "toggle" then @toggleMore()
   
 window.MyGovLoader = new MyGovLoader()

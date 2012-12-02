@@ -5,29 +5,36 @@
 
   MyGovLoader = (function() {
 
-    MyGovLoader.prototype.rootUrl = 'http://gsa-ocsit.github.com/';
+    MyGovLoader.prototype.rootUrl = 'http://localhost:4000';
 
     MyGovLoader.prototype.scrollTrigger = 80;
 
-    MyGovLoader.prototype.loaded = false;
+    MyGovLoader.prototype.widthExpanded = '100%';
 
-    MyGovLoader.prototype.state = 'hidden';
-
-    MyGovLoader.prototype.id = 'myGovBar';
+    MyGovLoader.prototype.widthMinimized = '20%';
 
     MyGovLoader.prototype.style = {
       position: 'fixed',
       bottom: 0,
       left: 0,
       background: 'transparent',
-      width: '100%',
+      width: '20%',
+      display: 'none',
       height: '110px',
       border: 0,
       'z-index': 9999999,
       overflow: 'hidden'
     };
 
+    MyGovLoader.prototype.isLoaded = false;
+
+    MyGovLoader.prototype.id = 'myGovBar';
+
+    MyGovLoader.prototype.el = false;
+
     function MyGovLoader() {
+      this.recieve = __bind(this.recieve, this);
+
       this.onScroll = __bind(this.onScroll, this);
       this.addEvent(document, 'scroll', this.onScroll);
     }
@@ -65,19 +72,34 @@
     };
 
     MyGovLoader.prototype.load = function() {
-      var el, key, value, _ref;
-      el = document.createElement('iframe');
-      el.name = this.id;
-      el.id = this.id;
-      el.src = this.rootUrl + 'mygov-bar/mygov-bar.html#' + encodeURIComponent(document.location.href);
+      var key, value, _ref;
+      this.el = document.createElement('iframe');
+      this.el.name = this.id;
+      this.el.id = this.id;
+      this.el.src = this.rootUrl + '/mygov-bar.html#' + encodeURIComponent(document.location.href);
       _ref = this.style;
       for (key in _ref) {
         value = _ref[key];
-        el.style[key] = value;
+        this.el.style[key] = value;
       }
-      document.body.appendChild(el);
-      XD.receiveMessage(this.recieve, this.rootUrl.replace(/\/$/, ''));
-      return this.loaded = true;
+      document.body.appendChild(this.el);
+      XD.receiveMessage(this.recieve, this.rootUrl);
+      return this.isLoaded = true;
+    };
+
+    MyGovLoader.prototype.isHidden = function() {
+      if (!this.el) {
+        return true;
+      }
+      return this.el.style.display === 'none';
+    };
+
+    MyGovLoader.prototype.isShown = function() {
+      return !this.isHidden();
+    };
+
+    MyGovLoader.prototype.isMinimized = function() {
+      return this.el.style.widht === this.widthMinimized;
     };
 
     MyGovLoader.prototype.setWidth = function(width) {
@@ -85,24 +107,38 @@
     };
 
     MyGovLoader.prototype.show = function() {
-      if (this.state === 'shown') {
+      if (this.isShown()) {
         return;
       }
-      if (!this.loaded) {
+      if (!this.isLoaded) {
         this.load();
       }
-      this.setWidth('100%');
-      this.state = 'shown';
-      return this.send(this.state);
+      this.el.style.display = 'block';
+      return this.send('shown');
     };
 
     MyGovLoader.prototype.hide = function() {
-      if (this.state === 'hidden') {
+      if (this.isHidden()) {
         return;
       }
-      this.setWidth('0px');
-      this.state = 'hidden';
-      return this.send(this.state);
+      this.el.style.display = 'none';
+      return this.send('hidden');
+    };
+
+    MyGovLoader.prototype.maximize = function() {
+      return this.setWidth(this.widthMaximized);
+    };
+
+    MyGovLoader.prototype.minimize = function() {
+      return this.setWidth(this.widthMinimized);
+    };
+
+    MyGovLoader.prototype.toggleMore = function() {
+      if (this.el.style.width === this.widthMinimized) {
+        return this.setWidth(this.widthExpanded);
+      } else {
+        return this.setWidth(this.widthMinimized);
+      }
     };
 
     MyGovLoader.prototype.send = function(msg) {
@@ -112,7 +148,10 @@
     };
 
     MyGovLoader.prototype.recieve = function(msg) {
-      return alert(msg.data);
+      switch (msg.data) {
+        case "toggle":
+          return this.toggleMore();
+      }
     };
 
     return MyGovLoader;
