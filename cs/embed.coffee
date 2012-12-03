@@ -1,7 +1,7 @@
 class MyGovLoader
   
   #settings
-  rootUrl: 'http://localhost:4000' #domain of iframe to embed
+  rootUrl: '{{ site.url }}' #domain of iframe to embed
   scrollTrigger: 80 # % down document to display disovery bar
   widthExpanded: '100%' # % of screen to take up when expanded
   widthMinimized: '20%' # % of screen to consume when minimized
