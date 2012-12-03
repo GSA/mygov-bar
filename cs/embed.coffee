@@ -78,7 +78,7 @@ class MyGovLoader
       @el.style[key] = value
 
     document.body.appendChild @el
-    XD.receiveMessage @recieve, @rootUrl
+    XD.receiveMessage @recieve, @rootUrl.match(/([^:]+:\/\/.[^/]+)/)[1]
     @isLoaded = true    
 
   #bar completely hidden
