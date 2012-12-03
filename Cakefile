@@ -1,7 +1,7 @@
 fs = require 'fs'
 {exec} = require 'child_process'
 
-files = [ 'cs/mygovbar',  'cs/models/page', 'cs/views/index', 'cs/xd', 'cs/init' ]
+files = [ 'cs/mygovbar',  'cs/models/page', 'cs/views/index', 'cs/xd', 'cs/crossdomain', 'cs/init' ]
 
 task 'compile', 'compile coffeescript to javascript', ->
   compile()
@@ -22,7 +22,9 @@ build = (callback) ->
   compile -> minifyCSS -> minifyJS()
 
 compile = (callback) ->
-  exec 'coffee --output _includes/js -c cs/bookmarklet cs/embed', (err, stdout, stderr) ->
+  exec 'coffee --output _includes/js -c cs/bookmarklet', (err, stdout, stderr) ->
+    throw err if err
+  exec 'coffee --output _includes/js --join embed --compile cs/xd cs/embed', (err, stdout, stderr) ->
     throw err if err
   exec 'coffee --output _includes/js --join mygovbar --compile ' + files.join(' '), (err, stdout, stderr) ->
     throw err if err
