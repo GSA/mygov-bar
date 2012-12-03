@@ -1,5 +1,5 @@
 ---
 
 ---
-{% include xd.js %}
-{% include foobar.js %}
+{% include js/xd.js %}
+{% include js/embed.js %}

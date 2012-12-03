@@ -1,9 +1,0 @@
----
-layout: nil
----
-
-{% capture css %}
-    {% include css/bootstrap.min.css %}
-    {% include css/bootstrap-responsive.min.css %}
-    {% include css/demo.css %}
-{% endcapture %}{{ css | strip_newlines }}

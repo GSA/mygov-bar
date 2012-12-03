@@ -99,7 +99,7 @@ class MyGovLoader
     
   #set width of MyGovBar iframe
   setWidth: (width) ->
-    document.getElementById( @id ).style.width = width
+    @el.style.width = width
   
   #show iframe
   show: ->
