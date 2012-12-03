@@ -1,8 +1,9 @@
 
-url: http://gsa-ocsit.github.com/mygov-bar/ #url to site
+url: http://gsa-ocsit.github.com/mygov-bar #url to site
 api_url: http://localhost:3000 #url to backend
 version: 0.1 #used to break static asset cache
 
 #build config
 server: true
 auto: true
+exclude: [ 'Cakefile', 'package.json' ]
