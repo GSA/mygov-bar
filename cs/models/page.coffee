@@ -1,6 +1,6 @@
 class MyGovBar.Models.Page extends Backbone.Model
   paramRoot: 'page'
-  urlRoot: "http://localhost:3000/pages"
+  urlRoot: "{{ site.api_url }}/pages"
   
   url: ->
     url = @urlRoot

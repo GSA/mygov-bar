@@ -1,6 +1,6 @@
 
 url: http://gsa-ocsit.github.com/mygov-bar #url to site
-api_url: http://localhost:3000 #url to backend
+api_url: http://discovery.staging.my.usa.gov #url to backend
 version: 0.1 #used to break static asset cache
 
 #build config
