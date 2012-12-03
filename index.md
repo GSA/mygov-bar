@@ -19,7 +19,7 @@ permalink: /index.html
 
 ## Browser Plugin
 
-* [Chrome](plugins/chrome/mygov-bar.crx)
+* [Chrome](plugins/chrome.crx)
 
 *Instructions: Right click, select save as, navigate to window->extensions, drag file into extensions window*
 
