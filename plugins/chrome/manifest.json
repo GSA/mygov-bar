@@ -1,6 +1,6 @@
 {
   "name": "MyGov Bar",
-  "version": "0.1",
+  "version": "0.2",
   "manifest_version": 2,
   "description": "",
   "permissions": [
@@ -9,7 +9,7 @@
   "content_scripts": [
     {
       "matches": ["*://*.gov/*"],
-      "js": [ "jquery.js", "inject.js"]
+      "js": [ "inject.js"]
     }
   ]
 }
