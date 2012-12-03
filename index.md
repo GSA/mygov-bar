@@ -19,9 +19,13 @@ permalink: /index.html
 
 ## Browser Plugin
 
-* [Chrome](chrome-extension/mygov-bar.crx)
+* [Chrome](plugins/chrome/mygov-bar.crx)
 
 *Instructions: Right click, select save as, navigate to window->extensions, drag file into extensions window*
+
+## Example
+
+(*Scroll down...*)
 
 <p>Even as I beheld this a lurid green glare lit the road about me and showed the distant woods towards Addlestone.  I felt a tug at the reins.  I saw that the driving clouds had been pierced as it were by a thread of green fire, suddenly lighting their confusion and falling into the field to my left.  It was the third falling star!</p>
 
