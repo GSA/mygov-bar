@@ -2,5 +2,44 @@
 layout: main
 ---
 
-<a href="http://my.usa.gov/" id="logo"><img src="{{ site.url }}/img/logo.png" alt="MyGov Logo" /></a>
-<div id="bar" class="minimized shown">&nbsp;</div>
+<div id="bar" class="mini shown">
+  
+  <div class="expand">
+    <a href="#">&rsaquo; <span>Expand</span></a>
+  </div><!-- /expand -->
+
+  <div class="primary">
+
+    <div class="row navigation group">
+    
+      <!-- @todo: Make all this dynamic -->
+      <ul class="left">
+        <li class="mygov"><a href="#"><span>MyGov</span></a></li>
+        <li class="search"><a href="#"><span>Search</span></a></li>
+        <li class="notifications"><span class="jujitsu">1</span><a href="#"><span>Notifications</span></a></li>
+        <li class="related current"><a href="#"><span>More from MyGov</span><div class="arrow"></div></a></li>
+      </ul>  
+      
+      <ul class="right">  
+        <li class="settings"><a href="#"><span>Settings</span></a></li>
+        <li class="state"><a href="#"><span>Sign-out</span></a></li>    
+      </ul>
+     
+    </div><!-- /primary -->
+    
+    <div class="row content-pane group">
+    
+      <div class="left first single">
+
+        <ul class="content-links">
+          <li><a href="#" target="_blank">Link number 1</a></li>
+          <li><a href="#" target="_blank">Link number 2</a></li>
+        </ul>
+    
+      </div><!-- /left -->
+      
+    </div><!-- /content-pane -->
+  
+  </div><!-- /primary -->
+
+</div><!-- /bar -->
