@@ -292,3 +292,9 @@ ul.right {text-align: right; display: block; float: right;}
   #bar.mini .navigation li {width: auto; padding: auto; margin: 0;}
   #bar.mini .navigation li.related a span {position: relative; text-indent: 0; left: 0;}
 }
+
+/* BB ADDED */
+#bar.signed-out li.notifications, #bar.signed-out li.settings { display: none; }
+#bar.mini .right { display: none; }
+body {background: transparent; }
+#bar.expanded .expand { display: none; }

@@ -2,7 +2,7 @@ class MyGovLoader
   
   #settings
   rootUrl: '{{ site.url }}' #domain of iframe to embed
-  scrollTrigger: 80 # % down document to display disovery bar
+  scrollTrigger: 80 # % down document to display discovery bar
   widthExpanded: '100%' # % of screen to take up when expanded
   widthMinimized: '20%' # % of screen to consume when minimized
   
@@ -14,7 +14,7 @@ class MyGovLoader
     background: 'transparent'
     width: '20%'
     display: 'none'
-    height: '110px'
+    height: '268px'
     border: 0
     'z-index': 9999999
     overflow: 'hidden'

@@ -24,5 +24,5 @@ class MyGovBar.Views.Index extends Backbone.View
     
   toggle: ->
     $(@el).toggleClass 'expanded'
-    $(@el).toggleClass 'minimized'
+    $(@el).toggleClass 'mini'
     MyGovBar.CrossDomain.send 'toggle' 
