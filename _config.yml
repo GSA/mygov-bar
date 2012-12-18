@@ -14,4 +14,4 @@ tabs:
 #build config
 server: true
 auto: true
-exclude: [ 'Cakefile', 'package.json' ]
+exclude: [ 'Cakefile', 'package.json', 'readme.md' ]

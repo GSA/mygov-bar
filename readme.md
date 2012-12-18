@@ -11,7 +11,7 @@ Federal agencies would place a single line of JavaScript immediately prior to th
 Requirements
 ------------
 
-The MyGov bar is designed to render into a single flat file using Jekyll and relies on the MyGov Discovery API to generate recommendations. Once built (e.g., by pushing to GitHub,) the entire project runs client side.
+The MyGov bar is designed to render into a single flat file using Jekyll and relies on the MyGov Discovery API to generate recommendations. Once built (e.g., by pushing to GitHub), the entire project runs client side.
 
 Structure
 ---------
@@ -53,3 +53,14 @@ The MyGov Discovery bar is package with a bare bones Cakefile to simplify the bu
 * `cake minify:css` - compress css files
 
 *Note: by default, when running locally, non-minified css is served for debugging*
+
+Under the Hood
+--------------
+
+The embed code injects an iframe into the parent page. The child page is a single HTML file which contains all the CSS, templates, and javascript necessary to run the bar. The bar is built using the Backbone framework using Backbone views. The bar uses a `page` model to describe the current page, and uses views to describe each tab (e.g., search, tags, feedback related), as well as hidden, mini, and expanded states.
+
+Once a page is loaded, the embed code passes the URL to the child page via a hash, and the MyGov bar will call the discovery API via `/pages/lookup.json?url={XXXX}` to grab the Page object. After the initial call, Backbone uses its standard restful API (e.g., `GET /pages/1.json`, `POST /pages/2.JSON`, etc.).
+
+Last, because the child page cannot resize the parent iframe, the HTML postMessage API is used to pass messages back and forth (with a javascript IE7 fallback uses iframe hashes).
+
+Most setting can be customized via `_config.yml`.
