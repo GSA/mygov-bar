@@ -299,3 +299,5 @@ ul.right {text-align: right; display: block; float: right;}
 body {background: transparent; }
 #bar.expanded .expand { display: none; }
 #bar.hidden { width: 0px; }
+#bar #tabs li { display: none; }
+#bar #tabs li.activated { display: block; }

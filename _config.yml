@@ -9,6 +9,7 @@ tabs:
   - notifications
   - related
   - tags
+  - mygov
   
 #build config
 server: true
