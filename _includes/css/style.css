@@ -298,3 +298,4 @@ ul.right {text-align: right; display: block; float: right;}
 #bar.mini .right { display: none; }
 body {background: transparent; }
 #bar.expanded .expand { display: none; }
+#bar.hidden { width: 0px; }

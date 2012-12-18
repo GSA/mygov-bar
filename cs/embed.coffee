@@ -41,14 +41,17 @@ class MyGovLoader
   onScroll: =>
     if @offsetBottom() > @scrollTrigger
       @show()
-    else 
+    else if @offsetBottom() < @scrollTrigger 
       @hide()
   
   #cross-browser position of top of window relative to top of document
   #see http://help.dottoro.com/ljnvjiow.php
   positionTop: ->
-    window.pageYOffset || body.scrollTop || html.scrollTop
-    
+    return window.pageYOffset if window.pageYOffset?
+    return html.scrollTop if html.scrollTop?
+    return body.scrollTop if body.scrollTop?
+    0
+        
   #cross-browser total document height
   #see http://james.padolsey.com/javascript/get-document-height-cross-browser/
   pageHeight: ->
@@ -118,9 +121,11 @@ class MyGovLoader
     if @isHidden()
       return
     
-    @el.style.display = 'none'
     @send 'hidden'
-        
+    setTimeout =>
+      @el.style.display = 'none'
+    , 1200
+    
   maximize: ->
     @setWidth '100%'
     

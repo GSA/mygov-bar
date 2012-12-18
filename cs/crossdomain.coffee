@@ -1,18 +1,19 @@
 class CrossDomain
     
+    bar: $('#bar')
+    
     constructor: ->
-      @parent_url = decodeURIComponent( document.location.hash.replace(/^#/, '') ).match(/([^:]+:\/\/.[^/]+)/)[1]
+      parts = decodeURIComponent( document.location.hash.replace(/^#/, '') ).match(/([^:]+:\/\/.[^/]+)/)
+      if !parts?
+        return
+        
+      @parent_url = parts[1]
       XD.receiveMessage @recieve, @parent_url
       
     recieve: (msg) =>
-      switch msg.data
-        when "shown", "hidden" then @toggleVisibility()
+      MyGovBar.Router.navigate msg.data, true
       
     send: (msg) =>
       XD.postMessage msg, @parent_url
-
-    toggleVisibility: ->
-      MyGovBar.el.toggleClass 'hidden'
-      MyGovBar.el.toggleClass 'shown'
       
 MyGovBar.CrossDomain = new CrossDomain()
