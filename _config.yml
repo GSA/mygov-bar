@@ -6,9 +6,9 @@ minWidth: '40%'
 trigger: '80'
 tabs:
   - search
-  - notifications
   - related
   - tags
+  - feedback
   - mygov
   
 #build config

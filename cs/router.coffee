@@ -9,14 +9,17 @@ class router extends Backbone.Router
     "feedback": "feedback"
     "mini": "mini"
     "*path": "minify"
+
+  initialize: ->  
+    MyGovBar.page = new MyGovBar.Models.Page()
     
   mini: ->
     MyGovBar.CrossDomain.send 'mini'
-    MyGovBar.page = new MyGovBar.Models.Page() if not MyGovBar.page?
     miniView = new MyGovBar.Views.Mini model: MyGovBar.page
     miniView.render()
     
   minify: ->
+    console.log "catchall: " + Backbone.history.fragment
     @navigate 'mini', true
     
   expand: ->
@@ -29,5 +32,16 @@ class router extends Backbone.Router
     view = new MyGovBar.Views.Hidden
     view.render()
   
+  tags: ->
+    view = new MyGovBar.Views.Tags model: MyGovBar.page
+    view.render()
+    
+  related: ->
+    view = new MyGovBar.Views.Related model: MyGovBar.page
+    view.render()
+    
+  search: ->
+    view = new MyGovBar.Views.Search
+    view.render()
 
 MyGovBar.Router = new router();

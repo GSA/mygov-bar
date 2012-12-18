@@ -4,6 +4,7 @@ class MyGovBar.Views.Mini extends Backbone.View
     
   events: 
     "click .expand a": "toggle"
+    "click #tabs li.related a": "related"
   
   render: ->
     @$el.clearQueue()
@@ -17,4 +18,9 @@ class MyGovBar.Views.Mini extends Backbone.View
   toggle: (e) ->
     e.preventDefault()
     MyGovBar.Router.navigate 'expanded', true
+    false
+    
+  related: (e) ->
+    e.preventDefault()
+    MyGovBar.Router.navigate 'related', true
     false

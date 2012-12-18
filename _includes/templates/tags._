@@ -1,0 +1,6 @@
+<ul>
+  <% _.each( tags, function(tag) { %>
+    <li class="tag" id="tag-<%= tag.id %>"><%= tag.name %></li>
+  <% }) %>
+  <li>
+</ul>
