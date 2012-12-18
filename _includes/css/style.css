@@ -151,8 +151,7 @@ h2 {
 }
 
 .navigation li {float: left; border-left: 1px solid #F9F9F9;}
-.navigation li:hover {background: #ccc;}
-.navigation li.current {background: #eee; font-weight: bold;}
+.navigation li.current {font-weight: bold;}
 
 .navigation li a {
   text-decoration: none;
@@ -184,15 +183,15 @@ ul.right {text-align: right; display: block; float: right;}
 .navigation li.state a {background: url("img/sprite.png") 0 -344px no-repeat;}
 
 #bar.mini .navigation li {display: inline-block;}
-#bar.mini .navigation li a {padding: 1.5em 1.75em; display: block;}
+#bar.mini .navigation li a {padding: .75em 1em 1em 1em; display: block;}
 #bar.mini .navigation li a span {text-indent: -9999em; display: block;}
 
 #bar.mini .navigation li.related a {font-weight: bold; background: none; padding-left: .75fconem;}
 #bar.mini .navigation li.related a span {text-indent: 0; background: none; padding-left: .2em;}
-#bar.mini ul.content-links {margin: 2%;}
+#bar.mini ul.content-links {margin: 0;}
 #bar.mini ul.content-links li {display: block; float: none; padding: 0; line-height: 1.2em; margin: 0; border-left: none; border-bottom: 2px solid rgba(255,255,255,.1); display: block;}
 #bar.mini ul.content-links li:last-child {border-bottom: none;}
-#bar.mini ul.content-links li a {background: none; padding: .75em 0; display: block; text-decoration: underline; font-weight: normal; }
+#bar.mini ul.content-links li a {background: none; padding: .75em ; display: block; text-decoration: underline; font-weight: normal; }
 #bar.mini ul.content-links li:hover {background: none;}
 #bar.mini ul.content-links li a:hover, #bar.mini .navigation li ul.content-links li a:active {background: rgba(255,255,255,.1);}
 
@@ -200,8 +199,8 @@ ul.right {text-align: right; display: block; float: right;}
 #bar.mini .row.content-pane a {color: #fff; text-decoration: none;}
 #bar.mini .row.content-pane ul.content-links li {display: block; float: none;}
 
-#bar.mini .navigation li.mygov a {background:  url("img/sprite.png") 50% -1070px no-repeat;}
-#bar.mini .navigation li.notifications a {background: url("img/sprite.png") 50%0 -104px no-repeat;}
+#bar.mini .navigation li.mygov a {background:  url("img/sprite.png") 50% -1316px no-repeat;}
+#bar.mini .navigation li.notifications a {background: url("img/sprite.png") -104px -104px no-repeat;}
 #bar.mini .navigation li.search a {background:  url("img/sprite.png") 50% -706px no-repeat;}
 #bar.mini .navigation li.tags a {background:  url("img/sprite.png") 50% -825px no-repeat;}
 #bar.mini .navigation li.settings a {background:  url("img/sprite.png") 50% -224px no-repeat; }
@@ -213,7 +212,7 @@ ul.right {text-align: right; display: block; float: right;}
 #bar.mini .expand a {
   display: block; 
   vertical-align: middle; 
-  line-height: 200%; 
+  line-height: 4em; 
   text-align: center; 
   text-decoration: none; 
   font-weight: normal; 
