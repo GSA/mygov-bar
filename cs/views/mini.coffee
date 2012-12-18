@@ -15,4 +15,4 @@ class MyGovBar.Views.Mini extends Backbone.View
     relatedView = new MyGovBar.Views.Related model: @model
     
   toggle: ->
-    MyGovBar.router.navigate 'expanded', true
+    MyGovBar.Router.navigate 'expanded', true

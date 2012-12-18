@@ -10,14 +10,16 @@ class router extends Backbone.Router
     "*path": "minify"
     
   mini: ->
-    page = new MyGovBar.Models.Page()
-    miniView = new MyGovBar.Views.Mini model: page
+    MyGovBar.page = new MyGovBar.Models.Page() if not MyGovBar.page?
+    miniView = new MyGovBar.Views.Mini model: MyGovBar.page
     miniView.render()
     
   minify: ->
     @navigate 'mini', true
     
   expand: ->
+    view = new MyGovBar.Views.Expanded
+    view.render()
   
   hide: ->
     view = new MyGovBar.Views.Hidden
