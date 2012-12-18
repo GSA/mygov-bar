@@ -1,7 +1,8 @@
 class router extends Backbone.Router
+
   routes:
     "hidden": "hide"
-    "expand": "expand"
+    "expanded": "expand"
     "related": "related"
     "tags": "tags"
     "search": "search"
