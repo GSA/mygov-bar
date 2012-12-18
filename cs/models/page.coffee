@@ -1,6 +1,6 @@
 class MyGovBar.Models.Page extends Backbone.Model
   paramRoot: 'page'
-  urlRoot: "{{ site.api_url }}/pages"
+  urlRoot: MyGovBar.config.api_url + "/pages"
   
   url: ->
     url = @urlRoot
@@ -21,7 +21,8 @@ class MyGovBar.Models.Page extends Backbone.Model
       @save()
       
     @url = old_url
-       
+    @trigger 'change'
+    
   initialize: ->
     @lookup()
       

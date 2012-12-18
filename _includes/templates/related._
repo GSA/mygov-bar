@@ -1,0 +1,5 @@
+<ul class="content-links">
+  <% _.each(related, function(page) { %>
+    <li id="related-<%= page.id %>"><a href="<%= page.url %>"><%= page.title %></a></li>
+  <% }) %>
+</ul>

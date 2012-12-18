@@ -1,7 +1,17 @@
-class MyGovBar.Router extends Backbone.Router
+class router extends Backbone.Router
   routes:
-    "": "root"
+    "expand": "expand"
+    "related": "related"
+    "tags": "tags"
+    "search": "search"
+    "feedback": "feedback"
+    "*path": "mini"
     
-  root: ->
-    window.page = new MyGovBar.Models.Page
-    indexView = new MyGovBar.Views.Index({ model: page, el: $("#bar") })
+  mini: ->
+    page = new MyGovBar.Models.Page()
+    miniView = new MyGovBar.Views.Mini model: page
+    miniView.render()
+    
+  expand: ->
+
+MyGovBar.Router = new router();

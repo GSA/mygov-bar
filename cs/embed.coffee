@@ -2,9 +2,8 @@ class MyGovLoader
   
   #settings
   rootUrl: '{{ site.url }}' #domain of iframe to embed
-  scrollTrigger: 80 # % down document to display discovery bar
-  widthExpanded: '100%' # % of screen to take up when expanded
-  widthMinimized: '20%' # % of screen to consume when minimized
+  scrollTrigger: '{{ site.trigger }}' # % down document to display discovery bar
+  widthMinimized: '{{ site.minWidth }}' # % of screen to consume when minimized
   
   #css to be applied to iframe
   style:
@@ -12,7 +11,7 @@ class MyGovLoader
     bottom: 0
     left: 0
     background: 'transparent'
-    width: '20%'
+    width: '{{ site.minWidth }}'
     display: 'none'
     height: '268px'
     border: 0
@@ -123,14 +122,14 @@ class MyGovLoader
     @send 'hidden'
         
   maximize: ->
-    @setWidth @widthMaximized
+    @setWidth '100%'
     
   minimize: ->
     @setWidth @widthMinimized
   
   toggleMore: ->
     if @el.style.width is @widthMinimized
-      @setWidth @widthExpanded
+      @setWidth '100%'
     else
       @setWidth @widthMinimized
   
