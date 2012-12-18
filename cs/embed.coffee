@@ -131,19 +131,14 @@ class MyGovLoader
     
   minimize: ->
     @setWidth @widthMinimized
-  
-  toggleMore: ->
-    if @el.style.width is @widthMinimized
-      @setWidth '100%'
-    else
-      @setWidth @widthMinimized
-  
+   
   send: (msg) ->
     iframe = document.getElementById @id
     XD.postMessage msg, iframe.src, frames.myGovBar
     
   recieve: (msg) =>
     switch msg.data
-      when "toggle" then @toggleMore()
-  
+      when "mini" then @minimize()
+      when "expanded" then @maximize()
+      
 window.MyGovLoader = new MyGovLoader()
