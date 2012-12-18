@@ -38,7 +38,7 @@ div.arrow {
 
 #bar {
   /* border: 2px solid red; */
-  border-top: 3px solid #132138;
+  border-top: 3px solid #555;
   position: absolute; 
   bottom: 0;
   width: 100%;
@@ -47,7 +47,7 @@ div.arrow {
   box-shadow: 0 0 10px 0 rgba(0,0,0,.7);
 }
 
-#bar.mini {width: auto;}
+#bar.mini {width: auto; bottom: 3em;}
 
 span.jujitsu {
   background: #8B1A1B;
@@ -187,18 +187,18 @@ ul.right {text-align: right; display: block; float: right;}
 #bar.mini .navigation li a {padding: 1.5em 1.75em; display: block;}
 #bar.mini .navigation li a span {text-indent: -9999em; display: block;}
 
-#bar.mini .navigation li.related a {font-weight: bold;}
-#bar.mini .navigation li.related a span {text-indent: 0; background:  url("img/sprite.png") 0 -946px no-repeat; padding-left: 1.25em;}
+#bar.mini .navigation li.related a {font-weight: bold; background: none; padding-left: .75fconem;}
+#bar.mini .navigation li.related a span {text-indent: 0; background: none; padding-left: .2em;}
+#bar.mini ul.content-links {margin: 2%;}
+#bar.mini ul.content-links li {display: block; float: none; padding: 0; line-height: 1.2em; margin: 0; border-left: none; border-bottom: 2px solid rgba(255,255,255,.1); display: block;}
+#bar.mini ul.content-links li:last-child {border-bottom: none;}
+#bar.mini ul.content-links li a {background: none; padding: .75em 0; display: block; text-decoration: underline; font-weight: normal; }
+#bar.mini ul.content-links li:hover {background: none;}
+#bar.mini ul.content-links li a:hover, #bar.mini .navigation li ul.content-links li a:active {background: rgba(255,255,255,.1);}
 
-#bar.mini .navigation li ul.content-links {margin: -1.5em 0 1em 0; padding: 0; font-size: .9em;}
-#bar.mini .navigation li ul.content-links li {display: block; float: none; padding: 3em; border-left: none;}
-#bar.mini .navigation li ul.content-links li a {background: none; padding: .5em; display: block; text-decoration: underline; font-weight: normal; }
-#bar.mini .navigation li ul.content-links li:hover {background: none;}
-#bar.mini .navigation li ul.content-links li a:hover, #bar.mini .navigation li ul.content-links li a:active {color: #2A6587;}
-
-#bar.mini .row.content-pane {padding: 5%;}
-#bar.mini .row.content-pane a {color: #fff; border-bottom: 1px solid rgba(255,255,255,.2); text-decoration: none;}
-#bar.mini .row.content-pane ul.content-links li {display: block; padding: 0 .5em 1em 0; float: none;}
+#bar.mini .row.content-pane {padding:0;}
+#bar.mini .row.content-pane a {color: #fff; text-decoration: none;}
+#bar.mini .row.content-pane ul.content-links li {display: block; float: none;}
 
 #bar.mini .navigation li.mygov a {background:  url("img/sprite.png") 50% -1070px no-repeat;}
 #bar.mini .navigation li.notifications a {background: url("img/sprite.png") 50%0 -104px no-repeat;}
@@ -213,7 +213,7 @@ ul.right {text-align: right; display: block; float: right;}
 #bar.mini .expand a {
   display: block; 
   vertical-align: middle; 
-  line-height: 4.5em; 
+  line-height: 200%; 
   text-align: center; 
   text-decoration: none; 
   font-weight: normal; 

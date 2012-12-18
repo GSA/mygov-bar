@@ -2,7 +2,7 @@
 url: http://gsa-ocsit.github.com/mygov-bar #url to site
 api_url: http://discovery.staging.my.usa.gov #url to backend
 version: 0.1 #used to break static asset cache
-minWidth: '30%'
+minWidth: '40%'
 trigger: '80'
 tabs:
   - search
