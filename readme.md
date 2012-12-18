@@ -6,13 +6,18 @@ The MyGov Discovery Bar allows visitors to government websites to find relevant 
 Implementation
 --------------
 
-Federal agenencies would place a single line of JavaScript immediately prior to the `</body>` tag of their template. When a user scrolls to the bottom of the page, the script will inject an iframe with the MyGov Bar content. The iframe allows the MyGov Discovery Bar to be "sandboxed", meaning it does not have access to, nor can it manipulate the content within the parent page. Instead, the postMessage API is used share style information between the iframe and the parent page (such as showing or hiding the MyGov Discovery Bar, or setting its width).
+Federal agencies would place a single line of JavaScript immediately prior to the `</body>` tag of their template. When a user scrolls to the bottom of the page, the script will inject an iframe with the MyGov Bar content. The iframe allows the MyGov Discovery Bar to be "sandboxed", meaning it does not have access to, nor can it manipulate the content within the parent page. Instead, the postMessage API is used share style information between the iframe and the parent page (such as showing or hiding the MyGov Discovery Bar, or setting its width).
+
+Requirements
+------------
+
+The MyGov bar is designed to render into a single flat file using Jekyll and relies on the MyGov Discovery API to generate recommendations. Once built (e.g., by pushing to GitHub,) the entire project runs client side.
 
 Structure
 ---------
 
 * `templates` - HTML files as underscore templates (aliased to `_includes/templates`)
-* `css` - stylesheets (aliased to `_includes/templates`)
+* `css` - stylesheets (aliased to `_includes/css`)
 * `cs` - coffeescript source files
 * `img` - images
 * `plugins` - browser extensions
