@@ -4,3 +4,6 @@
   <% }) %>
   <li>
 </ul>
+<form id="search_form">
+  <input type="text" id="tag_list" placeholder="Tag this page..." value="<%= tag_list %>" />
+</form>
