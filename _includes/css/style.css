@@ -38,16 +38,15 @@ div.arrow {
 
 #bar {
   /* border: 2px solid red; */
-  border-top: 3px solid #555;
+  border-width: 2px 2px 4px 0px;
+  border-style: solid;
+  border-color: rgba(0,0,0,.4);
   position: absolute; 
   bottom: 0;
   width: 100%;
-  -webkit-box-shadow: 0 0 0 0 rgba(0,0,0,.7);
-  -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,.7);
-  box-shadow: 0 0 10px 0 rgba(0,0,0,.7);
 }
 
-#bar.mini {width: auto; bottom: 3em;}
+#bar.mini {width: auto; width: 95%;}
 
 span.jujitsu {
   background: #8B1A1B;
@@ -61,11 +60,8 @@ span.jujitsu {
   position: absolute; 
   top: .2em;
   font-size: .9em;
-  left: 1.8em;
-  
+  left: 1.8em;  
 }
-
-
 
 .row {
   clear: both;
@@ -116,8 +112,6 @@ a.close span {display: inline; position: absolute; left: -9999em;}
 
 label {/* margin: 0 .3em 0 0; font-weight: normal; */ position: absolute; left: -9999em;}
 
-
-
 input[type="text"] {border: none; padding: .5em; border: 1px solid #eee; background: rgba(255,255,255,.8);}
 input[type="submit"] {border: none; background: #fff; border-radius: 0; display: inline-block; margin: .15em; border: 1px solid #ccc; padding: .5em 1em;}
 
@@ -151,8 +145,7 @@ h2 {
 }
 
 .navigation li {float: left; border-left: 1px solid #F9F9F9;}
-.navigation li:hover {background: #ccc;}
-.navigation li.current {background: #eee; font-weight: bold;}
+.navigation li.current {font-weight: bold;}
 
 .navigation li a {
   text-decoration: none;
@@ -167,7 +160,7 @@ h2 {
 .left.first {border-left: none; }
 .right {float: right;}
 
-.row.content-pane .left {margin-right: 3%; border-left: 1px solid rgba(255,255,255,.2); padding-left: 5%; margin-bottom: 1em; }
+.row.content-pane .left {margin-right: 3%; border-left: 1px solid rgba(255,255,255,.2); padding-left: 5%; margin-bottom: 0; }
 .row.content-pane {overflow: scroll;}
 .row.content-pane .left.first {padding-left: 0; border-left: none;}
 
@@ -184,24 +177,26 @@ ul.right {text-align: right; display: block; float: right;}
 .navigation li.state a {background: url("img/sprite.png") 0 -344px no-repeat;}
 
 #bar.mini .navigation li {display: inline-block;}
-#bar.mini .navigation li a {padding: 1.5em 1.75em; display: block;}
+#bar.mini .navigation li a {padding: .75em 1em 1em 1em; display: block;}
 #bar.mini .navigation li a span {text-indent: -9999em; display: block;}
+
+#bar.mini .navigation li.tags a, #bar.mini .navigation li.search a {display: none;}
 
 #bar.mini .navigation li.related a {font-weight: bold; background: none; padding-left: .75fconem;}
 #bar.mini .navigation li.related a span {text-indent: 0; background: none; padding-left: .2em;}
-#bar.mini ul.content-links {margin: 2%;}
-#bar.mini ul.content-links li {display: block; float: none; padding: 0; line-height: 1.2em; margin: 0; border-left: none; border-bottom: 2px solid rgba(255,255,255,.1); display: block;}
+#bar.mini ul.content-links {margin: 0;}
+#bar.mini ul.content-links li {display: block; float: none; width: 100%; padding: 0; line-height: 1.3em; margin: 0; border-left: none; border-bottom: 2px solid rgba(255,255,255,.1); display: block;}
 #bar.mini ul.content-links li:last-child {border-bottom: none;}
-#bar.mini ul.content-links li a {background: none; padding: .75em 0; display: block; text-decoration: underline; font-weight: normal; }
-#bar.mini ul.content-links li:hover {background: none;}
-#bar.mini ul.content-links li a:hover, #bar.mini .navigation li ul.content-links li a:active {background: rgba(255,255,255,.1);}
+#bar.mini ul.content-links li a {background: none; padding: .75em ; display: block; text-decoration: underline; font-weight: normal; }
+#bar.mini ul.content-links li:hover {background: none; }
+#bar.mini ul.content-links li a:hover, #bar.mini .navigation li ul.content-links li a:active {background: rgba(255,255,255,.1); text-decoration: underline;}
 
 #bar.mini .row.content-pane {padding:0;}
 #bar.mini .row.content-pane a {color: #fff; text-decoration: none;}
 #bar.mini .row.content-pane ul.content-links li {display: block; float: none;}
 
-#bar.mini .navigation li.mygov a {background:  url("img/sprite.png") 50% -1070px no-repeat;}
-#bar.mini .navigation li.notifications a {background: url("img/sprite.png") 50%0 -104px no-repeat;}
+#bar.mini .navigation li.mygov a {background:  url("img/sprite.png") 50% -1316px no-repeat;}
+#bar.mini .navigation li.notifications a {background: url("img/sprite.png") -104px -104px no-repeat;}
 #bar.mini .navigation li.search a {background:  url("img/sprite.png") 50% -706px no-repeat;}
 #bar.mini .navigation li.tags a {background:  url("img/sprite.png") 50% -825px no-repeat;}
 #bar.mini .navigation li.settings a {background:  url("img/sprite.png") 50% -224px no-repeat; }
@@ -213,7 +208,7 @@ ul.right {text-align: right; display: block; float: right;}
 #bar.mini .expand a {
   display: block; 
   vertical-align: middle; 
-  line-height: 200%; 
+  line-height: 4em; 
   text-align: center; 
   text-decoration: none; 
   font-weight: normal; 
