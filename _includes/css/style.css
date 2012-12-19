@@ -60,11 +60,8 @@ span.jujitsu {
   position: absolute; 
   top: .2em;
   font-size: .9em;
-  left: 1.8em;
-  
+  left: 1.8em;  
 }
-
-
 
 .row {
   clear: both;
@@ -114,8 +111,6 @@ a.close span {display: inline; position: absolute; left: -9999em;}
 .row.content-pane li.inline {display: inline; float: left;}
 
 label {/* margin: 0 .3em 0 0; font-weight: normal; */ position: absolute; left: -9999em;}
-
-
 
 input[type="text"] {border: none; padding: .5em; border: 1px solid #eee; background: rgba(255,255,255,.8);}
 input[type="submit"] {border: none; background: #fff; border-radius: 0; display: inline-block; margin: .15em; border: 1px solid #ccc; padding: .5em 1em;}
@@ -190,7 +185,7 @@ ul.right {text-align: right; display: block; float: right;}
 #bar.mini .navigation li.related a {font-weight: bold; background: none; padding-left: .75fconem;}
 #bar.mini .navigation li.related a span {text-indent: 0; background: none; padding-left: .2em;}
 #bar.mini ul.content-links {margin: 0;}
-#bar.mini ul.content-links li {display: block; float: none; padding: 0; line-height: 1.3em; margin: 0; border-left: none; border-bottom: 2px solid rgba(255,255,255,.1); display: block;}
+#bar.mini ul.content-links li {display: block; float: none; width: 100%; padding: 0; line-height: 1.3em; margin: 0; border-left: none; border-bottom: 2px solid rgba(255,255,255,.1); display: block;}
 #bar.mini ul.content-links li:last-child {border-bottom: none;}
 #bar.mini ul.content-links li a {background: none; padding: .75em ; display: block; text-decoration: underline; font-weight: normal; }
 #bar.mini ul.content-links li:hover {background: none; }
