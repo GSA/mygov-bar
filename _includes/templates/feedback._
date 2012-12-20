@@ -1,0 +1,16 @@
+<form id="feedback">
+  <h3>Was this page helpful?</h3>
+  <div id="stars" class="left">
+    <input name="rating" type="radio" class="star" value="1"/>
+    <input name="rating" type="radio" class="star" value="2"/>
+    <input name="rating" type="radio" class="star" value="3"/>
+    <input name="rating" type="radio" class="star" value="4"/>
+    <input name="rating" type="radio" class="star" value="5"/>
+  </div>
+  
+  <div class="right">
+    <h3>Give us your thoughts</h3>
+    <textarea id="comment" name="comment"></textarea>
+    <input type="submit" />
+  </div>
+</form>

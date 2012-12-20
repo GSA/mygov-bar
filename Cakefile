@@ -1,7 +1,7 @@
 fs = require 'fs'
 {exec} = require 'child_process'
 
-files = [ 'cs/models/page', 'cs/views/mini', 'cs/views/related', 'cs/views/hidden', 'cs/views/search', 'cs/views/tags', 'cs/init', 'cs/views/expanded', 'cs/xd', 'cs/crossdomain', 'cs/router' ]
+files = [ 'cs/models/page', 'cs/models/comment', 'cs/views/mini', 'cs/views/related', 'cs/views/feedback', 'cs/views/hidden', 'cs/views/search', 'cs/views/tags', 'cs/init', 'cs/views/expanded', 'cs/xd', 'cs/crossdomain', 'cs/router' ]
 
 task 'compile', 'compile coffeescript to javascript', ->
   compile()

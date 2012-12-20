@@ -8,7 +8,7 @@ class MyGovBar.Models.Page extends Backbone.Model
     if @id?    
      url += "/" + @id
     
-    url += ".json?callback=?"
+    url += ".json"
     url
      
   lookup: ->

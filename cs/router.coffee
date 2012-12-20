@@ -19,7 +19,6 @@ class router extends Backbone.Router
     miniView.render()
     
   minify: ->
-    console.log "catchall: " + Backbone.history.fragment
     @navigate 'mini', true
     
   expand: ->
@@ -43,5 +42,10 @@ class router extends Backbone.Router
   search: ->
     view = new MyGovBar.Views.Search
     view.render()
+
+  feedback: ->
+    view = new MyGovBar.Views.Feedback model: MyGovBar.page
+    view.render()
+
 
 MyGovBar.Router = new router();
