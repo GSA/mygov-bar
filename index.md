@@ -20,6 +20,7 @@ permalink: /index.html
 ## Browser Plugin
 
 * [Chrome](plugins/chrome.crx)
+* [Firefox](plugins/firefox/mygovdiscoverybar.xpi)
 
 *Instructions: Right click, select save as, navigate to window->extensions, drag file into extensions window*
 
