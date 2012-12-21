@@ -1,1 +1,4 @@
-Search: <input type="search" placeholder="Where would you like to go today?" />
+<form id="search">
+  Search: <input type="search" name="query" placeholder="Where would you like to go today?" id="search_query" />
+  <input type="submit" value="search" class="btn" />
+</form>

@@ -6,6 +6,7 @@ class router extends Backbone.Router
     "related": "related"
     "tags": "tags"
     "search": "search"
+    "search/:query": "searchResult"
     "feedback": "feedback"
     "mini": "mini"
     "*path": "minify"
@@ -41,6 +42,11 @@ class router extends Backbone.Router
     
   search: ->
     view = new MyGovBar.Views.Search
+    view.render()
+    
+  searchResult: (query) ->
+    view = new MyGovBar.Views.SearchResult
+    view.query = query
     view.render()
 
   feedback: ->

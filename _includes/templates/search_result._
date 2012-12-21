@@ -1,0 +1,1 @@
+<iframe src="http://search.usa.gov/search?query=<%= query %>&affiliate=<%= MyGovBar.config.search_affiliate %>&iframe=true" id="search_result"></iframe>
