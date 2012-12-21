@@ -3,7 +3,8 @@ class MyGovLoader
   #settings
   rootUrl: '{{ site.url }}' #domain of iframe to embed
   scrollTrigger: '{{ site.trigger }}' # % down document to display discovery bar
-  widthMinimized: '{{ site.minWidth }}' # % of screen to consume when minimized
+  widthMinimized: '{{ site.widthMinimized }}' # % of screen to consume when minimized
+  minWidth: '{{ site.minWidth }}' #minimum width to allow "mini mode" to go before snapping to expanded by default
   
   #css to be applied to iframe
   style:
@@ -11,7 +12,7 @@ class MyGovLoader
     bottom: 0
     left: 0
     background: 'transparent'
-    width: '{{ site.minWidth }}'
+    width: '{{ site.widthMinimized }}'
     display: 'none'
     height: '268px'
     border: 0
@@ -26,7 +27,9 @@ class MyGovLoader
   #fire on init
   constructor: ->
     @addEvent document, 'scroll', @onScroll 
-  
+    @addEvent window, 'resize', @onResize
+    @onResize()
+    
   #add event listener to dom (cross browser)
   addEvent: (el, event, func ) ->
     
@@ -43,7 +46,12 @@ class MyGovLoader
       @show()
     else if @offsetBottom() < @scrollTrigger 
       @hide()
-  
+      
+  onResize: =>
+    if window.innerWidth < @minWidth and @isShown()
+      @maximize()
+      @send 'expanded'
+    
   #cross-browser position of top of window relative to top of document
   #see http://help.dottoro.com/ljnvjiow.php
   positionTop: ->
@@ -103,6 +111,10 @@ class MyGovLoader
   setWidth: (width) ->
     @el.style.width = width
   
+  #iframe is asking us to adjust height
+  setHeight: (height) ->
+    @el.style.height = height
+    
   #show iframe
   show: ->
     
@@ -113,7 +125,7 @@ class MyGovLoader
       @load()
   
     @el.style.display = 'block'
-    @send 'shown'
+    @send 'mini'
     
   #hide iframe
   hide: ->
@@ -137,8 +149,10 @@ class MyGovLoader
     XD.postMessage msg, iframe.src, frames.myGovBar
     
   recieve: (msg) =>
-    switch msg.data
+    msg = msg.data.split "-"
+    switch msg[0]
       when "mini" then @minimize()
       when "expanded" then @maximize()
-      
+      when "height" then @setHeight msg[1]
+    
 window.MyGovLoader = new MyGovLoader()
