@@ -10,4 +10,4 @@ class MyGovBar.Views.Related extends Backbone.View
     MyGovBar.CrossDomain.sendHeight()
     
   initialize: ->
-    @model.on 'change', @render
+    @model.on 'change:related', @render
