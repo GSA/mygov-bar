@@ -157,10 +157,12 @@ h2 {
 }
 
 .left {float: left;}
+#bar.mini .left {float: none;}
 .left.first {border-left: none; }
 .right {float: right;}
 
 .row.content-pane .left {margin-right: 3%; border-left: 1px solid rgba(255,255,255,.2); padding-left: 5%; margin-bottom: 0; }
+#bar.mini .row.content-pane .left {margin-right: 0%;}
 .row.content-pane {overflow: scroll;}
 .row.content-pane .left.first {padding-left: 0; border-left: none;}
 
@@ -184,8 +186,8 @@ ul.right {text-align: right; display: block; float: right;}
 
 #bar.mini .navigation li.related a {font-weight: bold; background: none; padding-left: .75fconem;}
 #bar.mini .navigation li.related a span {text-indent: 0; background: none; padding-left: .2em;}
-#bar.mini ul.content-links {margin: 0;}
-#bar.mini ul.content-links li {display: block; float: none; width: 100%; padding: 0; line-height: 1.3em; margin: 0; border-left: none; border-bottom: 2px solid rgba(255,255,255,.1); display: block;}
+#bar.mini ul.content-links {margin: 0; display: block; width: 100%;}
+#bar.mini ul.content-links li {display: block; float: none; width: 100%; padding: 0; line-height: 1.3em; margin: 0; border-left: none; border-bottom: 2px solid rgba(255,255,255,.1);}
 #bar.mini ul.content-links li:last-child {border-bottom: none;}
 #bar.mini ul.content-links li a {background: none; padding: .75em ; display: block; text-decoration: underline; font-weight: normal; }
 #bar.mini ul.content-links li:hover {background: none; }
@@ -193,7 +195,7 @@ ul.right {text-align: right; display: block; float: right;}
 
 #bar.mini .row.content-pane {padding:0;}
 #bar.mini .row.content-pane a {color: #fff; text-decoration: none;}
-#bar.mini .row.content-pane ul.content-links li {display: block; float: none;}
+#bar.mini .row.content-pane ul.content-links li {display: block; float: none; width: 100%;}
 
 #bar.mini .navigation li.mygov a {background:  url("img/sprite.png") 50% -1316px no-repeat;}
 #bar.mini .navigation li.notifications a {background: url("img/sprite.png") -104px -104px no-repeat;}
@@ -201,7 +203,6 @@ ul.right {text-align: right; display: block; float: right;}
 #bar.mini .navigation li.tags a {background:  url("img/sprite.png") 50% -825px no-repeat;}
 #bar.mini .navigation li.settings a {background:  url("img/sprite.png") 50% -224px no-repeat; }
 #bar.mini .navigation li.state a {background: url("img/sprite.png") 50% -344px no-repeat;}
-
 
 #bar.mini .primary {padding-right: 2em;}
 
@@ -238,10 +239,10 @@ ul.right {text-align: right; display: block; float: right;}
    
   #bar.expanded .navigation .left li a span,
   #bar.expanded .navigation .right li a span {
-    position: absolute;
-    left: -9999em;
-    display: block;
-    padding: 0;
+  position: absolute;
+  left: -9999em;
+  display: block;
+  padding: 0;
   }
   
  #bar.expanded .navigation .left li a span.jujitsu {
