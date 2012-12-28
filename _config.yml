@@ -12,7 +12,8 @@ tabs:
   - tags
   - feedback
   - mygov
-  
+max_related: 5
+
 #build config
 server: true
 auto: true

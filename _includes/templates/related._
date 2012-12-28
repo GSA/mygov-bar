@@ -1,5 +1,5 @@
 <ul class="content-links">
-  <% _.each(related, function(page) { %>
+  <% _.each(related.slice(0, MyGovBar.config.max_related), function(page) { %>
     <li id="related-<%= page.id %>"><a target="_top" href="<%= page.url %>"><%= page.title %></a></li>
   <% }) %>
 </ul>
