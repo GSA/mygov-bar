@@ -28,10 +28,14 @@ class MyGovBar.Models.Page extends Backbone.Model
       
   defaults:
     url: document.referrer
-  
-  get_meta_keywords: ->
-    $( "meta[name] ").filter( ->
-      this.name.toLowerCase() == "keywords").attr("content")
+    
+  parse: (data) ->
+    return unless data?
+    tags = new MyGovBar.Collections.Tags
+    _.each data.tags, (tag) ->
+      tags.add( new MyGovBar.Models.Tag(tag), {silent: true} )
+    data.tags = tags
+    data
   
 class MyGovBar.Collections.PagesCollection extends Backbone.Collection
   model: MyGovBar.Models.Page
