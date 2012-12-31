@@ -27,11 +27,17 @@ div, li {-webkit-box-sizing: border-box; -moz-box-sizing: border-box; -o-box-siz
 /*** Darowski Arrows  http://tech.patientslikeme.com/2010/11/09/using-borders-to-make-pure-css-arrows/ ***/
 
 div.arrow {
+  display: none;
+}
+
+
+.activated div.arrow {
+  display: inline-block;
   position: absolute;
   bottom: 0;
   left: 35%;
   border-top: 10px solid transparent;
-  border-bottom: 10px solid #444;
+  border-bottom: 10px solid red;
   border-right: 10px solid transparent;
   border-left: 10px solid transparent;
 }
@@ -314,3 +320,36 @@ div.star-rating-readonly a{cursor:default !important}
 /* Partial Star CSS */
 div.star-rating{background:transparent!important;overflow:hidden!important}
 /* END jQuery.Rating Plugin CSS */
+<<<<<<< HEAD
+=======
+
+/*** Search ***/
+
+form#search {
+  border: 1px solid red;
+  width: 100%;
+}
+
+#search label {
+  text-indent: -9999em;
+  display: block;
+}
+
+#search input[type="search"] {
+  -webkit-appearance: none;
+  border-radius: none;
+  border: none; 
+  padding: .3em .5em;
+  display: inline-block;
+  width: 80%;
+}
+
+/** Related ***/
+
+
+/*** Tags ***/
+
+/*** Feedback ***/
+
+
+>>>>>>> Improved  overall styling of related items / search box
