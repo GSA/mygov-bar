@@ -19,8 +19,6 @@ class MyGovBar.Views.Expanded extends Backbone.View
         MyGovBar.CrossDomain.sendHeight()
     , 1
     
-
-      
   tags: (e) ->
     e.preventDefault()
     MyGovBar.Router.navigate 'tags', true

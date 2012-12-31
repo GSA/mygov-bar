@@ -51,10 +51,11 @@ div.arrow {
   border-color: rgba(0,0,0,.4);
   position: absolute; 
   bottom: 0;
-  width: 100%;
+  width: 0;
+  overflow: hidden;
 }
 
-#bar.mini {width: auto; width: 95%;}
+/*#bar.mini {width: auto; width: 95%;}*/
 
 span.jujitsu {
   background: #8B1A1B;

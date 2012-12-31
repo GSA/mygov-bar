@@ -23,6 +23,7 @@ class MyGovLoader
   isLoaded: false
   id: 'myGovBar'
   el: false
+  state: 'hidden'
   
   #fire on init
   constructor: ->
@@ -78,7 +79,7 @@ class MyGovLoader
     100 * ( @positionTop() + @windowHeight() ) / @pageHeight()
 
   #append iframe to parent page    
-  load: ->
+  load: (callback) ->
     @el = document.createElement 'iframe'
     @el.name = @id
     @el.id = @id
@@ -89,23 +90,14 @@ class MyGovLoader
 
     document.body.appendChild @el
     XD.receiveMessage @recieve, @rootUrl.match(/([^:]+:\/\/.[^/]+)/)[1]
-    @isLoaded = true    
-
-  #bar completely hidden
-  isHidden: ->
+    @isLoaded = true
     
-    if !@el
-      return true
-        
-    @el.style.display == 'none'
-  
-  #bar visibile
-  isShown: ->
-    !@isHidden()
+    if callback?
+      callback()
   
   #bar minimized
   isMinimized: ->
-    @el.style.widht == @widthMinimized
+    @el.style.width == @widthMinimized
     
   #set width of MyGovBar iframe
   setWidth: (width) ->
@@ -116,24 +108,24 @@ class MyGovLoader
     @el.style.height = height
     
   #show iframe
-  show: ->
-    
-    if @isShown()
+  show: =>
+        
+    if @state is 'shown'
       return
     
     if !@isLoaded
-      @load()
-  
-    @el.style.display = 'block'
-    @send 'mini'
+      return @load @show
     
+    @el.style.display = 'block'
+    @setState 'shown'
+
   #hide iframe
   hide: ->
-
-    if @isHidden()
+  
+    if @state is 'hidden'
       return
-    
-    @send 'hidden'
+          
+    @setState 'hidden'
     setTimeout =>
       @el.style.display = 'none'
     , 1200
@@ -154,5 +146,9 @@ class MyGovLoader
       when "mini" then @minimize()
       when "expanded" then @maximize()
       when "height" then @setHeight msg[1]
+  
+  setState: (state) ->
+    @state = state
+    @send state
     
 window.MyGovLoader = new MyGovLoader()
