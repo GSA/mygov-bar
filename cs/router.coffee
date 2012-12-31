@@ -13,6 +13,7 @@ class router extends Backbone.Router
 
   initialize: ->  
     MyGovBar.page = new MyGovBar.Models.Page()
+    Backbone.history.on 'route', @setCurrent
     
   mini: ->
     MyGovBar.CrossDomain.send 'mini'
@@ -53,5 +54,8 @@ class router extends Backbone.Router
     view = new MyGovBar.Views.Feedback model: MyGovBar.page
     view.render()
 
+  setCurrent: ->
+    $('#tabs li.current').removeClass 'current'
+    $('#tabs li.' + Backbone.history.fragment).addClass 'current'
 
 MyGovBar.Router = new router();
