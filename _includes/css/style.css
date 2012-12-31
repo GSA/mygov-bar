@@ -323,8 +323,6 @@ div.star-rating-readonly a{cursor:default !important}
 /* Partial Star CSS */
 div.star-rating{background:transparent!important;overflow:hidden!important}
 /* END jQuery.Rating Plugin CSS */
-<<<<<<< HEAD
-=======
 
 /*** Search ***/
 
@@ -347,12 +345,12 @@ form#search {
   width: 80%;
 }
 
+.search-result .row.content-pane { padding: 0; }
+.search-result .row.content-pane .left { float: none; margin-right: 0; }
+#search_result { height: 200px; }
 /** Related ***/
 
 
 /*** Tags ***/
 
 /*** Feedback ***/
-
-
->>>>>>> Improved  overall styling of related items / search box

@@ -55,7 +55,11 @@ class router extends Backbone.Router
     view.render()
 
   setCurrent: ->
+    tab = Backbone.history.fragment
+    tab = "search search-result" if tab.indexOf("search/") != -1
     $('#tabs li.current').removeClass 'current'
-    $('#tabs li.' + Backbone.history.fragment).addClass 'current'
-
+    $('#tabs li.' + tab).addClass 'current'
+    $('#bar').removeClass MyGovBar.config.tabs.join(" ") + " search-result"
+    $('#bar').addClass tab
+    
 MyGovBar.Router = new router();
