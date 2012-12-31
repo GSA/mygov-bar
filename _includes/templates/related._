@@ -1,5 +1,5 @@
 <ul class="content-links"> 
   <% _.each(related, function(page) { %>
-    <li id="related-<%= page.id %>"><a target="_top" href="<%= page.url %>"><%= page.title %></a></li>
+    <li id="related-<%= page.id %>"><a target="_top" href="<%= page.url %>" target="_blank"><%= page.title %></a></li>
   <% }) %>
 </ul>
