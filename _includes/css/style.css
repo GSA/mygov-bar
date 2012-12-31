@@ -173,7 +173,7 @@ ul.right {text-align: right; display: block; float: right;}
 .navigation li.mygov a {background:  url("img/sprite.png") 0 -1070px no-repeat;}
 .navigation li.notifications a {background: url("img/sprite.png") 0 -104px no-repeat; }
 .navigation li.search a {background:  url("img/sprite.png") 0 -706px no-repeat; }
-.navigation li.feedback a {background: url("image/sprite.png") 0 -104px no-repeat; }
+.navigation li.feedback a {background: url("img/sprite.png") 0 -104px no-repeat; }
 .navigation li.related a {background:  url("img/sprite.png") 0 -946px no-repeat; }
 .navigation li.tags a{background:  url("img/sprite.png") 0 -825px no-repeat; }
 .navigation li.settings a {background:  url("img/sprite.png") 0 -224px no-repeat;  }
