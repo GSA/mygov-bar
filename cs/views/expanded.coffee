@@ -8,12 +8,19 @@ class MyGovBar.Views.Expanded extends Backbone.View
   
   render: ->
     @$el.clearQueue()
-    @$el.animate width: '100%', 1000
-    @$el.removeClass 'mini'
-    @$el.addClass 'shown'
-    @$el.addClass 'expanded'
-    @$el.removeClass 'hidden'
+    @$el.css 'width', @$el.css 'width' #make width abs
+    
+    setTimeout => #give pushMessage a second to work before checking page width
+      @$el.animate width: '100%', 1000, => 
+        @$el.removeClass 'mini'
+        @$el.addClass 'shown'
+        @$el.addClass 'expanded'
+        @$el.removeClass 'hidden'
+        MyGovBar.CrossDomain.sendHeight()
+    , 1
+    
 
+      
   tags: (e) ->
     e.preventDefault()
     MyGovBar.Router.navigate 'tags', true
