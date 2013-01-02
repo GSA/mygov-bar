@@ -14,7 +14,7 @@ class MyGovBar.Views.Mini extends Backbone.View
     @$el.removeClass 'hidden'
     $('.row').css 'width', window.innerWidth + 'px'
     setTimeout =>
-      @$el.animate width: '100%', 1000, 'swing', ->
+      @$el.animate {width: '100%'}, MyGovBar.config.animation_speed, 'swing', ->
         $('.row').css 'width', '100%'
     , 1
     
