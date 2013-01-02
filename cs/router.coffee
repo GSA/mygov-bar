@@ -59,6 +59,7 @@ class router extends Backbone.Router
     tab = "search search-result" if tab.indexOf("search/") != -1
     $('#tabs li.current').removeClass 'current'
     $('#tabs li.' + tab).addClass 'current'
+    $('#tabs li.related').addClass 'current' if tab is 'mini'
     $('#bar').removeClass MyGovBar.config.tabs.join(" ") + " search-result"
     $('#bar').addClass tab
     
