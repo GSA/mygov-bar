@@ -11,7 +11,7 @@ blockquote, q {quotes: "" "";}
 body {font-size: 14px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;}
 ul, ol {list-style-position: inside; margin: 0; padding: 0;}
 li {list-style: none; position: relative;}
-a {color: #444;}
+a {color: #444; text-decoration: none;}
 div, li {-webkit-box-sizing: border-box; -moz-box-sizing: border-box; -o-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box;}
 
 /*** Clearing Floats - Dan Cederholm ***/
@@ -24,14 +24,11 @@ div, li {-webkit-box-sizing: border-box; -moz-box-sizing: border-box; -o-box-siz
   visibility: hidden;
 }
 
-
-
 /*** Darowski Arrows  http://tech.patientslikeme.com/2010/11/09/using-borders-to-make-pure-css-arrows/ ***/
 
 div.arrow {
   display: none;
 }
-
 
 .current div.arrow {
   display: inline-block;
@@ -46,9 +43,10 @@ div.arrow {
 
 #bar {
   /* border: 2px solid red; */
-  border-width: 2px 2px 4px 0px;
-  border-style: solid;
-  border-color: rgba(0,0,0,.4);
+  -webkit-box-shadow: 0 0 5px rgba(0,0,0,.4);
+  -moz-box-shadow: 0 0 5px rgba(0,0,0,.4);
+  -o-box-shadow: 0 0 5px rgba(0,0,0,.4);
+  box-shadow: 0 0 5px rgba(0,0,0,.4);
   position: absolute; 
   bottom: 0;
   width: 0;
@@ -76,7 +74,6 @@ span.jujitsu {
   clear: both;
   margin: 0; 
   display: block;
-  /* border: 1px solid blue; */
 }
 
 .row.navigation {
@@ -91,10 +88,13 @@ span.jujitsu {
 
 .row.content-pane {
   background: #444;
+  background: rgba(0,0,0,.7);
   padding: 2em 4em 2em 8em;
   color: #fff; 
   position: relative;
 }
+
+/*
 
 a.close {
   position: absolute;
@@ -115,6 +115,8 @@ a.close {
 }
 
 a.close span {display: inline; position: absolute; left: -9999em;}
+
+*/
 
 .row.content-pane li {display: block; margin: 0; padding: 0;}
 .row.content-pane li.inline {display: inline; float: left;}
@@ -168,7 +170,7 @@ h2 {
 .left {float: left;}
 #bar.mini .left {float: none;}
 .left.first {border-left: none; }
-.right {float: right;}
+
 
 .row.content-pane .left {margin-right: 3%; border-left: 1px solid rgba(255,255,255,.2); padding-left: 5%; margin-bottom: 0; }
 #bar.mini .row.content-pane .left {margin-right: 0%;}
@@ -188,38 +190,56 @@ ul.right {text-align: right; display: block; float: right;}
 .navigation li.settings a {background:  url("img/sprite.png") 0 -224px no-repeat;  }
 .navigation li.state a {background: url("img/sprite.png") 0 -344px no-repeat;}
 
-#bar.mini .navigation li {display: inline-block;}
+#bar.mini .navigation li {display: block;}
 #bar.mini .navigation li a {padding: .75em 1em 1em 1em; display: block;}
+
+#bar.mini .navigation .right li {float: none; display: inline-block;}
+
+#bar.mini .navigation .right li a {}
+
 #bar.mini .navigation li a span {text-indent: -9999em; display: block;}
 
-#bar.mini .navigation li.tags a, #bar.mini .navigation li.search a {display: none;}
+#bar.mini .navigation li.expand a span, #bar.mini .navigation li.close-this a span {text-indent: 0; }
 
-#bar.mini .navigation li.related a {font-weight: bold; background: none; padding-left: .75fconem;}
+#bar.mini .navigation li.expand a, #bar.mini .navigation li.close-this a {padding-left: 36px;}
+
+#bar.mini .navigation li.tags a, #bar.mini .navigation li.feedback a, #bar.mini .navigation li.search a {display: none;}
+
+#bar.mini .navigation li.related a {font-weight: bold; background: none; padding-left: .75em; }
 #bar.mini .navigation li.related a span {text-indent: 0; background: none; padding-left: .2em;}
 #bar.mini ul.content-links {margin: 0; display: block; width: 100%;}
 #bar.mini ul.content-links li {display: block; float: none; width: 100%; padding: 0; line-height: 1.3em; margin: 0; border-left: none; border-bottom: 2px solid rgba(255,255,255,.1);}
 #bar.mini ul.content-links li:last-child {border-bottom: none;}
-#bar.mini ul.content-links li a {background: none; padding: .75em ; display: block; text-decoration: underline; font-weight: normal; }
+#bar.mini ul.content-links li a {background: none; padding: .75em ; display: block; font-weight: normal;}
+
+#bar.mini ul.content-links li a.title {}
+
+#bar.mini ul.content-links li a .domain {}
 #bar.mini ul.content-links li:hover {background: none; }
-#bar.mini ul.content-links li a:hover, #bar.mini .navigation li ul.content-links li a:active {background: rgba(255,255,255,.1); text-decoration: underline;}
+#bar.mini ul.content-links li a:hover, #bar.mini .navigation li ul.content-links li a:active {background: rgba(255,255,255,.1); }
 
 #bar.mini .row.content-pane {padding:0;}
-#bar.mini .row.content-pane a {color: #fff; text-decoration: none;}
+#bar.mini .row.content-pane a {color: #fff;}
 #bar.mini .row.content-pane ul.content-links li {display: block; float: none; width: 100%;}
 
 #bar.mini .navigation li.mygov a {background:  url("img/sprite.png") 50% -1316px no-repeat;}
+#bar.mini .navigation li.expand a {background:  url("img/sprite.png") 0 -1316px no-repeat;}
+#bar.mini .navigation li.close-this a {background:  url("img/sprite.png") 0 -1316px no-repeat;}
 #bar.mini .navigation li.notifications a {background: url("img/sprite.png") -104px -104px no-repeat;}
 #bar.mini .navigation li.search a {background:  url("img/sprite.png") 50% -706px no-repeat;}
 #bar.mini .navigation li.tags a {background:  url("img/sprite.png") 50% -825px no-repeat;}
 #bar.mini .navigation li.settings a {background:  url("img/sprite.png") 50% -224px no-repeat; }
 #bar.mini .navigation li.state a {background: url("img/sprite.png") 50% -344px no-repeat;}
 
-#bar.mini .primary {padding-right: 2em;}
+#bar.mini .primary {/* padding-right: 2em; */}
+
+a span.domain {display: block; font-size: .8em; color: #eee; color: rgba(255,255,255,.6); letter-spacing: .07em; text-decoration: none;}
+
+/*
 
 #bar.mini .expand a {
   display: block; 
-  vertical-align: middle; 
-  line-height: 4em; 
+  vertical-align: middle;  
   text-align: center; 
   text-decoration: none; 
   font-weight: normal; 
@@ -235,10 +255,11 @@ ul.right {text-align: right; display: block; float: right;}
   font-size: 2.5em;
   border-left: 1px solid rgba(0,0,0,.15);
 }
+
+*/
   
-#bar.mini .expand a:hover {background: #eee;}  
   
-#bar.mini .expand span {position: absolute; left: -9999em;}
+#bar.mini .expand span {}
 
 #bar.expanded .content-links a, #bar.expanded .content-list a {color: #fff; display: block; padding: .65em 0;}
 #bar.expanded .content-list a {cursor: pointer; font-weight: normal; font-size: 1.15em; text-shadow: none;  padding: .2em 0; margin-bottom: .25em; }
@@ -295,13 +316,12 @@ ul.right {text-align: right; display: block; float: right;}
   #bar.expanded .row.content-pane .left.first { margin: 0 0 1em 0;  border-bottom: 1px solid rgba(255,255,255,.1);}
   #bar.expanded .row.content-pane .left.first.single {border-bottom: none;}
   
-  #bar.mini .navigation li {width: auto; padding: auto; margin: 0;}
+  #bar.mini .navigation li {width: auto;  margin: 0;}
   #bar.mini .navigation li.related a span {position: relative; text-indent: 0; left: 0;}
 }
 
 /* BB ADDED */
 #bar.signed-out li.notifications, #bar.signed-out li.settings { display: none; }
-#bar.mini .right { display: none; }
 body {background: transparent; }
 #bar.expanded .expand { display: none; }
 #bar.hidden { width: 0px; }
@@ -322,7 +342,6 @@ div.star-rating-hover a{background-position:0 -32px}
 div.star-rating-readonly a{cursor:default !important}
 /* Partial Star CSS */
 div.star-rating{background:transparent!important;overflow:hidden!important}
-/* END jQuery.Rating Plugin CSS */
 
 /*** Search ***/
 
