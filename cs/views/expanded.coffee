@@ -11,7 +11,7 @@ class MyGovBar.Views.Expanded extends Backbone.View
     @$el.css 'width', @$el.css 'width' #make width abs
     
     setTimeout => #give pushMessage a second to work before checking page width
-      @$el.animate width: '100%', 1000, => 
+      @$el.animate width: '100%', 1000, 'swing', => 
         @$el.removeClass 'mini'
         @$el.addClass 'shown'
         @$el.addClass 'expanded'
