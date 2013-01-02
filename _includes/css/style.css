@@ -345,6 +345,15 @@ form#search {
   width: 80%;
 }
 
+/* pro-top: use named colors to drive designers crazy */
+.search-result .results li a { color: white; text-decoration: none; font-weight: bold; }
+.search-result .results li a:hover { text-decoration: underline; }
+.search-result .results li .excerpt { display: block; }
+.search-result .results li { margin-bottom: 5px; }
+.search-result a.more-link { color: white; }
+.search-result .results .highlight { color: fuchsia }
+.search-result h3 { margin-bottom: 10px; font-weight: bold; }
+
 /** Related ***/
 
 
