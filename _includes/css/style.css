@@ -33,15 +33,15 @@ div.arrow {
 }
 
 
-.activated div.arrow {
+.current div.arrow {
   display: inline-block;
   position: absolute;
   bottom: 0;
   left: 35%;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid red;
-  border-right: 10px solid transparent;
-  border-left: 10px solid transparent;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid #444;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
 }
 
 #bar {
