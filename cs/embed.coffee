@@ -151,4 +151,5 @@ class MyGovLoader
     @state = state
     @send state
     
+    
 window.MyGovLoader = new MyGovLoader()

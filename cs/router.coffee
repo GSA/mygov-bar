@@ -14,7 +14,10 @@ class router extends Backbone.Router
   initialize: ->  
     MyGovBar.page = new MyGovBar.Models.Page()
     Backbone.history.on 'route', @setCurrent
-    
+    window.onbeforeunload = ->
+      sessionStorage.myGovBarExpanded = Backbone.history.fragment != "mini" and Backbone.history.fragment != "hidden"
+      return
+      
   mini: ->
     MyGovBar.CrossDomain.send 'mini'
     miniView = new MyGovBar.Views.Mini model: MyGovBar.page
@@ -27,7 +30,7 @@ class router extends Backbone.Router
     MyGovBar.CrossDomain.send 'expanded'
     view = new MyGovBar.Views.Expanded
     view.render()
-  
+
   hide: ->
     MyGovBar.CrossDomain.send 'hidden'
     view = new MyGovBar.Views.Hidden
