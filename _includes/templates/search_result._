@@ -8,4 +8,4 @@
   </li>
 <% }) %>
 </ul>
-<a href="http://search.usa.gov/?affiliate=<%= MyGovBar.config.search_affiliate %>&query=<%= query %>" class="more-link" target="_blank">More results</a>
+<a href="http://search.usa.gov/search?affiliate=<%= MyGovBar.config.search_affiliate %>&query=<%= query %>" class="more-link" target="_blank">More results</a>
