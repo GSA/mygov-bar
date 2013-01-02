@@ -2,8 +2,8 @@ class MyGovBar.Views.Search extends Backbone.View
   el: "#drawer"
   template: $('#search_template').html()
 
-  events: 
-    "submit #search": "submit"
+  #events: 
+    #"submit #search": "submit"
   
   render: ->
     compiled = _.template @template
