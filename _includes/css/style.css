@@ -345,9 +345,6 @@ form#search {
   width: 80%;
 }
 
-.search-result .row.content-pane { padding: 0; }
-.search-result .row.content-pane .left { float: none; margin-right: 0; }
-#search_result { height: 200px; }
 /** Related ***/
 
 

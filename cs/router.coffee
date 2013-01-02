@@ -46,9 +46,9 @@ class router extends Backbone.Router
     view.render()
     
   searchResult: (query) ->
-    view = new MyGovBar.Views.SearchResult
-    view.query = query
-    view.render()
+    collection = new MyGovBar.Collections.SearchResults query: query
+    collection.fetch()
+    view = new MyGovBar.Views.SearchResult collection: collection
 
   feedback: ->
     view = new MyGovBar.Views.Feedback model: MyGovBar.page

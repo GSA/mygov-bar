@@ -1,1 +1,11 @@
-<iframe src="http://search.usa.gov/search?query=<%= query %>&affiliate=<%= MyGovBar.config.search_affiliate %>&iframe=true" id="search_result"></iframe>
+<h3>Results for "<%= query %>"</h3>
+<ul class="results">
+<% results.forEach( function(result) { %>
+  <li class="result">
+    <a class="title" href="<%= result.unescapedUrl %>"><%= result.title %></a>
+    <span class="excerpt"><%= result.content %></span>
+    <span class="url"><%= result.unescapedURL %></span>
+  </li>
+<% }) %>
+</ul>
+<a href="http://search.usa.gov/?affiliate=<%= MyGovBar.config.search_affiliate %>&query=<%= query %>" class="more-link" target="_blank">More results</a>
