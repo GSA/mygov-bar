@@ -17,4 +17,4 @@ animation_speed: 1000 #miliseconds
 #build config
 server: true
 auto: true
-exclude: [ 'Cakefile', 'package.json', 'readme.md' ]
+exclude: [ 'Cakefile', 'package.json', 'readme.md', 'cs' ]
