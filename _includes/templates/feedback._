@@ -1,6 +1,5 @@
 <div class="rating">
 
-<form id="feedback">
   <h3>Was this page helpful?</h3>
   <div id="stars">
     <input name="rating" type="radio" class="star" value="1"/>
@@ -17,6 +16,8 @@
     <div class="feeback" id="comment_submitted">
        Thanks for the feedback! We've got your comment.
     </div>
+
+<form id="feedback">
 
     <h3>Give us your thoughts</h3>
     <textarea id="comment" name="comment"></textarea>
