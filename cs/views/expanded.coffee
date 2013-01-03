@@ -5,7 +5,6 @@ class MyGovBar.Views.Expanded extends Backbone.View
     "click #tabs li.tags a": "tags"
     "click #tabs li.search a": "search"
     "click #tabs li.feedback a": "feedback"
-    #"click #close-bar": "close" 
   
   render: ->
     @$el.clearQueue()
@@ -18,6 +17,7 @@ class MyGovBar.Views.Expanded extends Backbone.View
         @$el.addClass 'expanded'
         @$el.removeClass 'hidden'
         MyGovBar.CrossDomain.sendHeight()
+        @trigger 'render'
     , 1
     
   tags: (e) ->
