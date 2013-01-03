@@ -10,9 +10,7 @@ class MyGovBar.Views.Search extends Backbone.View
     @$el.html compiled()
     
   submit: (e) =>
-    e.preventDefault()
-    MyGovBar.Router.navigate "search/" + $('#search_query').val(), true
-    false
+    MyGovBar.Router.go "search/" + $('#search_query').val(), e
 
 class MyGovBar.Views.SearchResult extends Backbone.View
   el: "#drawer"

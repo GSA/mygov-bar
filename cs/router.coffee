@@ -66,4 +66,9 @@ class router extends Backbone.Router
     $('#bar').removeClass MyGovBar.config.tabs.join(" ") + " search-result"
     $('#bar').addClass tab
     
+  go: (hash, e) ->
+    e.preventDefault() if e?
+    @navigate hash, true
+    false
+    
 MyGovBar.Router = new router();

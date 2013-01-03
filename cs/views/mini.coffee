@@ -19,14 +19,11 @@ class MyGovBar.Views.Mini extends Backbone.View
         @related()
     , 1
     
-    
-    
   toggle: (e) ->
-    e.preventDefault()
-    MyGovBar.Router.navigate 'expanded', true
-    false
+    MyGovBar.Router.go 'expanded', e
     
   related: (e) ->
-    e.preventDefault() if e?
-    MyGovBar.Router.navigate 'related', true
-    false
+    MyGovBar.Router.go 'related', e
+
+  close: (e) ->
+    MyGovBar.Router.go 'hidden', e

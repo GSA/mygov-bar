@@ -5,6 +5,7 @@ class MyGovBar.Views.Expanded extends Backbone.View
     "click #tabs li.tags a": "tags"
     "click #tabs li.search a": "search"
     "click #tabs li.feedback a": "feedback"
+    #"click #close-bar": "close" 
   
   render: ->
     @$el.clearQueue()
@@ -20,16 +21,12 @@ class MyGovBar.Views.Expanded extends Backbone.View
     , 1
     
   tags: (e) ->
-    e.preventDefault()
-    MyGovBar.Router.navigate 'tags', true
-    false
+    MyGovBar.Router.go 'tags', e
     
   search: (e) ->
-    e.preventDefault()
-    MyGovBar.Router.navigate 'search', true
-    false
-    
+    MyGovBar.Router.go 'search',e 
+
   feedback: (e) ->
-    e.preventDefault()
-    MyGovBar.Router.navigate 'feedback', true
-    false
+    MyGovBar.Router.go 'feedback', e
+
+
