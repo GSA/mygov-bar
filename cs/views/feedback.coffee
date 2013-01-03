@@ -10,8 +10,8 @@ class MyGovBar.Views.Feedback extends Backbone.View
     compiled = _.template @template
     @$el.html compiled()
     star = $('input.star')
-    star.rating callback: @saveRating
     star.rating 'select', ( Math.round( parseFloat( @model.get 'avg_rating' ) ) - 1 )
+    star.rating callback: @saveRating
   
   saveRating: (value, link) =>
     @model.save rating: value
