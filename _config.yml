@@ -14,7 +14,7 @@ tabs:
   - tags
   - feedback
   - mygov
-animation_speed: 1000 #miliseconds
+animation_speed: 500 #miliseconds
 
 #build config
 server: true
