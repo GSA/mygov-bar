@@ -25,6 +25,7 @@ class MyGovBar.Views.Tags extends Backbone.View
   template: $('#tags_template').html()
   
   render: =>
+    MyGovBar.Router.expand() unless $('#bar').hasClass 'expanded'
     compiled = _.template @template
       
     @$el.html compiled( page: @model.toJSON(), tags: @model.get('tags').toJSON() )

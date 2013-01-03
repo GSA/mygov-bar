@@ -14,20 +14,17 @@ class MyGovBar.Models.Page extends Backbone.Model
   lookup: ->
     old_url = @url
     @url = @urlRoot + ".json?url=" + @get("url") + "&callback=?"
-    @fetch error: (page, err) =>
-      if err.status != 404
-        return
-      
-      @save()
-      
+    @fetch()
     @url = old_url
-    @trigger 'change'
     
   initialize: ->
     @lookup()
       
   defaults:
     url: document.referrer
+    related: []
+    tags: new MyGovBar.Collections.Tags
+    tag_list: ""
     
   parse: (data) ->
     return unless data?

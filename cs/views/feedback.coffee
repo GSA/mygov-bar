@@ -3,7 +3,7 @@ class MyGovBar.Views.Feedback extends Backbone.View
   template: $('#feedback_template').html()
     
   render: ->
-    @model.off 'change'
+    MyGovBar.Router.expand() unless $('#bar').hasClass 'expanded'
     compiled = _.template @template
     @$el.html compiled()
     $('input.star').rating callback: @saveRating
