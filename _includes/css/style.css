@@ -408,6 +408,5 @@ form#search {
 
 
 /*** Tags ***/
-
+#comment_submitted { display: none; }
 /*** Feedback ***/
-f

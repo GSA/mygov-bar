@@ -9,8 +9,14 @@
   </div>
   
   <div class="right">
+    
+    <div class="feeback" id="comment_submitted">
+      Thanks for the feedback! We've got your comment.
+    </div>
+    
     <h3>Give us your thoughts</h3>
     <textarea id="comment" name="comment"></textarea>
     <input type="submit" />
-  </div>
+  
+  </div> 
 </form>
