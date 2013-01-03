@@ -88,7 +88,7 @@ span.jujitsu {
 
 .row.content-pane {
   background: #444;
-  background: rgba(0,0,0,.7);
+  background: rgba(0,0,0,.85);
   padding: 2em 4em 2em 8em;
   color: #fff; 
   position: relative;
@@ -201,7 +201,7 @@ ul.right {text-align: right; display: block; float: right;}
 
 #bar.mini .navigation li.expand a span, #bar.mini .navigation li.close-this a span {text-indent: 0; }
 
-#bar.mini .navigation li.expand a, #bar.mini .navigation li.close-this a {padding-left: 36px;}
+#bar.mini .navigation li.expand a, #bar.mini .navigation li.close-this a {padding-left: 32px;}
 
 #bar.mini .navigation li.tags a, #bar.mini .navigation li.feedback a, #bar.mini .navigation li.search a {display: none;}
 
@@ -210,21 +210,21 @@ ul.right {text-align: right; display: block; float: right;}
 #bar.mini ul.content-links {margin: 0; display: block; width: 100%;}
 #bar.mini ul.content-links li {display: block; float: none; width: 100%; padding: 0; line-height: 1.3em; margin: 0; border-left: none; border-bottom: 2px solid rgba(255,255,255,.1);}
 #bar.mini ul.content-links li:last-child {border-bottom: none;}
-#bar.mini ul.content-links li a {background: none; padding: .75em ; display: block; font-weight: normal;}
+#bar.mini ul.content-links li a {background:  url("img/sprite.png") 0 -1680px no-repeat; padding: .75em .75em .75em 30px; display: block; font-weight: normal;}
 
 #bar.mini ul.content-links li a.title {}
 
 #bar.mini ul.content-links li a .domain {}
 #bar.mini ul.content-links li:hover {background: none; }
-#bar.mini ul.content-links li a:hover, #bar.mini .navigation li ul.content-links li a:active {background: rgba(255,255,255,.1); }
+#bar.mini ul.content-links li a:hover, #bar.mini .navigation li ul.content-links li a:active {background: rgba(255,255,255,.1) url("img/sprite.png") 0 -1680px no-repeat;}
 
 #bar.mini .row.content-pane {padding:0;}
 #bar.mini .row.content-pane a {color: #fff;}
 #bar.mini .row.content-pane ul.content-links li {display: block; float: none; width: 100%;}
 
 #bar.mini .navigation li.mygov a {background:  url("img/sprite.png") 50% -1316px no-repeat;}
-#bar.mini .navigation li.expand a {background:  url("img/sprite.png") 0 -1316px no-repeat;}
-#bar.mini .navigation li.close-this a {background:  url("img/sprite.png") 0 -1316px no-repeat;}
+#bar.mini .navigation li.expand a {background:  url("img/sprite.png") 0 -1561px no-repeat;}
+#bar.mini .navigation li.close-this a {background:  url("img/sprite.png") 0 -1443px no-repeat;}
 #bar.mini .navigation li.notifications a {background: url("img/sprite.png") -104px -104px no-repeat;}
 #bar.mini .navigation li.search a {background:  url("img/sprite.png") 50% -706px no-repeat;}
 #bar.mini .navigation li.tags a {background:  url("img/sprite.png") 50% -825px no-repeat;}
@@ -379,3 +379,4 @@ form#search {
 /*** Tags ***/
 
 /*** Feedback ***/
+f
