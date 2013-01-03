@@ -50,7 +50,7 @@ class MyGovLoader
       @hide()
       
   onResize: =>
-    if window.innerWidth < @minWidth and @isShown()
+    if window.innerWidth < @minWidth and @state is "shown"
       @maximize()
       @send 'expanded'
     
