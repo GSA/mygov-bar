@@ -14,11 +14,12 @@ class MyGovBar.Views.Mini extends Backbone.View
     @$el.removeClass 'hidden'
     $('.row').css 'width', window.innerWidth + 'px'
     setTimeout =>
-      @$el.animate {width: '100%'}, MyGovBar.config.animation_speed, 'swing', ->
+      @$el.animate {width: '100%'}, MyGovBar.config.animation_speed, 'swing', =>
         $('.row').css 'width', '100%'
+        @related()
     , 1
     
-    relatedView = new MyGovBar.Views.Related model: @model
+    
     
   toggle: (e) ->
     e.preventDefault()
@@ -26,6 +27,6 @@ class MyGovBar.Views.Mini extends Backbone.View
     false
     
   related: (e) ->
-    e.preventDefault()
+    e.preventDefault() if e?
     MyGovBar.Router.navigate 'related', true
     false
