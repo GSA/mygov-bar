@@ -5,8 +5,7 @@ class MyGovBar.Views.Related extends Backbone.View
   class: "related"
   
   render: =>
-    compiled = _.template @template
-    @$el.html compiled( @model.toJSON() )
+    @$el.html JST.related( @model.toJSON() )
     MyGovBar.CrossDomain.sendHeight()
     
   initialize: ->

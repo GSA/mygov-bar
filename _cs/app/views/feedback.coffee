@@ -1,6 +1,5 @@
 class MyGovBar.Views.Feedback extends Backbone.View
   el: "#drawer"
-  template: $('#feedback_template').html()
   saveOnChange: false
   
   events:
@@ -8,8 +7,7 @@ class MyGovBar.Views.Feedback extends Backbone.View
   
   render: ->
     MyGovBar.router.expand() unless $('#bar').hasClass 'expanded'
-    compiled = _.template @template
-    @$el.html compiled()
+    @$el.html JST.feedback()
     @initStars()
         
   saveRating: (value, link) =>

@@ -12,17 +12,24 @@ module.exports = (grunt) ->
           forceWatchMethod: 'old'
       css:
         files: "css/style.css"
-        tasks: ["mincss"]
+        tasks: "mincss"
         options:
           interrupt: true
           forceWatchMethod: 'old'
-        
+      jst:
+        files: "_templates/*._"
+        tasks: "jst"
+        options:
+          interrupt: true
+          forceWatchMethod: 'old'
+                  
     uglify:
       options:
         banner: '/*! <%= pkg.name %> — <%= pkg.version %> — <%= grunt.template.today("yyyy-mm-dd H:s") %> */\n'
       app:
         files:
           "_includes/js/mygovbar.js": "_includes/js/mygovbar.js"
+          "_includes/js/templates.js": "_includes/js/templates.js"
       embed:
         files:
           "_includes/js/embed.js": "_includes/js/embed.js"
@@ -99,9 +106,9 @@ module.exports = (grunt) ->
       app:
         options:
           processName: (filename) ->
-            filename.replace('_includes/templates/', '').replace('._', '')
+            filename.replace('_templates/', '').replace('._', '')
         files:
-          "_includes/js/templates.js": "_includes/templates/*._"
+          "_includes/js/templates.js": "_templates/*._"
          
   grunt.loadNpmTasks 'grunt-contrib-concat'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
@@ -116,5 +123,5 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-less'
   grunt.loadNpmTasks 'grunt-contrib-jst'
 
-  grunt.registerTask 'default', ['concat', 'coffee', 'coffeelint', 'uglify', 'mincss', 'imagemin', 'clean']
+  grunt.registerTask 'default', ['concat', 'coffee', 'coffeelint', 'jst', 'uglify', 'mincss', 'imagemin', 'clean']
   grunt.registerTask 'server', ['default', 'jekyll']

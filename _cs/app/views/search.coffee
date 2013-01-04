@@ -6,8 +6,7 @@ class MyGovBar.Views.Search extends Backbone.View
     "submit #search": "submit"
   
   render: ->
-    compiled = _.template @template
-    @$el.html compiled()
+    @$el.html JST.search()
     
   submit: (e) =>
     MyGovBar.router.go "search/" + $('#search_query').val(), e
