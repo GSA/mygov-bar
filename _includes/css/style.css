@@ -27,6 +27,8 @@ html, body {margin: 0; padding: 0; overflow: hidden;}
   visibility: hidden;
 }
 
+
+
 /*** Darowski Arrows  http://tech.patientslikeme.com/2010/11/09/using-borders-to-make-pure-css-arrows/ ***/
 
 #bar.mini .primary {
@@ -118,8 +120,11 @@ span.jujitsu {
   padding: 1em 4em 2em 8em;
   color: #fff; 
   position: relative;
-  height: 14em;
   overflow-y: scroll;
+}
+
+#bar.expanded .row.content-pane {
+  height: 14em;
 }
 
 /*
