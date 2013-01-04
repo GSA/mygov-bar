@@ -47,7 +47,11 @@ module.exports = (grunt) ->
       app: ["cs/app/*.coffee", "cs/app/*/*.coffee" ]
       embed: "cs/embed.cofee"
       bookmarklet: "cs/bookmarklet.coffee"
-      
+    
+    coffeelintOptions:
+      max_line_length:
+        level: "ignore"
+        
     mincss:
       compress:
         files:

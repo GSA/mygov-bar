@@ -5,8 +5,8 @@ class MyGovBar.Models.Page extends Backbone.Model
   url: ->
     url = @urlRoot
     
-    if @id?    
-     url += "/" + @id
+    if @id?
+      url += "/" + @id
     
     url += ".json"
     url
