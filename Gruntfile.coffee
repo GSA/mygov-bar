@@ -108,5 +108,5 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-less'
   grunt.loadNpmTasks 'grunt-contrib-jst'
 
-  grunt.registerTask 'default', ['concat', 'coffee', 'uglify', 'mincss', 'imagemin', 'clean']
+  grunt.registerTask 'default', ['concat', 'coffee', 'coffeelint', 'uglify', 'mincss', 'imagemin', 'clean']
   grunt.registerTask 'server', ['default', 'jekyll']
