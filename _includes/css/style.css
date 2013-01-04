@@ -123,9 +123,7 @@ span.jujitsu {
   overflow-y: scroll;
 }
 
-#bar.expanded .row.content-pane {
-  height: 14em;
-}
+#bar.expanded .row.content-pane {height: 14em;}
 
 /*
 
