@@ -17,6 +17,4 @@ tabs:
 animation_speed: 500 #miliseconds
 
 #build config
-server: true
-auto: true
 exclude: [ 'Cakefile', 'package.json', 'readme.md', 'cs', 'node_modules' ]

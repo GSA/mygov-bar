@@ -18,12 +18,12 @@ class MyGovBar.Models.Page extends Backbone.Model
     @url = old_url
     
   initialize: ->
+    @set 'tags', new MyGovBar.Collections.Tags
     @lookup()
       
   defaults:
     url: document.referrer
     related: []
-    tags: new MyGovBar.Collections.Tags
     tag_list: ""
     
   parse: (data) ->

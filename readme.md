@@ -30,29 +30,36 @@ Running
 
 The MyGov Discovery Bar renders down to a single flat HTML file (the iframe source) and a single javascript file (the embed code). To run locally for development purposes, install Jekyll, and simply run `jekyll --url http://localhost:4000`.
 
-### Setting up a development environoment
+### Setting up a development environment
 
 1. Install Ruby
-2. Install Jekyll
-3. Install node (only required for compilation of coffeescript files)
-4. Clone the repository
+2. Install Jekyll (`gem install jekyll`)
+3. `jekyll --url http://localhost:4000`
+
+Contributing
+------------
+
+1. Clone the repository
+2. Install [Ruby](http://www.ruby-lang.org/en/downloads/)
+3. Install Jekyll (`gem install jekyll`)
+4. Install [Node](http://nodejs.org/)
 5. `npm install`
-6. `jekyll --url http://localhost:4000`
 7. (make changes)
-8. `cake compile`
+8. `grunt`
 
-Building
---------
+Grunt Tasks
+-----------
 
-The MyGov Discovery bar is package with a bare bones Cakefile to simplify the build process. It contains the following commands:
-
-* `cake compile` - compile coffeescript to javascript
-* `cake build` - compile coffeescript and minify
-* `cake minify` - compress javascript and css files
-* `cake minify:js` - compress javascript files
-* `cake minify:css` - compress css files
-
-*Note: by default, when running locally, non-minified css is served for debugging*
+* `grunt` - compile cs, css, minify, and optimize
+* `grunt watch` - Watch for CS or CSS changes and recompile (also `grunt watch:cs` and `grunt watch:css`)
+* `grunt uglify` - minify js
+* `grunt concat coffee` - compile cs files, but do not compres
+* `grunt coffeelint` - lint cs files
+* `grunt imagemin` - optimize images
+* `grunt csslint` - lint css
+* `grunt less` - TODO
+* `grunt jst` - TODO
+* `grunt jekyll` - start jekyll server
 
 Under the Hood
 --------------
