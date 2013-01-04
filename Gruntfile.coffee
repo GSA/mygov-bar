@@ -5,7 +5,7 @@ module.exports = (grunt) ->
     
     watch:
       cs:
-        files: ["cs/*", "cs/app/*", "cs/app/*/*"]
+        files: ["_cs/*", "_cs/app/*", "_cs/app/*/*"]
         tasks: ['concat', 'coffee']
         options:
           interrupt: true
@@ -32,10 +32,10 @@ module.exports = (grunt) ->
           
     concat:
       coffee:
-        src: ["cs/lib/*", "cs/app/models/*", "cs/app/views/*", "cs/app/crossdomain.coffee", "cs/app/router.coffee", "cs/app/init.coffee"]
+        src: ["_cs/lib/*", "_cs/app/models/*", "_cs/app/views/*", "_cs/app/crossdomain.coffee", "_cs/app/router.coffee", "_cs/app/init.coffee"]
         dest: "_app.coffee"
       embed: 
-        src: ["cs/lib/xd.coffee", "cs/embed.coffee"]
+        src: ["_cs/lib/xd.coffee", "_cs/embed.coffee"]
         dest: "_embed.coffee"
 
     coffee:
@@ -47,12 +47,12 @@ module.exports = (grunt) ->
           "_includes/js/embed.js": "_embed.coffee"
       bookmarklet: 
         files:
-          "_includes/js/bookmarklet.js": "cs/bookmarklet.coffee"
+          "_includes/js/bookmarklet.js": "_cs/bookmarklet.coffee"
           
     coffeelint:
-      app: ["cs/app/*.coffee", "cs/app/*/*.coffee" ]
-      embed: "cs/embed.cofee"
-      bookmarklet: "cs/bookmarklet.coffee"
+      app: ["_cs/app/*.coffee", "_cs/app/*/*.coffee" ]
+      embed: "_cs/embed.cofee"
+      bookmarklet: "_cs/bookmarklet.coffee"
     
     coffeelintOptions:
       max_line_length:
@@ -61,7 +61,7 @@ module.exports = (grunt) ->
     mincss:
       compress:
         files:
-          "css/style.min.css": ["css/*.css"]
+          "css/style.min.css": ["css/style.css"]
     clean:
       cs: ["_app.coffee", "_embed.coffee"]
       dsstore: "**/.DS_Store"
