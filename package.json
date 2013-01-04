@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "devDependencies": {
     "grunt": "~0.4.0",
+    "grunt-cli": "latest",
     "grunt-contrib-jshint": "~0.1.0",
     "coffee-script": "~1.4.0",
     "uglify-js": "~2.2.2",
@@ -18,6 +19,7 @@
     "grunt-contrib-imagemin": "~0.1.0",
     "grunt-css": "~0.5.1",
     "grunt-contrib-less": "~0.3.2",
-    "grunt-contrib-jst": "~0.3.2"
+    "grunt-contrib-jst": "~0.3.2",
+    "grunt-jslint": "~0.2.3-1"
   }
 }

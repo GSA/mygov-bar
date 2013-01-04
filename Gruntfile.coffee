@@ -81,7 +81,9 @@ module.exports = (grunt) ->
     csslint:
       css:
         src: "css/style.css"
-    
+        rules:
+          "ids": false
+          
     less:
       app:
         files:
