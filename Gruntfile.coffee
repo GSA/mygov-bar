@@ -31,13 +31,13 @@ module.exports = (grunt) ->
           "_includes/js/bookmarklet.js": "_includes/js/bookmarklet.js"
           
     concat:
-      app:
+      coffee:
         src: ["cs/lib/*", "cs/app/models/*", "cs/app/views/*", "cs/app/crossdomain.coffee", "cs/app/router.coffee", "cs/app/init.coffee"]
         dest: "_app.coffee"
       embed: 
         src: ["cs/lib/xd.coffee", "cs/embed.coffee"]
         dest: "_embed.coffee"
-        
+
     coffee:
       app:
         files: 

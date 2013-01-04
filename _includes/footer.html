@@ -1,16 +1,9 @@
         {% include templates.html %}
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-        <script>!window.jQuery && document.write('<script src="{{ site.url }}/js/jquery.js"><\/script>')</script>
-
-        <script>
-        {% include js/vendor/underscore.js %}
-        {% include js/vendor/backbone.js %}
-        {% include js/vendor/jquery.rating.js %}
-        {% include js/vendor/textext.js %}
-        {% include js/config.js %}
-        {% include js/mygovbar.js %}
-        </script>
+        <script>!window.jQuery && document.write('<script src="{{ site.url }}/js/vendor/jquery.js"><\/script>')</script>
+        <script defer=true src="{{ site.url }}/js/app.js"></script>
+        
     </body>
 </html>
 <!-- Generated {{ site.time }} -->
