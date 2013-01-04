@@ -7,9 +7,15 @@ module.exports = (grunt) ->
       cs:
         files: ["cs/*", "cs/app/*", "cs/app/*/*"]
         tasks: ['concat', 'coffee']
+        options:
+          interrupt: true
+          forceWatchMethod: 'old'
       css:
         files: "css/style.css"
-        tasks: ["mincss", "imagemin"]
+        tasks: ["mincss"]
+        options:
+          interrupt: true
+          forceWatchMethod: 'old'
         
     uglify:
       options:
