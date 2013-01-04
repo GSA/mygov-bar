@@ -27,8 +27,6 @@ html, body {margin: 0; padding: 0; overflow: hidden;}
   visibility: hidden;
 }
 
-
-
 /*** Darowski Arrows  http://tech.patientslikeme.com/2010/11/09/using-borders-to-make-pure-css-arrows/ ***/
 
 #bar.mini .primary {
@@ -117,7 +115,7 @@ span.jujitsu {
 .row.content-pane {
   background: #444;
   background: rgba(0,0,0,.85);
-  padding: 1em 4em 2em 8em;
+  padding: 2em 4em 2em 8em;
   color: #fff; 
   position: relative;
   overflow-y: scroll;
@@ -443,6 +441,16 @@ input#search_query {
 input#search_query:active,
 input#search_query:focus {background: rgba(255,255,255,1); outline: none; border: 2px solid rgba(255,255,255,.3);}
 
+/*** Don't push the red button ***/
+
+@-webkit-keyframes bluePulse {
+  from { background-color: #036686; -webkit-box-shadow: 0 0 9px #333; }
+  50% { background-color: #1085A0; -webkit-box-shadow: 0 0 18px #036686; }
+  to { background-color: #036686; -webkit-box-shadow: 0 0 9px #333; }
+}
+
+
+
 input.btn {
   font-size: 1.3em; 
   vertical-align: top;
@@ -457,6 +465,11 @@ input.btn {
   border: none; 
   margin: 0;
   text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+  
+  -webkit-animation-name: bluePulse;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+  
 }
 
 
@@ -480,11 +493,22 @@ p.info {font-size: .9em; color: #eee; color: rgba(255,255,255,.8); margin: 0 0 1
 #tag_form {font-size: 1.5em;}
 
 /*** Feedback ***/
+
+#stars {
+  background: rgba(255,255,255,.1);
+  padding: 1em;
+}
+
+
 #comment_submitted { display: none; }
 
 .rating, .comments {float: left;}
 
 textarea#comment {height: 5em; display: inline-block; width: 20em; margin-bottom: .25em;}
+
+.text-wrap {width: 65%; height: 80%;}
+
+#tag_list {width: 60%;}
 
 .rating {width: 35%;}
 .comments {margin-left: 10%; padding-left: 10%; border-left: 1px solid #343434; width: 50%;}
