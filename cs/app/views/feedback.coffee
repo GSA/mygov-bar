@@ -7,7 +7,7 @@ class MyGovBar.Views.Feedback extends Backbone.View
     "submit #feedback": "submitComment"
   
   render: ->
-    MyGovBar.Router.expand() unless $('#bar').hasClass 'expanded'
+    MyGovBar.router.expand() unless $('#bar').hasClass 'expanded'
     compiled = _.template @template
     @$el.html compiled()
     @initStars()

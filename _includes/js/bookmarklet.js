@@ -1,1 +1,2 @@
-(function(){var e;e=document.createElement("script"),e.src="{{ site.url }}/embed-code.js",document.body.appendChild(e)}).call(this);
+/*! MyGovBar — 0.0.1 — 2013-01-04 15:59 */
+(function(){var t;t=document.createElement("script"),t.src="{{ site.url }}/embed-code.js",document.body.appendChild(t)}).call(this);

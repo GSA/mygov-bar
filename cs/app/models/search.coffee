@@ -14,7 +14,7 @@ class MyGovBar.Collections.SearchResults extends Backbone.Collection
   parse: (data) ->
  
     #convert unicode encoded highlighting to HTML
-    # see https://search.usa.gov/affiliates/3204/api     
+    # see https://search.usa.gov/affiliates/3204/api
     _.each data.results, (result) =>
       result[field] = @htmlHighlight result[field] for field in ['title', 'content']
           

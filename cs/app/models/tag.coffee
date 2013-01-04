@@ -17,3 +17,4 @@ class MyGovBar.Collections.Tags extends Backbone.Collection
   initialize: ->
     @on 'add remove', =>
       MyGovBar.page.save { tag_list: @toJSON() }
+      

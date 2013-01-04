@@ -25,7 +25,7 @@ class MyGovBar.Views.Tags extends Backbone.View
   template: $('#tags_template').html()
   
   render: =>
-    MyGovBar.Router.expand() unless $('#bar').hasClass 'expanded'
+    MyGovBar.router.expand() unless $('#bar').hasClass 'expanded'
     compiled = _.template @template
       
     @$el.html compiled( page: @model.toJSON(), tags: @model.get('tags').toJSON() )
@@ -33,13 +33,13 @@ class MyGovBar.Views.Tags extends Backbone.View
       plugins: 'tags autocomplete suggestsions ajax'
       tagsItems: @model.get('tags').models
       itemManager: MyGovBar.TagManager
-      ajax: 
+      ajax:
         url: MyGovBar.config.api_url + '/tags.json'
 
-    #hijack the setSuggestions event so that we can 
+    #hijack the setSuggestions event so that we can
     #pass backbone objects to TagManager, rather than JSON objects
     #todo: I think we can use the ext argument to do this smarter
-    $('#tag_list').unbind 'setSuggestions'        
+    $('#tag_list').unbind 'setSuggestions'
     $('#tag_list').on setSuggestions: (e, data) ->
       tags = []
       _.each data.result, (tag) ->

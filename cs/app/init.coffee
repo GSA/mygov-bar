@@ -4,4 +4,4 @@ _.each MyGovBar.config.tabs, (tab) ->
 Backbone.history.start()
 
 if sessionStorage.myGovBarExpanded? and sessionStorage.myGovBarExpanded is "true"
-  MyGovBar.Router.navigate 'expanded', true
+  MyGovBar.router.navigate 'expanded', true

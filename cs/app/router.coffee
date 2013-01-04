@@ -1,4 +1,4 @@
-class router extends Backbone.Router
+class Router extends Backbone.Router
 
   routes:
     "hidden": "hide"
@@ -11,7 +11,7 @@ class router extends Backbone.Router
     "mini": "mini"
     "*path": "minify"
 
-  initialize: ->  
+  initialize: ->
     MyGovBar.page = new MyGovBar.Models.Page()
     Backbone.history.on 'route', @setCurrent
     window.onbeforeunload = ->
@@ -64,4 +64,4 @@ class router extends Backbone.Router
     @navigate hash, true
     false
     
-MyGovBar.Router = new router();
+MyGovBar.router = new Router()
