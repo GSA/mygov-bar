@@ -20,6 +20,5 @@ class MyGovBar.Views.SearchResult extends Backbone.View
   
   render: =>
     MyGovBar.router.expand() unless $('#bar').hasClass 'expanded'
-    compiled = _.template @template
-    @$el.html compiled query: @collection.query, results: @collection.toJSON().splice(0,3)
+    @$el.html JST.search_result query: @collection.query, results: @collection.toJSON().splice(0,3)
     MyGovBar.CrossDomain.sendHeight()
