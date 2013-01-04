@@ -8,7 +8,7 @@ module.exports = (grunt) ->
         files: ["cs/*", "cs/app/*", "cs/app/*/*"]
         tasks: ['concat', 'coffee']
       css:
-        files: "css/*"
+        files: "css/style.css"
         tasks: ["mincss", "imagemin"]
         
     uglify:
@@ -55,7 +55,7 @@ module.exports = (grunt) ->
     mincss:
       compress:
         files:
-          "_includes/css/style.css": ["css/*.css"]
+          "css/style.min.css": ["css/*.css"]
     clean:
       cs: ["_app.coffee", "_embed.coffee"]
       dsstore: "**/.DS_Store"
