@@ -1,4 +1,5 @@
-/*** MyGov Discovery Bar CSS ***/
+/*** MyGov Discovery Bar ***/
+/*** 2013, Danny Chapman, Ben Balter ***/
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code,del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,dl, dt, dd, ol, ul, li, fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td {margin: 0; padding: 0; border: 0; outline: 0;font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline;}
 body {line-height: 1;color: black; background: #fff;}
@@ -26,7 +27,27 @@ html, body {margin: 0; padding: 0; overflow: hidden;}
   visibility: hidden;
 }
 
+
+
 /*** Darowski Arrows  http://tech.patientslikeme.com/2010/11/09/using-borders-to-make-pure-css-arrows/ ***/
+
+#bar.mini .primary {
+  margin: 8px 20px 0 0;
+  -webkit-box-shadow: 3px -3px 4px rgba(0,0,0,.3);
+  -moz-box-shadow: 3px -3px 4px rgba(0,0,0,.3);
+  -ms-box-shadow: 3px -3px 4px rgba(0,0,0,.3);
+  -o-box-shadow: 3px -3px 4px rgba(0,0,0,.3);
+  box-shadow: 3px -3px 4px rgba(0,0,0,.3);
+}
+
+#bar.expanded .primary {
+  margin: 8px 0 0 0;
+  -webkit-box-shadow: 0 -3px 4px rgba(0,0,0,.2);
+  -moz-box-shadow: 0 -3px 4px rgba(0,0,0,.2);
+  -ms-box-shadow: 0 -3px 4px rgba(0,0,0,.2);
+  -o-box-shadow: 0 -3px 4px rgba(0,0,0,.2);
+  box-shadow: 0 -3px 4px rgba(0,0,0,.2);
+}
 
 div.arrow {display: none;}
 
@@ -43,20 +64,19 @@ div.arrow {display: none;}
 }
 
 #bar {
-  -webkit-box-shadow: 0 3px 3px rgba(0,0,0,.35);
   position: absolute; 
   bottom: 0;
-  border-width: 1px 2px 1px 0;
-  border-style: solid;
-  border-color: rgba(0,0,0,.1);
-  /* width: 0; */  
- overflow: hidden; 
+  overflow: hidden; 
 }
 
 /*#bar.mini {width: auto; width: 95%;}*/
 
 #bar.mini a {
   -webkit-transition: all ease-in-out .13s; 
+  -moz-transition: all ease-in-out .13s;
+  -ms-transition: all ease-in-out .13s;
+  -o-transition: all ease-in-out .13s;
+  transition: all ease-in-out .13s;
 }
 
 span.jujitsu {
@@ -81,21 +101,30 @@ span.jujitsu {
 }
 
 .row.navigation {
-  background: -moz-linear-gradient(top, rgba(255,255,255,0.9) 0%, rgba(242,242,242,0.9) 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.95)), color-stop(100%,rgba(242,242,242,0.9))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, rgba(255,255,255,0.9) 0%,rgba(242,242,242,0.9) 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, rgba(255,255,255,0.9) 0%,rgba(242,242,242,0.9) 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, rgba(255,255,255,0.9) 0%,rgba(242,242,242,0.9) 100%); /* IE10+ */
-  background: linear-gradient(to bottom, rgba(255,255,255,0.9) 0%,rgba(242,242,242,0.9) 100%); /* W3C */
+  background: -moz-linear-gradient(top, rgba(255,255,255,0.9) 0%, rgba(242,242,242,0.9) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.95)), color-stop(100%,rgba(242,242,242,0.9)));
+  background: -webkit-linear-gradient(top, rgba(255,255,255,0.9) 0%,rgba(242,242,242,0.9) 100%);
+  background: -o-linear-gradient(top, rgba(255,255,255,0.9) 0%,rgba(242,242,242,0.9) 100%); 
+  background: -ms-linear-gradient(top, rgba(255,255,255,0.9) 0%,rgba(242,242,242,0.9) 100%);
+  background: linear-gradient(to bottom, rgba(255,255,255,0.9) 0%,rgba(242,242,242,0.9) 100%); 
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6ffffff', endColorstr='#e6f2f2f2',GradientType=0 ); /* IE6-9 */
+
+  border-top; 2px solid #ddd;
+  border-top: 1px solid rgba(0,0,0,.1);  
+
 }
 
 .row.content-pane {
   background: #444;
   background: rgba(0,0,0,.85);
-  padding: 2em 4em 2em 8em;
+  padding: 1em 4em 2em 8em;
   color: #fff; 
   position: relative;
+  overflow-y: scroll;
+}
+
+#bar.expanded .row.content-pane {
+  height: 14em;
 }
 
 /*
@@ -171,6 +200,8 @@ h2 {
  /* border: 1px solid grey; */
 }
 
+.navigation .right li a {padding: 1.5em .5em 1.5em 2.2em;}
+
 .left {float: left;}
 #bar.mini .left {float: none;}
 .left.first {border-left: none; }
@@ -186,20 +217,19 @@ ul.right {text-align: right; display: block; float: right;}
 
 /*** Icon Sprites ***/
 .navigation li.mygov a {background:  url("img/sprite.png") 0 -1308px no-repeat;}
-.navigation li.notifications a {background: url("img/sprite.png") 0 -104px no-repeat; }
-.navigation li.search a {background:  url("img/sprite.png") 0 -706px no-repeat; }
-.navigation li.feedback a {background: url("img/sprite.png") 0 -104px no-repeat; }
-.navigation li.related a {background:  url("img/sprite.png") 0 -946px no-repeat; }
-.navigation li.tags a{background:  url("img/sprite.png") 0 -825px no-repeat; }
-.navigation li.settings a {background:  url("img/sprite.png") 0 -224px no-repeat;  }
+.navigation li.notifications a {background: url("img/sprite.png") 0 -104px no-repeat;}
+.navigation li.search a {background:  url("img/sprite.png") 0 -706px no-repeat;}
+.navigation li.feedback a {background: url("img/sprite.png") 0 -104px no-repeat;}
+.navigation li.related a {background:  url("img/sprite.png") 0 -946px no-repeat;}
+.navigation li.tags a{background:  url("img/sprite.png") 0 -825px no-repeat;}
+.navigation li.close-this a{background:  url("img/sprite.png") 0 -1433px no-repeat;}
+.navigation li.settings a {background:  url("img/sprite.png") 0 -224px no-repeat;}
 .navigation li.state a {background: url("img/sprite.png") 0 -344px no-repeat;}
 
 #bar.mini .navigation li {display: block;}
 #bar.mini .navigation li a {padding: .75em .5em 1em .5em; display: block;}
 
 #bar.mini .navigation .right li {float: none; display: inline-block;}
-
-#bar.mini .navigation .right li a {}
 
 #bar.mini .navigation li a span {text-indent: -9999em; display: block;}
 
@@ -210,25 +240,24 @@ ul.right {text-align: right; display: block; float: right;}
 #bar.mini .navigation li.close-this a:hover,
 #bar.mini .navigation li.expand a:active {text-decoration: underline;}
 
-
 #bar.mini .navigation li.expand a:hover,
 #bar.mini .navigation li.expand a:active {
-  background: #F0F0F0 url("img/sprite.png") 0 -1561px no-repeat;
+  background: #F0F0F0 url("img/sprite.png") -10px -1561px no-repeat;
 }
 
 #bar.mini .navigation li.expand a:hover,
 #bar.mini .navigation li.expand a:active {
-  background: rgba(0,0,0,.05) url("img/sprite.png") 0 -1561px no-repeat;
+  background: rgba(0,0,0,.05) url("img/sprite.png") -10px -1561px no-repeat;
 }
 
 #bar.mini .navigation li.close-this a:hover,
 #bar.mini .navigation li.close-this a:active {
-  background: #F0F0F0 url("img/sprite.png") 0 -1443px no-repeat;
+  background: #F0F0F0 url("img/sprite.png") -10px -1443px no-repeat;
 }
 
 #bar.mini .navigation li.close-this a:hover,
 #bar.mini .navigation li.close-this a:active {
-  background: rgba(0,0,0,.05) url("img/sprite.png") 0 -1443px no-repeat;
+  background: rgba(0,0,0,.05) url("img/sprite.png") -10px -1443px no-repeat;
 }
 
 #bar.mini .navigation li.expand a, #bar.mini .navigation li.close-this a {padding-left: 18px;}
@@ -242,7 +271,6 @@ ul.right {text-align: right; display: block; float: right;}
 #bar.mini ul.content-links li:last-child {border-bottom: none;}
 #bar.mini ul.content-links li a {background:  url("img/sprite.png") 0 -1680px no-repeat; padding: .75em .75em .75em 30px; display: block; font-weight: normal;}
 
-#bar.mini ul.content-links li a.title {}
 
 #bar.mini ul.content-links li a .domain {}
 #bar.mini ul.content-links li:hover {background: none; }
@@ -253,8 +281,8 @@ ul.right {text-align: right; display: block; float: right;}
 #bar.mini .row.content-pane ul.content-links li {display: block; float: none; width: 100%;}
 
 #bar.mini .navigation li.mygov a {background:  url("img/sprite.png") 50% -1316px no-repeat;}
-#bar.mini .navigation li.expand a {background:  url("img/sprite.png") 0 -1561px no-repeat;}
-#bar.mini .navigation li.close-this a {background:  url("img/sprite.png") 0 -1443px no-repeat;}
+#bar.mini .navigation li.expand a {background:  url("img/sprite.png") -10px -1561px no-repeat;}
+#bar.mini .navigation li.close-this a {background:  url("img/sprite.png") -10px -1443px no-repeat;}
 #bar.mini .navigation li.notifications a {background: url("img/sprite.png") -104px -104px no-repeat;}
 #bar.mini .navigation li.search a {background:  url("img/sprite.png") 50% -706px no-repeat;}
 #bar.mini .navigation li.tags a {background:  url("img/sprite.png") 50% -825px no-repeat;}
@@ -300,7 +328,6 @@ a span.domain {display: block; font-size: .8em; color: #eee; color: rgba(255,255
   position: absolute;
   left: -9999em;
   display: block;
-  padding: 0;
   }
   
  #bar.expanded .navigation .left li a span.jujitsu {
@@ -319,11 +346,13 @@ a span.domain {display: block; font-size: .8em; color: #eee; color: rgba(255,255
   }
   
   
-  #bar.expanded .navigation ul.left {width: 71.4285715%; /* background: pink; */}
-  #bar.expanded .navigation ul.right {width: 28.5714286%; /*background: green; */ float: right; }
+  #bar.expanded .navigation ul.left {width: 71.4285715%;}
+  #bar.expanded .navigation ul.right {width: 28.5714286%; float: right;  }
   
-  #bar.expanded .navigation .left li {width: 20%; margin: 0; padding: 0;}
-  #bar.expanded .navigation .right li {width: 50%; margin: 0; padding: 0; }
+  #bar.expanded .navigation .left li {/*width: 20%;*/ width: 16.666667%; margin: 0; padding: 0;}
+  #bar.expanded .navigation .right li {width: 50%; margin: 0; padding: 0;  }
+  
+  #bar.expanded .navigation li {padding: 0; margin: 0;}
   #bar.expanded .navigation li a {padding: 1.8em 0;}
   
   #bar.expanded .navigation li.mygov a {background:  url("img/sprite.png") 50% -1074px no-repeat;  }
@@ -331,6 +360,7 @@ a span.domain {display: block; font-size: .8em; color: #eee; color: rgba(255,255
   #bar.expanded .navigation li.search a {background:  url("img/sprite.png") 50% -711px no-repeat;  }
   #bar.expanded .navigation li.related a {background:  url("img/sprite.png") 50% -950px no-repeat;  }
   #bar.expanded .navigation li.tags a {background:  url("img/sprite.png") 50% -829px no-repeat;  }
+  #bar.expanded .navigation li.close-this a {background:  url("img/sprite.png") 50% -1443px no-repeat; padding: 1.3em .5em 1.3em 20px;  }
   #bar.expanded .navigation li.settings a {background:  url("img/sprite.png") 50% -229px no-repeat; border-left: none;}
   #bar.expanded .navigation li.state a {background: url("img/sprite.png") 50% -350px no-repeat;}
   
@@ -340,21 +370,21 @@ a span.domain {display: block; font-size: .8em; color: #eee; color: rgba(255,255
   #bar.expanded .row.content-pane .right {margin: 0 0 3em 0;}
 
   #bar.expanded .row.content-pane .left {border-left: none; padding-left: 0; padding-bottom: 2em;}
-  #bar.expanded .row.content-pane .left.first { margin: 0 0 1em 0;  border-bottom: 1px solid rgba(255,255,255,.1);}
+  #bar.expanded .row.content-pane .left.first {margin: 0 0 1em 0;}
   #bar.expanded .row.content-pane .left.first.single {border-bottom: none;}
   
   #bar.mini .navigation li {width: auto;  margin: 0;}
   #bar.mini .navigation li.related a span {position: relative; text-indent: 0; left: 0;}
 }
 
-/* BB ADDED */
-#bar.signed-out li.notifications, #bar.signed-out li.settings { display: none; }
+/*** BB ADDED ***/
+#bar.signed-out li.notifications, #bar.signed-out li.settings {display: none;}
 body {background: transparent; }
 #bar.expanded .expand { display: none; }
 #bar.hidden { width: 0px; }
 #bar #tabs li { display: none; }
 #bar #tabs li.activated { display: block; }
-#search_result { width: 100%; margin: 0; padding; 0; height: 100%; }
+#search_result { width: 100%; margin: 0; padding: 0; height: 100%;}
 body { overflow: hidden; }
 
 /*** Content pane ***/
@@ -364,10 +394,10 @@ body { overflow: hidden; }
   font-size: 1.2em;
   font-weight: 200;
   line-height: 1.3em;
-  margin-bottom: .5em;
+  margin-bottom: .35em;
 }
 
-.content-pane li {
+.content-pane .content-links li {
   border-bottom: 1px solid #ccc;
   border-bottom: 1px solid rgba(255,255,255,.1);
 }
@@ -382,39 +412,49 @@ form#search {
 }
 
 #search label {
-  text-indent: -9999em;
+  font-size: 1.35em;
+  position: relative;
+  left: 0;
+  margin: 0 0 .35em 0;
   display: block;
+  color: #fff;
+  font-weight: 200;
 }
 
 input#search_query {
   -webkit-appearance: none;
   border-radius: none;
   border: none; 
-  padding: 1em .5em;
+  padding: 1em 0 1em .5em;
   display: inline-block;
   width: 80%;
   border: 1px solid #fff;
   border: 2px solid rgba(255,255,255,.1);
   background: #fff;
-  background: rgba(255,255,255,.88);
+  background: rgba(255,255,255,.95);
   height: 3em;
   vertical-align: top;
-  color: #fff;
+  color: #132138;
+  font-size: 1.1em;
   display: inline-block;
 }
 
-textarea#comment {height: 5em; display: inline-block;}
 
 input#search_query:active,
-input#search_query:focus {background: rgba(255,255,255,1);}
+input#search_query:focus {background: rgba(255,255,255,1); outline: none; border: 2px solid rgba(255,255,255,.3);}
 
 input.btn {
-  font-size: 1.2em; 
+  font-size: 1.3em; 
   vertical-align: top;
   background: #2A6588; 
   color: #fff; 
-  height: 2em;
-  -webkit-border-radius: .1em; border: none; 
+  height: 2.6em;
+  -webkit-border-radius: .1em; 
+  -moz-border-radius: .1em; 
+  -ms-border-radius: .1em; 
+  -o-border-radius: .1em; 
+  border-radius: .1em; 
+  border: none; 
   margin: 0;
   text-shadow: 0 -1px 0 rgba(0,0,0,.2);
 }
@@ -433,16 +473,26 @@ input.btn {
 
 
 /*** Tags ***/
+
+.primary li.tag {display: none;}
+
+p.info {font-size: .9em; color: #eee; color: rgba(255,255,255,.8); margin: 0 0 1em 0; display: block; }
+
+#tag_form {font-size: 1.5em;}
+
 /*** Feedback ***/
 #comment_submitted { display: none; }
 
 .rating, .comments {float: left;}
 
-.comments {margin: 0 0 0 10%;}
+textarea#comment {height: 5em; display: inline-block; width: 20em; margin-bottom: .25em;}
+
+.rating {width: 35%;}
+.comments {margin-left: 10%; padding-left: 10%; border-left: 1px solid #343434; width: 50%;}
 
 /* jQuery.Rating Plugin CSS - http://www.fyneworks.com/jquery/star-rating/ */
 div.rating-cancel,div.star-rating{float:left;width:17px;height:15px;text-indent:-999em;cursor:pointer;display:block;background:transparent;overflow:hidden}
-div.rating-cancel,div.rating-cancel a{background:url({{site.url}}/img/delete.gif) no-repeat 0 -16px}
+div.rating-cancel,div.rating-cancel a{background:url({{site.url}}/img/delete.png) no-repeat 0 -16px}
 div.rating-cancel {display:none;}
 div.star-rating,div.star-rating a{background:url({{site.url}}/img/star.png) no-repeat 0 0px}
 div.rating-cancel a,div.star-rating a{display:block;width:16px;height:100%;background-position:0 0px;border:0}

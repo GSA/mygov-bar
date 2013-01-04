@@ -20,8 +20,8 @@
 <form id="feedback">
 
     <h3>Give us your thoughts</h3>
-    <textarea id="comment" name="comment"></textarea>
-    <input type="submit" class="btn" />
+    <textarea id="comment" name="comment" style="width: 100%;"></textarea>
+    <input type="submit" class="btn" value="Send" />
 
 </form>
 
