@@ -1,7 +1,7 @@
 <div class="rating">
 
   <h3>Was this page helpful?</h3>
-  <div id="stars">
+  <div id="stars" class="group">
     <input name="rating" type="radio" class="star" value="1"/>
     <input name="rating" type="radio" class="star" value="2"/>
     <input name="rating" type="radio" class="star" value="3"/>
