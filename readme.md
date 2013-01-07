@@ -41,9 +41,10 @@ Contributing
 
 1. Clone the repository
 2. Install [Ruby](http://www.ruby-lang.org/en/downloads/)
-3. Install Jekyll (`gem install jekyll`)
-4. Install [Node](http://nodejs.org/)
-5. `npm install`
+3. Install [Jekyll](http://jekyllrb.com/) (`gem install jekyll`)
+4. Install [Node](http://nodejs.org/) (e.g., `brew install node`)
+5. Install [NPM](https://npmjs.org/) `curl https://npmjs.org/install.sh | sudo sh`
+6. Run the command `npm install` from the repository folder
 7. (make changes)
 8. `grunt`
 
@@ -60,6 +61,13 @@ Grunt Tasks
 * `grunt less` - TODO
 * `grunt jst` - TODO
 * `grunt jekyll` - start jekyll server
+
+Deploying to Static
+-------------------
+
+Running the command `grunt` from the repository folder will generate a static site to the `_site` folder. This folder can be safely copied to static hosting such as S3, or can be hosted on a lightweight server with GZIP and high browser-caching such as Nginx. Running `grunt` and pushing the repository to GitHub will also generate the hosted site.
+
+Several Grunt plugins can automate the processes of deploying static sites. Simply search for e.g., `grunt contrib s3`, or `grunt deploy`.
 
 Under the Hood
 --------------

@@ -78,9 +78,9 @@ module.exports = (grunt) ->
         url: "http://localhost:4000"
         server: true
         auto: true
-      watch:
-        url: "http://localhost:4000"
-        server: true
+      build:
+        server: false
+        auto: false
         
     imagemin:
       img: 
@@ -123,5 +123,5 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-less'
   grunt.loadNpmTasks 'grunt-contrib-jst'
 
-  grunt.registerTask 'default', ['concat', 'coffee', 'coffeelint', 'jst', 'uglify', 'mincss', 'imagemin', 'clean']
+  grunt.registerTask 'default', ['concat', 'coffee', 'coffeelint', 'jst', 'uglify', 'mincss', 'imagemin', 'clean', 'jekyll:build']
   grunt.registerTask 'server', ['default', 'jekyll']
