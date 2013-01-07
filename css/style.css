@@ -15,7 +15,7 @@ li {list-style: none; position: relative;}
 a {color: #444; text-decoration: none;}
 div, li {-webkit-box-sizing: border-box; -moz-box-sizing: border-box; -o-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box;}
 
-html, body {margin: 0; padding: 0; overflow: hidden;}
+html, body {margin: 0; padding: 0; overflow: hidden; text-align: left;}
 
 /*** Clearing Floats - Dan Cederholm ***/
 .group:after{
@@ -55,21 +55,17 @@ div.arrow {display: none;}
   bottom: 0;
   left: 40%;
   border-top: 8px solid transparent;
-  border-bottom: 8px solid #4D4D4D;
+  border-bottom: 8px solid #606060;
   border-bottom: 8px solid rgba(70,70,70,.95);
   border-right: 8px solid transparent;
   border-left: 8px solid transparent;
 }
 
-#bar {
-  position: absolute; 
-  bottom: 0;
-  overflow: hidden; 
-}
+#bar {position: absolute; bottom: 0; overflow: hidden;}
 
 /*#bar.mini {width: auto; width: 95%;}*/
 
-#bar.mini a {
+#bar.mini a, #bar.expanded .content-links a {
   -webkit-transition: all ease-in-out .13s; 
   -moz-transition: all ease-in-out .13s;
   -ms-transition: all ease-in-out .13s;
@@ -92,11 +88,7 @@ span.jujitsu {
   left: 1.8em;  
 }
 
-.row {
-  clear: both;
-  margin: 0; 
-  display: block;
-}
+.row {clear: both; margin: 0; display: block;}
 
 .row.navigation {
   background: -moz-linear-gradient(top, rgba(255,255,255,0.95) 0%, rgba(242,242,242,0.95) 100%);
@@ -106,25 +98,30 @@ span.jujitsu {
   background: -ms-linear-gradient(top, rgba(255,255,255,0.95) 0%,rgba(242,242,242,0.9) 100%);
   background: linear-gradient(to bottom, rgba(255,255,255,0.95) 0%,rgba(242,242,242,0.9) 100%); 
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6ffffff', endColorstr='#e6f2f2f2',GradientType=0 ); /* IE6-9 */
-
   border-top; 2px solid #ddd;
   border-top: 1px solid rgba(0,0,0,.1);  
-
 }
 
 .row.content-pane {
-  background: #4D4D4D;
-  background: rgba(70,70,70,.95);
-  padding: 2em 10% 2em 10%;
+  
+  background: -moz-linear-gradient(top,  rgba(100,100,100,0.95) 0%, rgba(100,100,100,0.95) 1%, rgba(70,70,70,0.95) 91%, rgba(70,70,70,0.95) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(100,100,100,0.95)), color-stop(1%,rgba(100,100,100,0.95)), color-stop(91%,rgba(70,70,70,0.95)), color-stop(100%,rgba(70,70,70,0.95))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(100,100,100,0.95) 0%,rgba(100,100,100,0.95) 1%,rgba(70,70,70,0.95) 91%,rgba(70,70,70,0.95) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(100,100,100,0.95) 0%,rgba(100,100,100,0.95) 1%,rgba(70,70,70,0.95) 91%,rgba(70,70,70,0.95) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(100,100,100,0.95) 0%,rgba(100,100,100,0.95) 1%,rgba(70,70,70,0.95) 91%,rgba(70,70,70,0.95) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(100,100,100,0.95) 0%,rgba(100,100,100,0.95) 1%,rgba(70,70,70,0.95) 91%,rgba(70,70,70,0.95) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2646464', endColorstr='#f2464646',GradientType=0 ); /* IE6-9 */
+
+  
+  
+  padding: 1.3em 4% 1em 4%;
   color: #fff; 
   position: relative;
   overflow-y: scroll;
+  -webkit-box-shadow: 0 5px 4px rgba(0,0,0,.1) inset;
 }
 
-
-#bar.expanded .row.content-pane {
-  height: 14em;
-}
+#bar.expanded .row.content-pane {height: 13em;}
 
 /*
 
@@ -215,12 +212,11 @@ h2 {
 
 ul.right {text-align: right; display: block; float: right;}
 
-
 /*** Icon Sprites ***/
 .navigation li.mygov a {background:  url("../img/sprite.png") 0 -1308px no-repeat;}
-.navigation li.notifications a {background: url("../img/sprite.png") 0 -104px no-repeat;}
+.navigation li.notifications a {background: url("../img/sprite.png") 0 -109px no-repeat;}
 .navigation li.search a {background:  url("../img/sprite.png") 0 -706px no-repeat;}
-.navigation li.feedback a {background: url("../img/sprite.png") 0 -104px no-repeat;}
+.navigation li.feedback a {background: url("../img/sprite.png") 0 -103px no-repeat;}
 .navigation li.related a {background:  url("../img/sprite.png") 0 -946px no-repeat;}
 .navigation li.tags a{background:  url("../img/sprite.png") 0 -825px no-repeat;}
 .navigation li.close-this a{background:  url("../img/sprite.png") 0 -1433px no-repeat;}
@@ -267,15 +263,13 @@ ul.right {text-align: right; display: block; float: right;}
 
 #bar.mini .navigation li.related a {font-weight: bold; background: none; padding-left: .75em; }
 #bar.mini .navigation li.related a span {text-indent: 0; background: none; padding-left: .2em;}
-#bar ul.content-links {margin: 0; display: block; width: 100%;}
-#bar ul.content-links li {display: block; float: none; width: 100%; padding: 0; line-height: 1.3em; margin: 0; border-left: none; }
+#bar ul.content-links {margin: 0; display: block;}
+#bar ul.content-links li {display: block; float: none; padding: 0; line-height: 1.3em; margin: 0; border-left: none; }
 #bar ul.content-links li:last-child {border-bottom: none;}
-#bar ul.content-links li a {background:  url("../img/sprite.png") 0 -1680px no-repeat; color: #fff; padding: .75em .75em .75em 30px; display: block; font-weight: normal;}
-
+#bar ul.content-links li a {background:  url("../img/sprite.png") 100% -1680px no-repeat; color: #fff; padding: .75em 30px .75em .25em; display: block; font-weight: normal;}
 
 #bar ul.content-links li a .domain {}
-#bar ul.content-links li:hover {background: none; }
-#bar ul.content-links li a:hover, #bar .navigation li ul.content-links li a:active {background: rgba(255,255,255,.1) url("../img/sprite.png") 0 -1680px no-repeat;}
+#bar ul.content-links li a:hover, #bar ul.content-links li a:active {background: rgba(255,255,255,.1) url("../img/sprite.png") 100% -1680px no-repeat;}
 
 #bar.mini .row.content-pane {padding:0;}
 #bar.mini .row.content-pane a {color: #fff;}
@@ -323,6 +317,9 @@ a span.domain {display: block; font-size: .8em; color: #eee; color: rgba(255,255
 #bar.expanded .content-list a {cursor: pointer;}
 
 @media only screen and (max-width: 840px) {
+  
+  input#search_query {width: 100%;}
+  
    
   #bar.expanded .navigation .left li a span {
   position: absolute;
@@ -345,8 +342,6 @@ a span.domain {display: block; font-size: .8em; color: #eee; color: rgba(255,255
   left: 55%;
   }
   
-  
-  
   #bar.expanded .navigation ul.left {width: 71.4285715%;}
   #bar.expanded .navigation ul.right {width: 28.5714286%; float: right;  }
   
@@ -356,16 +351,17 @@ a span.domain {display: block; font-size: .8em; color: #eee; color: rgba(255,255
   #bar.expanded .navigation li {padding: 0; margin: 0;}
   #bar.expanded .navigation li a {padding: 1.8em 0;}
   
-  #bar.expanded .navigation li.mygov a {background:  url("../img/sprite.png") 50% -1074px no-repeat;  }
-  #bar.expanded .navigation li.notifications a {background: url("../img/sprite.png") 50% -109px no-repeat;}
-  #bar.expanded .navigation li.search a {background:  url("../img/sprite.png") 50% -711px no-repeat;  }
+  #bar.expanded .navigation li.mygov a {background:  url("../img/sprite.png") 50% -1308px no-repeat;  }
+  #bar.expanded .navigation li.notifications a {background: url("../img/sprite.png") 50% -110px no-repeat;}
+  #bar.expanded .navigation li.search a {background:  url("../img/sprite.png") 50% -710px no-repeat;  }
   #bar.expanded .navigation li.related a {background:  url("../img/sprite.png") 50% -950px no-repeat;  }
+  #bar.expanded .navigation li.feedback a {background: url("../img/sprite.png") 50% -105px no-repeat;}
   #bar.expanded .navigation li.tags a {background:  url("../img/sprite.png") 50% -829px no-repeat;  }
-  #bar.expanded .navigation li.close-this a {background:  url("../img/sprite.png") 50% -1443px no-repeat; padding: 1.3em .5em 1.3em 20px;  }
+  #bar.expanded .navigation li.close-this a {background:  url("../img/sprite.png") 50% -1438px no-repeat; padding: 1.3em .5em 1.3em 0;}
   #bar.expanded .navigation li.settings a {background:  url("../img/sprite.png") 50% -229px no-repeat; border-left: none;}
   #bar.expanded .navigation li.state a {background: url("../img/sprite.png") 50% -350px no-repeat;}
-  
-  #bar.expanded .row.content-pane {padding: 1em 2em 1em 5em;}
+
+  #bar.expanded .navigation li.close-this a span {display: block; position: absolute; left: -9999em;}
 
   #bar.expanded .row.content-pane .right, #bar.expanded .row.content-pane .left {display: block; float: none; clear: both; width: 100%;}
   #bar.expanded .row.content-pane .right {margin: 0 0 3em 0;}
@@ -381,7 +377,9 @@ a span.domain {display: block; font-size: .8em; color: #eee; color: rgba(255,255
 /*** BB ADDED ***/
 #bar.signed-out li.notifications, #bar.signed-out li.settings {display: none;}
 body {background: transparent; }
+
 #bar.expanded .expand { display: none; }
+
 #bar.hidden { width: 0px; }
 #bar #tabs li { display: none; }
 #bar #tabs li.activated { display: block; }
@@ -394,13 +392,15 @@ body { overflow: hidden; }
   font-weight: normal;
   font-size: 1.2em;
   font-weight: 200;
+  font-weight: bold;
+  font-weight: 200;
   line-height: 1.3em;
   margin-bottom: .35em;
 }
 
 .content-pane .content-links li {
   border-bottom: 1px solid #ccc;
-  border-bottom: 1px solid rgba(255,255,255,.05);
+  border-bottom: 1px solid rgba(255,255,255,.075);
 }
 
 
@@ -409,7 +409,6 @@ body { overflow: hidden; }
 form#search {
   display: block;
   width: 100%;
-
 }
 
 #search label {
@@ -427,6 +426,7 @@ input#search_query {
   border-radius: none;
   border: none; 
   padding: 1em 0 1em .5em;
+  margin-bottom: .5em;
   display: inline-block;
   width: 80%;
   border: 1px solid #fff;
@@ -445,52 +445,54 @@ input#search_query {
   border-radius: .2em;
 }
 
+#bar ul.content-links.search {display: block; }
+
+.action {float: right; width: 20%; margin-left: 5%; padding-left: 5%; text-align: right;}
 
 input#search_query:active,
 input#search_query:focus {background: rgba(255,255,255,1); outline: none; border: 2px solid rgba(255,255,255,.3);}
 
+h3 em {font-style: italic; font-weight: 100; letter-spacing: .05em;}
+
+h3 a {color: #fff; color: rgba(255,255,255,.8); border-left: 1px solid rgba(255,255,255,.1); padding-left: 1em; margin-left: 1em; text-decoration: underline; font-weight: normal;}
+
 /*** Don't push the red button ***/
 
-@-webkit-keyframes bluePulse {
+@-webkit-keyframes buttonPulse {
   from { background-color: #036686; -webkit-box-shadow: 0 0 9px #333; }
   50% { background-color: #1085A0; -webkit-box-shadow: 0 0 18px #036686; }
   to { background-color: #036686; -webkit-box-shadow: 0 0 9px #333; }
 }
 
-@-moz-keyframes bluePulse {
-  from { background-color: #036686; -webkit-box-shadow: 0 0 9px #333; }
-  50% { background-color: #1085A0; -webkit-box-shadow: 0 0 18px #036686; }
-  to { background-color: #036686; -webkit-box-shadow: 0 0 9px #333; }
+@-moz-keyframes buttonPulse {
+  from { background-color: #036686; -moz-box-shadow: 0 0 9px #333; }
+  50% { background-color: #1085A0; -moz-box-shadow: 0 0 18px #036686; }
+  to { background-color: #036686; -moz-box-shadow: 0 0 9px #333; }
 }
 
-@-ms-keyframes bluePulse {
-  from { background-color: #036686; -webkit-box-shadow: 0 0 9px #333; }
-  50% { background-color: #1085A0; -webkit-box-shadow: 0 0 18px #036686; }
-  to { background-color: #036686; -webkit-box-shadow: 0 0 9px #333; }
+@-ms-keyframes buttonPulse {
+  from { background-color: #036686; -ms-box-shadow: 0 0 9px #333; }
+  50% { background-color: #1085A0; -ms-box-shadow: 0 0 18px #036686; }
+  to { background-color: #036686; -ms-box-shadow: 0 0 9px #333; }
 }
 
-@-o-keyframes bluePulse {
-  from { background-color: #036686; -webkit-box-shadow: 0 0 9px #333; }
-  50% { background-color: #1085A0; -webkit-box-shadow: 0 0 18px #036686; }
-  to { background-color: #036686; -webkit-box-shadow: 0 0 9px #333; }
+@-o-keyframes buttonPulse {
+  from { background-color: #036686; -o-box-shadow: 0 0 9px #333; }
+  50% { background-color: #1085A0; -o-box-shadow: 0 0 18px #036686; }
+  to { background-color: #036686; -o-box-shadow: 0 0 9px #333; }
 }
 
-@keyframes bluePulse {
-  from { background-color: #036686; -webkit-box-shadow: 0 0 9px #333; }
-  50% { background-color: #1085A0; -webkit-box-shadow: 0 0 18px #036686; }
-  to { background-color: #036686; -webkit-box-shadow: 0 0 9px #333; }
+@keyframes buttonPulse {
+  from { background-color: #036686; box-shadow: 0 0 9px #333; }
+  50% { background-color: #1085A0; box-shadow: 0 0 18px #036686; }
+  to { background-color: #036686; box-shadow: 0 0 9px #333; }
 }
 
 
-
-
-
-input.btn {
+input.btn, a.btn {
   font-size: 1.3em; 
-  vertical-align: top;
   background: #2A6588; 
   color: #fff; 
-  height: 2.6em;
   -webkit-border-radius: .1em; 
   -moz-border-radius: .1em; 
   -ms-border-radius: .1em; 
@@ -498,6 +500,8 @@ input.btn {
   border-radius: .1em; 
   border: none; 
   margin: 0;
+  display: inline-block;
+  padding: .4em 1em;
   text-shadow: 0 -1px 0 rgba(0,0,0,.2);
   
   -webkit-border-radius: .2em;
@@ -506,37 +510,41 @@ input.btn {
   -o-border-radius: .2em;
   border-radius: .2em;
   
-  -webkit-animation-name: bluePulse;
+  -webkit-animation-name: buttonPulse;
   -webkit-animation-duration: 3s;
   -webkit-animation-iteration-count: infinite;
   
-  -moz-animation-name: bluePulse;
+  -moz-animation-name: buttonPulse;
   -moz-animation-duration: 3s;
   -moz-animation-iteration-count: infinite;
   
-  -o-animation-name: bluePulse;
+  -o-animation-name: buttonPulse;
   -o-animation-duration: 3s;
   -o-animation-iteration-count: infinite;
   
-  -ms-animation-name: bluePulse;
+  -ms-animation-name: buttonPulse;
   -ms-animation-duration: 3s;
   -ms-animation-iteration-count: infinite;
   
-  animation-name: bluePulse;
+  animation-name: buttonPulse;
   animation-duration: 3s;
   animation-iteration-count: infinite;
   
 }
 
+input.btn.search {height: 2.6em;}
 
-/* pro-top: use named colors to drive designers crazy */
+.content-links.search {font-size: .8em;}
+
 .search-result .results li a { color: white; text-decoration: none; font-weight: bold; }
 .search-result .results li a:hover { text-decoration: underline; }
-.search-result .results li .excerpt { display: block; }
-.search-result .results li { margin-bottom: 5px; }
+.search-result .results li span.excerpt { display: block; font-size: .75em; font-weight: normal; color: #fff; color: rgba(255,255,255,.9); padding: .2em 0 .75em 0; }
+.search-result .results li { margin-bottom: .4em; border-bottom: 1px solid rgba(255,255,255,.05);}
 .search-result a.more-link { color: white; }
-.search-result .results .highlight { color: fuchsia }
+.search-result .results .highlight { color: #AEA888 }
 .search-result h3 { margin-bottom: 10px; font-weight: bold; }
+.search-result a.title {text-decoration: underline; display: inline-block;}
+
 
 /** Related ***/
 
@@ -552,26 +560,39 @@ p.info {font-size: .9em; color: #eee; color: rgba(255,255,255,.8); margin: 0 0 1
 
 #stars {
   background: rgba(255,255,255,.05);
-  padding: 2em 1em;
+  padding: 1em 1em;
   -webkit-border-radius: .3em;
   border-bottom: 1px solid rgba(255,255,255,.2);
   border-top: 1px solid rgba(0,0,0,.1);
 }
 
-.text-core .text-wrap .text-tags .text-tag .text-button {font-size: 1.3em;}
+
 
 #comment_submitted { display: none; }
 
 .rating, .comments {float: left;}
 
-textarea#comment {height: 5em; display: inline-block; width: 20em; margin-bottom: .25em;}
+textarea#comment {
+  height: 5em; 
+  display: inline-block; 
+  margin-bottom: .25em;
+  -webkit-border-radius: .2em;
+  -moz-border-radius: .2em;
+  -o-border-radius: .2em;
+  -ms-border-radius: .2em;
+  border-radius: .2em;
+  }
 
 .text-wrap {width: 65%; height: 80%;}
 
 #tag_list {width: 60%;}
 
 .rating {width: 35%;}
-.comments {margin-left: 10%; padding-left: 10%; border-left: 1px solid #343434; width: 50%;}
+.comments {margin-left: 10%; padding-left: 10%; border-left: 1px solid rgba(255,255,255,.1); width: 50%;}
+
+#bar .text-core .text-wrap .text-tags .text-tag .text-button {font-size: .9em; margin: .5em; font-family: inherit; display: inline-block; height: auto;}
+#bar .text-core .text-wrap .text-tags {line-height: 2em;}
+
 
 /* jQuery.Rating Plugin CSS - http://www.fyneworks.com/jquery/star-rating/ */
 div.rating-cancel,div.star-rating{float:left;width:17px;height:15px;text-indent:-999em;cursor:pointer;display:block;background:transparent;overflow:hidden}
