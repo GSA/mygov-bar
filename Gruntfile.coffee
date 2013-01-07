@@ -24,8 +24,6 @@ module.exports = (grunt) ->
           forceWatchMethod: 'old'
                   
     uglify:
-      options:
-        banner: '/*! <%= pkg.name %> — <%= pkg.version %> — <%= grunt.template.today("yyyy-mm-dd H:s") %> */\n'
       app:
         files:
           "_includes/js/mygovbar.js": "_includes/js/mygovbar.js"
