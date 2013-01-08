@@ -125,7 +125,7 @@ module.exports = (grunt) ->
     
     mocha:
       embed:
-        src: "test/embed.html"
+        src: "_test/embed.html"
         options:
           run: true
                  
