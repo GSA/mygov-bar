@@ -125,6 +125,9 @@ span.jujitsu {
 
 #bar.expanded .row.content-pane {height: 13em;}
 
+#bar.mini li.expand span.less {display: none;}
+#bar.expanded li.expand span.more {display: none;}
+
 /*
 
 a.close {
@@ -233,8 +236,6 @@ ul.right {text-align: right; display: block; float: right;}
 #bar.mini .navigation li a span {text-indent: -9999em; display: block;}
 
 #bar.mini .navigation li.expand a span, #bar.mini .navigation li.close-this a span {text-indent: 0; }
-
-#bar.mini .navigation li.expand span. {}
 
 #bar.mini .navigation li.expand a:hover,
 #bar.mini .navigation li.expand a:active,  
