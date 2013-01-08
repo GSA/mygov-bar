@@ -6,6 +6,7 @@ class MyGovBar.Views.Mini extends Backbone.View
     "click .expand a": "toggle"
     "click #tabs li.related a": "related"
     "click #close-bar": "close"
+    "click .less": "minify"
   
   render: ->
     @$el.clearQueue()
@@ -29,3 +30,7 @@ class MyGovBar.Views.Mini extends Backbone.View
 
   close: (e) ->
     MyGovBar.router.go 'hidden', e
+
+  minify: (e) ->
+    MyGovBar.router.go 'mini', e
+    @related()

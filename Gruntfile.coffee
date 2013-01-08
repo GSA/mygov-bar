@@ -24,7 +24,7 @@ module.exports = (grunt) ->
           forceWatchMethod: 'old'
       test:
         files: "test/*.coffee"
-        task: "coffee:test"
+        tasks: "coffee:test"
         options:
           interrupt: true
           forceWatchMethod: 'old'                 
