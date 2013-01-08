@@ -24,6 +24,14 @@ permalink: /index.html
 
 *Instructions: Right click, select save as, navigate to window->extensions, drag file into extensions window*
 
+## Widget
+
+```
+{% include related-widget.html %}
+```
+
+{% include related-widget.html %}
+
 ## Example
 
 (*Scroll down...*)

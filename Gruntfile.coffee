@@ -34,7 +34,10 @@ module.exports = (grunt) ->
       bookmarklet:
         files: 
           "_includes/js/bookmarklet.js": "_includes/js/bookmarklet.js"
-          
+      widget:
+        files:
+          "_includes/js/related-widget.js": "_includes/js/related-widget.js"
+
     concat:
       coffee:
         src: ["_cs/lib/*", "_cs/app/models/*", "_cs/app/views/*", "_cs/app/crossdomain.coffee", "_cs/app/router.coffee", "_cs/app/init.coffee"]
@@ -53,6 +56,9 @@ module.exports = (grunt) ->
       bookmarklet: 
         files:
           "_includes/js/bookmarklet.js": "_cs/bookmarklet.coffee"
+      widget:
+        files:
+          "_includes/js/related-widget.js": "_cs/related-widget.coffee"
           
     coffeelint:
       app: ["_cs/app/*.coffee", "_cs/app/*/*.coffee" ]
