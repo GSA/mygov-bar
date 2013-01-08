@@ -128,7 +128,7 @@ module.exports = (grunt) ->
         src: "_test/embed.html"
         options:
           run: true
-                 
+                     
   grunt.loadNpmTasks 'grunt-contrib-concat'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
@@ -142,6 +142,31 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-less'
   grunt.loadNpmTasks 'grunt-contrib-jst'
   grunt.loadNpmTasks 'grunt-mocha'
-
-  grunt.registerTask 'default', ['concat', 'coffee', 'coffeelint', 'jst', 'uglify', 'mincss', 'imagemin', 'clean', 'jekyll:build', 'mocha' ]
+  
+  grunt.registerTask 'bump', 'Increment the version number', ->
+  
+    regex = /version: '([0-9\.]+)'\n/
+    
+    config = grunt.file.read '_config.yml'
+    version = config.match regex
+    
+    parts = version[1].split '.'
+    parts[2] = parseInt(parts[2], 10) + 1
+    
+    if parts[2] is 10
+      parts[2] = 0
+      parts[1]++
+    
+    if parts[1] is 10
+      parts[1] = 0
+      parts[0]++
+    
+    version = parts.join '.'
+    
+    console.log "Bumping to version " + version
+    
+    config = config.replace regex, "version: '" + version + "'\n"
+    grunt.file.write '_config.yml', config
+    
+  grunt.registerTask 'default', ['concat', 'coffee', 'coffeelint', 'jst', 'uglify', 'mincss', 'imagemin', 'clean', 'bump', 'jekyll:build', 'mocha' ]
   grunt.registerTask 'server', ['default', 'jekyll']
