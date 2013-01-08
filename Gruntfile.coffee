@@ -22,7 +22,13 @@ module.exports = (grunt) ->
         options:
           interrupt: true
           forceWatchMethod: 'old'
-                  
+      test:
+        files: "test/*.coffee"
+        task: "coffee:test"
+        options:
+          interrupt: true
+          forceWatchMethod: 'old'                 
+    
     uglify:
       app:
         files:
@@ -59,6 +65,9 @@ module.exports = (grunt) ->
       widget:
         files:
           "_includes/js/related-widget.js": "_cs/related-widget.coffee"
+      test:
+        files:
+          "test/embed.js": "test/embed.coffee"
           
     coffeelint:
       app: ["_cs/app/*.coffee", "_cs/app/*/*.coffee" ]
@@ -113,7 +122,13 @@ module.exports = (grunt) ->
             filename.replace('_templates/', '').replace('._', '')
         files:
           "_includes/js/templates.js": "_templates/*._"
-         
+    
+    mocha:
+      embed:
+        src: "test/embed.html"
+        options:
+          run: true
+                 
   grunt.loadNpmTasks 'grunt-contrib-concat'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
@@ -126,6 +141,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-css'
   grunt.loadNpmTasks 'grunt-contrib-less'
   grunt.loadNpmTasks 'grunt-contrib-jst'
+  grunt.loadNpmTasks 'grunt-mocha'
 
-  grunt.registerTask 'default', ['concat', 'coffee', 'coffeelint', 'jst', 'uglify', 'mincss', 'imagemin', 'clean', 'jekyll:build']
+  grunt.registerTask 'default', ['concat', 'coffee', 'coffeelint', 'jst', 'uglify', 'mincss', 'imagemin', 'clean', 'jekyll:build', 'mocha' ]
   grunt.registerTask 'server', ['default', 'jekyll']

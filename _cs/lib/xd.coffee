@@ -48,7 +48,7 @@ XD =
       if callback
         attached_callback = (e) ->
           if (typeof source_origin is "string" and e.origin isnt source_origin) or (Object::toString.call(source_origin) is "[object Function]" and source_origin(e.origin) is not 1)
-            console.log "cross iframe request blocked. Domains " + e.origin + " and " + source_origin + " must match."
+            #console.log "cross iframe request blocked. Domains " + e.origin + " and " + source_origin + " must match."
             return not 1
           callback e
       if window["addEventListener"]

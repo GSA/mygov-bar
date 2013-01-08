@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script src="../node_modules/chai/chai.js"></script>
+    <script>
+      mocha.setup('bdd'); 
+      mocha.reporter('html');
+      expect = chai.expect;
+    </script>
+    <script src="../_site/js/jquery.js"></script>
+    <script src="../_site/mygov-bar.js"></script>
+    <script src="embed.js"></script>
+    <script>
+        if (navigator.userAgent.indexOf('PhantomJS') < 0) {
+            mocha.run();
+        }
+    </script>
+  </body>
+</html>
