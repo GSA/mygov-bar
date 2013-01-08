@@ -1,7 +1,6 @@
 <div class="tags">
 
-<h3>Tag this page</h3>
-<p class="info">(Help make this page more findable for all)</p>
+<h3>Help make this page more findable for all</h3>
 <ul>
   <% _.each( tags, function(tag) { %>
     <li class="tag" id="tag-<%= tag.id %>"><%= tag.name %></li>

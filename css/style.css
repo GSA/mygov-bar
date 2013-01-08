@@ -105,20 +105,22 @@ span.jujitsu {
 .row.content-pane {
   
   background: -moz-linear-gradient(top,  rgba(100,100,100,0.95) 0%, rgba(100,100,100,0.95) 1%, rgba(70,70,70,0.95) 91%, rgba(70,70,70,0.95) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(100,100,100,0.95)), color-stop(1%,rgba(100,100,100,0.95)), color-stop(91%,rgba(70,70,70,0.95)), color-stop(100%,rgba(70,70,70,0.95))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  rgba(100,100,100,0.95) 0%,rgba(100,100,100,0.95) 1%,rgba(70,70,70,0.95) 91%,rgba(70,70,70,0.95) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  rgba(100,100,100,0.95) 0%,rgba(100,100,100,0.95) 1%,rgba(70,70,70,0.95) 91%,rgba(70,70,70,0.95) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  rgba(100,100,100,0.95) 0%,rgba(100,100,100,0.95) 1%,rgba(70,70,70,0.95) 91%,rgba(70,70,70,0.95) 100%); /* IE10+ */
-background: linear-gradient(to bottom,  rgba(100,100,100,0.95) 0%,rgba(100,100,100,0.95) 1%,rgba(70,70,70,0.95) 91%,rgba(70,70,70,0.95) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2646464', endColorstr='#f2464646',GradientType=0 ); /* IE6-9 */
-
-  
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(100,100,100,0.95)), color-stop(1%,rgba(100,100,100,0.95)), color-stop(91%,rgba(70,70,70,0.95)), color-stop(100%,rgba(70,70,70,0.95))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(100,100,100,0.95) 0%,rgba(100,100,100,0.95) 1%,rgba(70,70,70,0.95) 91%,rgba(70,70,70,0.95) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(100,100,100,0.95) 0%,rgba(100,100,100,0.95) 1%,rgba(70,70,70,0.95) 91%,rgba(70,70,70,0.95) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(100,100,100,0.95) 0%,rgba(100,100,100,0.95) 1%,rgba(70,70,70,0.95) 91%,rgba(70,70,70,0.95) 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(100,100,100,0.95) 0%,rgba(100,100,100,0.95) 1%,rgba(70,70,70,0.95) 91%,rgba(70,70,70,0.95) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2646464', endColorstr='#f2464646',GradientType=0 ); /* IE6-9 */
   
   padding: 1.3em 4% 1em 4%;
   color: #fff; 
   position: relative;
   overflow-y: scroll;
   -webkit-box-shadow: 0 5px 4px rgba(0,0,0,.1) inset;
+  -moz-box-shadow: 0 5px 4px rgba(0,0,0,.1) inset;
+  -o-box-shadow: 0 5px 4px rgba(0,0,0,.1) inset;
+  -ms-box-shadow: 0 5px 4px rgba(0,0,0,.1) inset;
+  box-shadow: 0 5px 4px rgba(0,0,0,.1) inset;
 }
 
 #bar.expanded .row.content-pane {height: 13em;}
@@ -231,6 +233,8 @@ ul.right {text-align: right; display: block; float: right;}
 #bar.mini .navigation li a span {text-indent: -9999em; display: block;}
 
 #bar.mini .navigation li.expand a span, #bar.mini .navigation li.close-this a span {text-indent: 0; }
+
+#bar.mini .navigation li.expand span. {}
 
 #bar.mini .navigation li.expand a:hover,
 #bar.mini .navigation li.expand a:active,  
@@ -375,10 +379,12 @@ a span.domain {display: block; font-size: .8em; color: #eee; color: rgba(255,255
 }
 
 /*** BB ADDED ***/
-#bar.signed-out li.notifications, #bar.signed-out li.settings {display: none;}
+/*** #bar.signed-out li.notifications, #bar.signed-out li.settings {display: none;} ***/
 body {background: transparent; }
 
-#bar.expanded .expand { display: none; }
+/*** #bar.expanded .expand { display: none; } ***/
+
+
 
 #bar.hidden { width: 0px; }
 #bar #tabs li { display: none; }
@@ -534,13 +540,13 @@ input.btn, a.btn {
 
 input.btn.search {height: 2.6em;}
 
-.content-links.search {font-size: .8em;}
+.content-links.search {font-size: .85em;}
 
 .search-result .results li a { color: white; text-decoration: none; font-weight: bold; }
 .search-result .results li a:hover { text-decoration: underline; }
 .search-result .results li span.excerpt { display: block; font-size: .75em; font-weight: normal; color: #fff; color: rgba(255,255,255,.9); padding: .2em 0 .75em 0; }
 .search-result .results li { margin-bottom: .4em; border-bottom: 1px solid rgba(255,255,255,.05);}
-.search-result a.more-link { color: white; }
+.search-result a.more-link { color: white; text-decoration: none; }
 .search-result .results .highlight { color: #AEA888 }
 .search-result h3 { margin-bottom: 10px; font-weight: bold; }
 .search-result a.title {text-decoration: underline; display: inline-block;}
@@ -590,7 +596,7 @@ textarea#comment {
 .rating {width: 35%;}
 .comments {margin-left: 10%; padding-left: 10%; border-left: 1px solid rgba(255,255,255,.1); width: 50%;}
 
-#bar .text-core .text-wrap .text-tags .text-tag .text-button {font-size: .9em; margin: .5em; font-family: inherit; display: inline-block; height: auto;}
+#bar .text-core .text-wrap .text-tags .text-tag .text-button {font-size: .9em; margin: .15em; font-family: inherit; display: inline-block; height: auto;}
 #bar .text-core .text-wrap .text-tags {line-height: 2em;}
 
 

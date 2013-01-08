@@ -73,7 +73,7 @@ return __p;
 this["JST"]["tags"] = function(obj){
 var __p='';var print=function(){__p+=Array.prototype.join.call(arguments, '')};
 with(obj||{}){
-__p+='<div class="tags">\n\n<h3>Tag this page</h3>\n<p class="info">(Help make this page more findable for all)</p>\n<ul>\n  ';
+__p+='<div class="tags">\n\n<h3>Help make this page more findable for all</h3>\n<ul>\n  ';
  _.each( tags, function(tag) { 
 ;__p+='\n    <li class="tag" id="tag-'+
 ( tag.id )+
