@@ -2,7 +2,7 @@
 url: http://gsa-ocsit.github.com/mygov-bar #url to site
 api_url: http://staging.discovery.my.usa.gov #url to backend
 search_affiliate: mygov-bar
-version: '0.0.4'
+version: '0.0.7'
 widthMinimized: '30%'
 minWidth: 650
 trigger: '75'
@@ -17,4 +17,4 @@ tabs:
 animation_speed: 500 #miliseconds
 
 #build config
-exclude: [ 'Cakefile', 'package.json', 'Gruntfile.coffee', 'readme.md', 'node_modules' ]
+exclude: [ 'Cakefile', 'package.json', 'Gruntfile.coffee', 'readme.md', 'node_modules', 'test' ]

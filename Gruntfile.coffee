@@ -28,7 +28,13 @@ module.exports = (grunt) ->
         options:
           interrupt: true
           forceWatchMethod: 'old'                 
-    
+      sass:
+        files: "_sass/style.sass"
+        tasks: ["sass", "mincss"]
+        options:
+          interrupt: true
+          forceWatchMethod: 'old'   
+                 
     uglify:
       app:
         files:
@@ -85,6 +91,7 @@ module.exports = (grunt) ->
     clean:
       cs: ["_app.coffee", "_embed.coffee"]
       dsstore: "**/.DS_Store"
+      css: "css/style.css"
     
     jekyll:
       server:
@@ -128,7 +135,12 @@ module.exports = (grunt) ->
         src: "_test/embed.html"
         options:
           run: true
-                     
+    
+    sass:
+      app:
+        files:
+          "css/style.css": "_sass/style.sass"      
+    
   grunt.loadNpmTasks 'grunt-contrib-concat'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
@@ -139,9 +151,9 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-jekyll'
   grunt.loadNpmTasks 'grunt-contrib-imagemin'
   grunt.loadNpmTasks 'grunt-css'
-  grunt.loadNpmTasks 'grunt-contrib-less'
   grunt.loadNpmTasks 'grunt-contrib-jst'
   grunt.loadNpmTasks 'grunt-mocha'
+  grunt.loadNpmTasks 'grunt-contrib-sass'
   
   grunt.registerTask 'bump', 'Increment the version number', ->
   
@@ -168,5 +180,5 @@ module.exports = (grunt) ->
     config = config.replace regex, "version: '" + version + "'\n"
     grunt.file.write '_config.yml', config
     
-  grunt.registerTask 'default', ['concat', 'coffee', 'coffeelint', 'jst', 'uglify', 'mincss', 'imagemin', 'clean', 'bump', 'jekyll:build', 'mocha' ]
+  grunt.registerTask 'default', ['concat', 'coffee', 'coffeelint', 'jst', 'sass', 'uglify', 'mincss', 'imagemin', 'clean', 'bump', 'jekyll:build', 'mocha' ]
   grunt.registerTask 'server', ['default', 'jekyll']

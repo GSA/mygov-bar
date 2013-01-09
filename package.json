@@ -18,10 +18,10 @@
     "grunt-jekyll": "~0.2.2",
     "grunt-contrib-imagemin": "~0.1.0",
     "grunt-css": "~0.5.1",
-    "grunt-contrib-less": "~0.3.2",
     "grunt-contrib-jst": "~0.3.2",
     "chai": "~1.4.2",
     "mocha": "~1.7.4",
-    "grunt-mocha": "~0.2.0"
+    "grunt-mocha": "~0.2.0",
+    "grunt-contrib-sass": "~0.2.1"
   }
 }
