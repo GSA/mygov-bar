@@ -51,16 +51,28 @@ Contributing
 Grunt Tasks
 -----------
 
-* `grunt` - compile cs, css, minify, and optimize
-* `grunt watch` - Watch for CS or CSS changes and recompile (also `grunt watch:cs` and `grunt watch:css`)
-* `grunt uglify` - minify js
-* `grunt concat coffee` - compile cs files, but do not compres
-* `grunt coffeelint` - lint cs files
-* `grunt imagemin` - optimize images
-* `grunt csslint` - lint css
-* `grunt less` - TODO
-* `grunt jst` - TODO
-* `grunt jekyll` - start jekyll server
+```
+Available tasks
+        concat  Concatenate files. *                                           
+        coffee  Compile CoffeeScript files into JavaScript *                   
+        uglify  Minify files with UglifyJS. *                                  
+         watch  Run predefined tasks whenever watched files change.            
+        mincss  Minify CSS files *                                             
+         clean  Clean files and folders. *                                     
+    coffeelint  Validate files with CoffeeLint *                               
+        jekyll  This triggers the jekyll command. *                          
+      imagemin  Minify PNG and JPEG images *                                   
+       csslint  Lint CSS files with csslint *                                  
+        cssmin  Minify CSS files with clean-css. *                             
+           jst  Compile underscore templates to JST file *                     
+         mocha  Run Mocha unit tests in a headless PhantomJS instance. *       
+          sass  Compile Sass to CSS *                                          
+          bump  Increment the version number                                   
+       default  Alias for "concat", "coffee", "coffeelint", "jst", "sass",     
+                "uglify", "mincss", "imagemin", "clean", "bump",               
+                "jekyll:build", "mocha" tasks.                                 
+        server  Alias for "default", "jekyll" tasks.               
+```
 
 Deploying to Static
 -------------------
