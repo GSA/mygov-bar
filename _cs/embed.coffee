@@ -1,3 +1,5 @@
+return if MyGovLoader?
+
 class MyGovLoader
   
   #settings
@@ -6,6 +8,7 @@ class MyGovLoader
   widthMinimized: '{{ site.widthMinimized }}' # % of screen to consume when minimized
   minWidth: '{{ site.minWidth }}' #minimum width to allow "mini mode" to go before snapping to expanded by default
   animationSpeed: '{{ site.animation_speed }}'
+  config: {}
   
   #css to be applied to iframe
   style:
@@ -28,6 +31,11 @@ class MyGovLoader
   
   #fire on init
   constructor: ->
+
+    @config extends MyGovConfig if MyGovConfig?    
+    @config.url = encodeURIComponent document.location.href.replace /\/$/, ''
+    return if @config.load is false
+
     @addEvent document, 'scroll', @onScroll 
     @addEvent window, 'resize', @onResize
     @onResize()
@@ -79,12 +87,21 @@ class MyGovLoader
   offsetBottom: ->
     100 * ( @positionTop() + @windowHeight() ) / @pageHeight()
 
+  configSerialized: ->
+    (@toParam key, value for key, value of @config).join "&"
+  
+  toParam: (key,value) ->
+    return unless value?
+    return key + "=" + value unless typeof value is "object"
+    return (@toParam key, v for v in value).join "&"
+    
   #append iframe to parent page    
   load: (callback) ->
+    
     @el = document.createElement 'iframe'
     @el.name = @id
     @el.id = @id
-    @el.src = @rootUrl + '/mygov-bar.html#' + encodeURIComponent document.location.href    
+    @el.src = @rootUrl + '/mygov-bar.html#' + @configSerialized()    
     
     for key,value of @style
       @el.style[key] = value
@@ -151,5 +168,5 @@ class MyGovLoader
   setState: (state) ->
     @state = state
     @send state
-    
+
 window.MyGovLoader = new MyGovLoader()

@@ -117,11 +117,6 @@ module.exports = (grunt) ->
         rules:
           "ids": false
           
-    less:
-      app:
-        files:
-          "css/style.css": "css/style.less"
-      
     jst:
       app:
         options:

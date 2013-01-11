@@ -4,7 +4,7 @@ class MyGovBar.Views.Hidden extends Backbone.View
   
   render: ->
     $('.row').css 'width', window.innerWidth + 'px'
-    @$el.animate {width: '0px'}, MyGovBar.config.animation_speed, 'swing', =>
+    @$el.fadeOut =>
       @$el.removeClass 'shown'
       @$el.addClass 'hidden'
       @$el.removeClass 'mini'

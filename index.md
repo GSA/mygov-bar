@@ -11,6 +11,25 @@ permalink: /index.html
 ```
 {% include embed-code.html %}
 ```
+
+### To control which tabs are visible
+
+**Before** the embed code, include:
+
+```
+<script>window.MyGovConfig = {tabs: ['related', 'feedback', "search"]}</script>
+```
+
+Replacing the tabs with the tabs you would like to load
+
+### To disable the MyGovBar
+
+Simply remove the embed code, or to disable the plugin and bookmarklet on a page, simply include the following prior to the embed code, if present:
+
+```
+<script>window.MyGovConfig = {load: false}</script>
+```
+
 ## Bookmarklet
 
 <p><a class="bookmarklet" href='javascript:{% include js/bookmarklet.js %}'>MyGov</a></p>
