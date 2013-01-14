@@ -39,8 +39,8 @@ class MyGovBar.Models.Page extends Backbone.Model
     data.tags = tags
     data
     
-  hasRelated: ->
-    @get('related').length is not 0
+  hasRelated: =>
+    @get('related').length > 0
   
   initPolling: ->
     @poller = setInterval @poll, 5000 if !@hasRelated()
@@ -58,11 +58,11 @@ class MyGovBar.Models.Page extends Backbone.Model
 
   renderRelated: ->
     return if Backbone.history.fragment != "related"
-    MyGovBar.router.navigate "related", true
+    new MyGovBar.Views.Related( model: MyGovBar.page).render()
   
   renderTags: ->
     return if Backbone.history.fragment != "tags"
-    MyGovBar.router.navigate "related", true
+    new MyGovBar.Views.Tags(model: MyGovBar.page).render()
   
 class MyGovBar.Collections.PagesCollection extends Backbone.Collection
   model: MyGovBar.Models.Page
