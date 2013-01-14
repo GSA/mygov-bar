@@ -3,6 +3,7 @@ window.MyGovBar={
   Collections: {},
   Views: {},
   Router: {},
+  Templates: {},
   config:{
     url: '{{ site.url }}',
     api_url: '{{ site.api_url }}',

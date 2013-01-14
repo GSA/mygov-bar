@@ -27,7 +27,7 @@ class MyGovBar.Views.Tags extends Backbone.View
   render: =>
     MyGovBar.router.expand() unless $('#bar').hasClass 'expanded'
       
-    @$el.html JST.tags( page: @model.toJSON(), tags: @model.get('tags').toJSON() )
+    @$el.html MyGovBar.Templates.tags( page: @model.toJSON(), tags: @model.get('tags').toJSON() )
     $('#tag_list').textext
       plugins: 'tags autocomplete suggestsions ajax'
       tagsItems: @model.get('tags').models

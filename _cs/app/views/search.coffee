@@ -6,7 +6,7 @@ class MyGovBar.Views.Search extends Backbone.View
     "submit #search": "submit"
   
   render: ->
-    @$el.html JST.search()
+    @$el.html MyGovBar.Templates.search()
     
   submit: (e) =>
     MyGovBar.router.go "search/" + $('#search_query').val(), e
@@ -20,5 +20,5 @@ class MyGovBar.Views.SearchResult extends Backbone.View
   
   render: =>
     MyGovBar.router.expand() unless $('#bar').hasClass 'expanded'
-    @$el.html JST.search_result query: @collection.query, results: @collection.toJSON().splice(0,3)
+    @$el.html MyGovBar.Templates.search_result query: @collection.query, results: @collection.toJSON().splice(0,3)
     MyGovBar.CrossDomain.sendHeight()

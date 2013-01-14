@@ -122,6 +122,7 @@ module.exports = (grunt) ->
         options:
           processName: (filename) ->
             filename.replace('_templates/', '').replace('._', '')
+          namespace: "MyGovBar.Templates"
         files:
           "_includes/js/templates.js": "_templates/*._"
     
