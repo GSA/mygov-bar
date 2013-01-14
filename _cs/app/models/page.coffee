@@ -1,6 +1,7 @@
 class MyGovBar.Models.Page extends Backbone.Model
   paramRoot: 'page'
   urlRoot: MyGovBar.config.api_url + "/pages"
+  poller: null
   
   url: ->
     url = @urlRoot
@@ -11,16 +12,20 @@ class MyGovBar.Models.Page extends Backbone.Model
     url += ".json"
     url
      
-  lookup: ->
+  lookup: =>
     old_url = @url
     @url = @urlRoot + ".json?url=" + @get("url") + "&callback=?"
-    @fetch()
+    @fetch
+      success: =>
+        @initPolling()
     @url = old_url
     
   initialize: ->
     @set 'tags', new MyGovBar.Collections.Tags
     @lookup()
-      
+    @on 'change:related', @renderRelated
+    @on 'change:tag_list', @renderTags
+    
   defaults:
     url: document.referrer
     related: []
@@ -36,6 +41,28 @@ class MyGovBar.Models.Page extends Backbone.Model
     
   hasRelated: ->
     @get('related').length is not 0
+  
+  initPolling: ->
+    @poller = setInterval @poll, 5000 if !@hasRelated()
+    
+  stopPolling: ->
+    clearInterval @poller
+    @poller = {}
+    
+  poll: =>
+    @fetch
+      success: =>
+        return if !@hasRelated()
+        @stopPolling()
+        @maybeRender()
+
+  renderRelated: ->
+    return if Backbone.history.fragment != "related"
+    MyGovBar.router.navigate "related", true
+  
+  renderTags: ->
+    return if Backbone.history.fragment != "tags"
+    MyGovBar.router.navigate "related", true
   
 class MyGovBar.Collections.PagesCollection extends Backbone.Collection
   model: MyGovBar.Models.Page

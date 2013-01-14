@@ -4,19 +4,10 @@ class MyGovBar.Views.Related extends Backbone.View
   template: $("#related_template").html()
   class: "related"
 
-  render: =>
-    @$el.html JST.related( @model.toJSON() )
+  render: ->
+    if @model.hasRelated()
+      @$el.html JST.related( @model.toJSON() )
+    else
+      @$el.html JST.loading_related()
     MyGovBar.CrossDomain.sendHeight()
-    @initPolling()
     @
-    
-  initialize: ->
-    @model.on 'change:related', @render
-
-  initPolling: =>
-    return if @model.hasRelated()
-    @$el.html JST.loading_related()
-    setTimeout @poll, 5000
-  
-  poll: =>
-    @model.fetch()
