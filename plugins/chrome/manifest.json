@@ -8,7 +8,7 @@
   ],
   "content_scripts": [
     {
-      "matches": ["*://*.gov/*"],
+      "matches": ["*://*.gov/*", "*://*.mil/*", "*://*.fed.us/*", "*://*.si.edu/*"],
       "js": [ "inject.js"]
     }
   ]
