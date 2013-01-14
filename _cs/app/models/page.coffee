@@ -33,6 +33,9 @@ class MyGovBar.Models.Page extends Backbone.Model
       tags.add( new MyGovBar.Models.Tag(tag), {silent: true} )
     data.tags = tags
     data
+    
+  hasRelated: ->
+    @get('related').length is not 0
   
 class MyGovBar.Collections.PagesCollection extends Backbone.Collection
   model: MyGovBar.Models.Page
