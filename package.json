@@ -2,7 +2,7 @@
   "name": "MyGovBar",
   "version": "0.0.2",
   "devDependencies": {
-    "grunt": "~0.4.0",
+    "grunt": "v0.4.0rc4",
     "grunt-cli": "latest",
     "grunt-contrib-jshint": "~0.1.0",
     "coffee-script": "~1.4.0",

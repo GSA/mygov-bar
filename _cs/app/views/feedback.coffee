@@ -1,6 +1,6 @@
 class MyGovBar.Views.Feedback extends Backbone.View
   el: "#drawer"
-  saveOnChange: false
+  #saveOnChange: false
   
   events:
     "submit #feedback": "submitComment"
@@ -8,10 +8,12 @@ class MyGovBar.Views.Feedback extends Backbone.View
   render: ->
     MyGovBar.router.expand() unless $('#bar').hasClass 'expanded'
     @$el.html MyGovBar.Templates.feedback()
-    @initStars()
-        
-  saveRating: (value, link) =>
-    return unless @saveOnChange
+    @$('#stars').raty
+      #score: @model.get 'avg_rating'
+      width: "200px"
+      click: @saveRating
+    
+  saveRating: (value, event) =>
     @model.save rating: value
 
   submitComment: (e) =>
@@ -26,8 +28,3 @@ class MyGovBar.Views.Feedback extends Backbone.View
   commentSuccess: ->
     $('#comment_submitted').fadeIn().delay(5000).fadeOut()
   
-  initStars: ->
-    star = $ 'input.star'
-    star.rating callback: @saveRating
-    star.rating 'select', Math.round( parseFloat( @model.get 'avg_rating' ) ) - 1
-    @saveOnChange = true

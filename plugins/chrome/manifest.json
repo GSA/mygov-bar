@@ -2,13 +2,16 @@
   "name": "MyGov Bar",
   "version": "0.2",
   "manifest_version": 2,
-  "description": "",
+  "description": "The MyGov Discovery Bar allows visitors to government websites to find relevant content across federal agencies",
   "permissions": [
-    "tabs", "*://*.gov/*"
+    "tabs", 
+    "*://*.gov/*", 
+    "*://*.mil/*", 
+    "*://*.fed.us/*", 
+    "*://*.si.edu/*"
   ],
   "content_scripts": [
     {
-      "matches": ["*://*.gov/*", "*://*.mil/*", "*://*.fed.us/*", "*://*.si.edu/*"],
       "js": [ "inject.js"]
     }
   ]
