@@ -3,7 +3,10 @@
 // @namespace   MyGov
 // @description MyGov Discovery Bar
 // @include     http://*.gov/*
-// @version     1
+// @include     http://*.mil/*
+// @include     http://*.fed.us/*
+// @include     http://*.si.edu/*
+// @version     2
 // @grant       none
 // ==/UserScript==
 
