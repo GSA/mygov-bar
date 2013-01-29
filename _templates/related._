@@ -5,3 +5,11 @@
     </li>
   <% }) %>
 </ul>
+<div class="feedback-mini">
+
+<h3>Was this page helpful?</h3>
+<div id="stars" class="group"> </div>
+
+</div>
+
+

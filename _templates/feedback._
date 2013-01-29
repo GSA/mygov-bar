@@ -13,7 +13,7 @@
 <div class="comments">
 
     <div class="feeback" id="comment_submitted">
-       Thanks for the feedback! We've got your comment.
+       Thanks for the feedback! We&rsquo;ve got your comment.
     </div>
 
 <form id="feedback">
