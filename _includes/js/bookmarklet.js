@@ -1,10 +1,1 @@
-(function() {
-  var script;
-
-  script = document.createElement('script');
-
-  script.src = "{{ site.url }}/embed-code.js";
-
-  document.body.appendChild(script);
-
-}).call(this);
+(function(){var t;t=document.createElement("script"),t.src="{{ site.url }}/embed-code.js",document.body.appendChild(t)}).call(this);
