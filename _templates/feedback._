@@ -3,6 +3,11 @@
   <h3>Was this page helpful?</h3>
   <div id="stars" class="group"> </div>
 
+  <div class="phone">
+  <span>Questions by phone: </span>
+  <span class="tel">1-800-FED-INFO</span>
+  </div>
+
 </div>
  
 <div class="comments">
