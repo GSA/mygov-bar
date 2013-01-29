@@ -1,1 +1,290 @@
-(function(){var t,e,r=function(t,e){return function(){return t.apply(e,arguments)}},o={}.hasOwnProperty,n=function(t,e){function r(){this.constructor=t}for(var n in e)o.call(e,n)&&(t[n]=e[n]);return r.prototype=e.prototype,t.prototype=new r,t.__super__=e.prototype,t};e={interval_id:void 0,last_hash:void 0,cache_bust:1,attached_callback:void 0,window:this,postMessage:function(t,e,r){return e?(r=r||parent,window.postMessage?r.postMessage(t,e.replace(/([^:]+:\/\/[^\/]+).*/,"$1")):e?r.location=e.replace(/#.*$/,"")+"#"+ +new Date+cache_bust++ +"&"+t:void 0):void 0},receiveMessage:function(t,e){var r,o;return window.postMessage?(t&&(r=function(r){return"string"==typeof e&&r.origin!==e||"[object Function]"===Object.prototype.toString.call(e)&&e(r.origin)===!1?!1:t(r)}),window.addEventListener?window[t?"addEventListener":"removeEventListener"]("message",r,!1):window[t?"attachEvent":"detachEvent"]("onmessage",r)):(o&&clearInterval(o),o=null,t?o=setInterval(function(){var e,r,o;return e=document.location.hash,o=/^#?\d+&/,e!==r&&o.test(e)?(r=e,t({data:e.replace(o,"")})):void 0},100):void 0)}},(void 0===t||null===t)&&(t=function(){function t(){this.recieve=r(this.recieve,this),this.show=r(this.show,this),this.onResize=r(this.onResize,this),this.onScroll=r(this.onScroll,this),"undefined"!=typeof MyGovConfig&&null!==MyGovConfig&&n(this.config,MyGovConfig),this.config.url=encodeURIComponent(document.location.href.replace(/\/$/,"")),this.config.load!==!1&&(this.addEvent(document,"scroll",this.onScroll),this.addEvent(window,"resize",this.onResize),this.onResize())}return t.prototype.rootUrl="{{ site.url }}",t.prototype.scrollTrigger="{{ site.trigger }}",t.prototype.widthMinimized="{{ site.widthMinimized }}",t.prototype.minWidth="{{ site.minWidth }}",t.prototype.animationSpeed="{{ site.animation_speed }}",t.prototype.config={},t.prototype.style={position:"fixed",bottom:0,left:0,background:"transparent",width:"{{ site.widthMinimized }}",display:"none",height:"268px",border:0,"z-index":9999999,overflow:"hidden"},t.prototype.isLoaded=!1,t.prototype.id="myGovBar",t.prototype.el=!1,t.prototype.state="hidden",t.prototype.addEvent=function(t,e,r){return t.addEventListener?t.addEventListener(e,r,!1):t.attachEvent?t.attachEvent("on"+e,r):void 0},t.prototype.onScroll=function(){return this.offsetBottom()>this.scrollTrigger?this.show():this.offsetBottom()<this.scrollTrigger?this.hide():void 0},t.prototype.onResize=function(){return window.innerWidth<this.minWidth&&"shown"===this.state?(this.maximize(),this.send("expanded")):void 0},t.prototype.positionTop=function(){return null!=window.pageYOffset?window.pageYOffset:null!=html.scrollTop?html.scrollTop:null!=body.scrollTop?body.scrollTop:0},t.prototype.pageHeight=function(){return Math.max(Math.max(document.body.scrollHeight,document.documentElement.scrollHeight),Math.max(document.body.offsetHeight,document.documentElement.offsetHeight),Math.max(document.body.clientHeight,document.documentElement.clientHeight))},t.prototype.windowHeight=function(){return window.innerHeight||html.clientHeight||body.clientHeight||screen.availHeight},t.prototype.offsetBottom=function(){return 100*(this.positionTop()+this.windowHeight())/this.pageHeight()},t.prototype.configSerialized=function(){var t,e;return function(){var r,o;r=this.config,o=[];for(t in r)e=r[t],o.push(this.toParam(t,e));return o}.call(this).join("&")},t.prototype.toParam=function(t,e){var r;if(null!=e)return"object"!=typeof e?t+"="+e:function(){var o,n,i;for(i=[],o=0,n=e.length;n>o;o++)r=e[o],i.push(this.toParam(t,r));return i}.call(this).join("&")},t.prototype.load=function(t){var r,o,n;this.el=document.createElement("iframe"),this.el.name=this.id,this.el.id=this.id,this.el.src=this.rootUrl+"/mygov-bar.html#"+this.configSerialized(),n=this.style;for(r in n)o=n[r],this.el.style[r]=o;return document.body.appendChild(this.el),e.receiveMessage(this.recieve,this.rootUrl.match(/([^:]+:\/\/.[^/]+)/)[1]),this.isLoaded=!0,null!=t?t():void 0},t.prototype.setWidth=function(t){return this.el.style.width=t},t.prototype.setHeight=function(t){return this.el.style.height=t},t.prototype.show=function(){return"shown"!==this.state?this.isLoaded?(this.el.style.display="block",this.setState("shown")):this.load(this.show):void 0},t.prototype.hide=function(){var t=this;if("hidden"!==this.state)return this.setState("hidden"),setTimeout(function(){return(t.state="hidden")?t.el.style.display="none":void 0},this.animationSpeed)},t.prototype.maximize=function(){return this.setWidth("100%")},t.prototype.minimize=function(){return this.setWidth(this.widthMinimized)},t.prototype.send=function(t){var r;return r=document.getElementById(this.id),e.postMessage(t,r.src,frames.myGovBar)},t.prototype.recieve=function(t){switch(t=t.data.split("-"),t[0]){case"mini":return this.minimize();case"expanded":return this.maximize();case"height":return this.setHeight(t[1])}},t.prototype.setState=function(t){return this.state=t,this.send(t)},t}(),window.MyGovLoader=new t)}).call(this);
+(function() {
+  var MyGovLoader, XD,
+    __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+    __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  XD = {
+    interval_id: void 0,
+    last_hash: void 0,
+    cache_bust: 1,
+    attached_callback: void 0,
+    window: this,
+    postMessage: function(message, target_url, target) {
+      if (!target_url) {
+        return;
+      }
+      target = target || parent;
+      if (window["postMessage"]) {
+        return target["postMessage"](message, target_url.replace(/([^:]+:\/\/[^\/]+).*/, "$1"));
+      } else {
+        if (target_url) {
+          return target.location = target_url.replace(/#.*$/, "") + "#" + (+(new Date)) + (cache_bust++) + "&" + message;
+        }
+      }
+    },
+    receiveMessage: function(callback, source_origin) {
+      var attached_callback, interval_id;
+      if (window["postMessage"]) {
+        if (callback) {
+          attached_callback = function(e) {
+            if ((typeof source_origin === "string" && e.origin !== source_origin) || (Object.prototype.toString.call(source_origin) === "[object Function]" && source_origin(e.origin) === !1)) {
+              return !1;
+            }
+            return callback(e);
+          };
+        }
+        if (window["addEventListener"]) {
+          return window[(callback ? "addEventListener" : "removeEventListener")]("message", attached_callback, !1);
+        } else {
+          return window[(callback ? "attachEvent" : "detachEvent")]("onmessage", attached_callback);
+        }
+      } else {
+        interval_id && clearInterval(interval_id);
+        interval_id = null;
+        if (callback) {
+          return interval_id = setInterval(function() {
+            var hash, last_hash, re;
+            hash = document.location.hash;
+            re = /^#?\d+&/;
+            if (hash !== last_hash && re.test(hash)) {
+              last_hash = hash;
+              return callback({
+                data: hash.replace(re, "")
+              });
+            }
+          }, 100);
+        }
+      }
+    }
+  };
+
+  if (typeof MyGovLoader !== "undefined" && MyGovLoader !== null) {
+    return;
+  }
+
+  MyGovLoader = (function() {
+
+    MyGovLoader.prototype.rootUrl = '{{ site.url }}';
+
+    MyGovLoader.prototype.scrollTrigger = '{{ site.trigger }}';
+
+    MyGovLoader.prototype.widthMinimized = '{{ site.widthMinimized }}';
+
+    MyGovLoader.prototype.minWidth = '{{ site.minWidth }}';
+
+    MyGovLoader.prototype.animationSpeed = '{{ site.animation_speed }}';
+
+    MyGovLoader.prototype.config = {};
+
+    MyGovLoader.prototype.style = {
+      position: 'fixed',
+      bottom: 0,
+      left: 0,
+      background: 'transparent',
+      width: '{{ site.widthMinimized }}',
+      display: 'none',
+      height: '268px',
+      border: 0,
+      'z-index': 9999999,
+      overflow: 'hidden'
+    };
+
+    MyGovLoader.prototype.isLoaded = false;
+
+    MyGovLoader.prototype.id = 'myGovBar';
+
+    MyGovLoader.prototype.el = false;
+
+    MyGovLoader.prototype.state = 'hidden';
+
+    function MyGovLoader() {
+      this.recieve = __bind(this.recieve, this);
+
+      this.show = __bind(this.show, this);
+
+      this.onResize = __bind(this.onResize, this);
+
+      this.onScroll = __bind(this.onScroll, this);
+      if (typeof MyGovConfig !== "undefined" && MyGovConfig !== null) {
+        __extends(this.config, MyGovConfig);
+      }
+      this.config.url = encodeURIComponent(document.location.href.replace(/\/$/, ''));
+      if (this.config.load === false) {
+        return;
+      }
+      this.addEvent(document, 'scroll', this.onScroll);
+      this.addEvent(window, 'resize', this.onResize);
+      this.onResize();
+    }
+
+    MyGovLoader.prototype.addEvent = function(el, event, func) {
+      if (el.addEventListener) {
+        return el.addEventListener(event, func, false);
+      } else if (el.attachEvent) {
+        return el.attachEvent("on" + event, func);
+      }
+    };
+
+    MyGovLoader.prototype.onScroll = function() {
+      if (this.offsetBottom() > this.scrollTrigger) {
+        return this.show();
+      } else if (this.offsetBottom() < this.scrollTrigger) {
+        return this.hide();
+      }
+    };
+
+    MyGovLoader.prototype.onResize = function() {
+      if (window.innerWidth < this.minWidth && this.state === "shown") {
+        this.maximize();
+        return this.send('expanded');
+      }
+    };
+
+    MyGovLoader.prototype.positionTop = function() {
+      if (window.pageYOffset != null) {
+        return window.pageYOffset;
+      }
+      if (html.scrollTop != null) {
+        return html.scrollTop;
+      }
+      if (body.scrollTop != null) {
+        return body.scrollTop;
+      }
+      return 0;
+    };
+
+    MyGovLoader.prototype.pageHeight = function() {
+      return Math.max(Math.max(document.body.scrollHeight, document.documentElement.scrollHeight), Math.max(document.body.offsetHeight, document.documentElement.offsetHeight), Math.max(document.body.clientHeight, document.documentElement.clientHeight));
+    };
+
+    MyGovLoader.prototype.windowHeight = function() {
+      return window.innerHeight || html.clientHeight || body.clientHeight || screen.availHeight;
+    };
+
+    MyGovLoader.prototype.offsetBottom = function() {
+      return 100 * (this.positionTop() + this.windowHeight()) / this.pageHeight();
+    };
+
+    MyGovLoader.prototype.configSerialized = function() {
+      var key, value;
+      return ((function() {
+        var _ref, _results;
+        _ref = this.config;
+        _results = [];
+        for (key in _ref) {
+          value = _ref[key];
+          _results.push(this.toParam(key, value));
+        }
+        return _results;
+      }).call(this)).join("&");
+    };
+
+    MyGovLoader.prototype.toParam = function(key, value) {
+      var v;
+      if (value == null) {
+        return;
+      }
+      if (typeof value !== "object") {
+        return key + "=" + value;
+      }
+      return ((function() {
+        var _i, _len, _results;
+        _results = [];
+        for (_i = 0, _len = value.length; _i < _len; _i++) {
+          v = value[_i];
+          _results.push(this.toParam(key, v));
+        }
+        return _results;
+      }).call(this)).join("&");
+    };
+
+    MyGovLoader.prototype.load = function(callback) {
+      var key, value, _ref;
+      this.el = document.createElement('iframe');
+      this.el.name = this.id;
+      this.el.id = this.id;
+      this.el.src = this.rootUrl + '/mygov-bar.html#' + this.configSerialized();
+      _ref = this.style;
+      for (key in _ref) {
+        value = _ref[key];
+        this.el.style[key] = value;
+      }
+      document.body.appendChild(this.el);
+      XD.receiveMessage(this.recieve, this.rootUrl.match(/([^:]+:\/\/.[^/]+)/)[1]);
+      this.isLoaded = true;
+      if (callback != null) {
+        return callback();
+      }
+    };
+
+    MyGovLoader.prototype.setWidth = function(width) {
+      return this.el.style.width = width;
+    };
+
+    MyGovLoader.prototype.setHeight = function(height) {
+      return this.el.style.height = height;
+    };
+
+    MyGovLoader.prototype.show = function() {
+      if (this.state === 'shown') {
+        return;
+      }
+      if (!this.isLoaded) {
+        return this.load(this.show);
+      }
+      this.el.style.display = 'block';
+      return this.setState('shown');
+    };
+
+    MyGovLoader.prototype.hide = function() {
+      var _this = this;
+      if (this.state === 'hidden') {
+        return;
+      }
+      this.setState('hidden');
+      return setTimeout(function() {
+        if (_this.state = "hidden") {
+          return _this.el.style.display = 'none';
+        }
+      }, this.animationSpeed);
+    };
+
+    MyGovLoader.prototype.maximize = function() {
+      return this.setWidth('100%');
+    };
+
+    MyGovLoader.prototype.minimize = function() {
+      return this.setWidth(this.widthMinimized);
+    };
+
+    MyGovLoader.prototype.send = function(msg) {
+      var iframe;
+      iframe = document.getElementById(this.id);
+      return XD.postMessage(msg, iframe.src, frames.myGovBar);
+    };
+
+    MyGovLoader.prototype.recieve = function(msg) {
+      msg = msg.data.split("-");
+      switch (msg[0]) {
+        case "mini":
+          return this.minimize();
+        case "expanded":
+          return this.maximize();
+        case "height":
+          return this.setHeight(msg[1]);
+      }
+    };
+
+    MyGovLoader.prototype.setState = function(state) {
+      this.state = state;
+      return this.send(state);
+    };
+
+    return MyGovLoader;
+
+  })();
+
+  window.MyGovLoader = new MyGovLoader();
+
+}).call(this);

@@ -1,1 +1,39 @@
-(function(){var t;t=function(){function t(){var t;t=document.createElement("script"),t.src="http://staging.discovery.my.usa.gov/pages?url="+document.location.href+"&callback=mygovrelated.callback",document.body.appendChild(t)}return t.prototype.el=document.getElementById("MyGovRelated"),t.prototype.callback=function(t){var e,r,n,o,i;if(null!=t&&null!=t.related&&t.related.length){for(o=t.related,i=[],r=0,n=o.length;n>r;r++)e=o[r],i.push(this.addPage(e));return i}},t.prototype.addPage=function(t){return this.el.innerHTML+='<li><a href="'+t.url+'">'+t.title+"</a></li>"},t}(),window.mygovrelated=new t}).call(this);
+(function() {
+  var MyGovRelated;
+
+  MyGovRelated = (function() {
+
+    MyGovRelated.prototype.el = document.getElementById('MyGovRelated');
+
+    function MyGovRelated() {
+      var script;
+      script = document.createElement('script');
+      script.src = "http://staging.discovery.my.usa.gov/pages?url=" + document.location.href + "&callback=mygovrelated.callback";
+      document.body.appendChild(script);
+    }
+
+    MyGovRelated.prototype.callback = function(data) {
+      var page, _i, _len, _ref, _results;
+      if (!((data != null) && (data.related != null) && data.related.length)) {
+        return;
+      }
+      _ref = data.related;
+      _results = [];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        page = _ref[_i];
+        _results.push(this.addPage(page));
+      }
+      return _results;
+    };
+
+    MyGovRelated.prototype.addPage = function(page) {
+      return this.el.innerHTML += '<li><a href="' + page.url + '">' + page.title + '</a></li>';
+    };
+
+    return MyGovRelated;
+
+  })();
+
+  window.mygovrelated = new MyGovRelated();
+
+}).call(this);
