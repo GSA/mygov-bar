@@ -20,6 +20,13 @@ class MyGovBar.Views.Mini extends Backbone.View
         $('.row').css 'width', '100%'
         @related()
     , 1
+    @$('#stars').raty
+      #score: @model.get 'avg_rating'
+      width: "200px"
+      click: @saveRating
+    
+  saveRating: (value, event) =>
+    @model.save rating: value
     
   toggle: (e) ->
     MyGovBar.router.go 'expanded', e
