@@ -864,7 +864,13 @@ div.star-rating {
 
 /* Read Only CSS */
 /* Partial Star CSS */
+<<<<<<< HEAD
 .feedback-mini {
   background: rgba(0, 0, 0, 0.3);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2) inset;
   padding: 3%; }
+=======
+/* Mini feedback */
+.mini-feedback {
+  .background: rgba(0, 0, 0, 0.2); }
+>>>>>>> Added markup for mini bar feedback.
