@@ -34,7 +34,7 @@ The MyGov Discovery Bar renders down to a single flat HTML file (the iframe sour
 
 1. Install Ruby
 2. Install Jekyll (`gem install jekyll`)
-3. `jekyll --url http://localhost:4000`
+3. `jekyll --server --url http://localhost:4000`
 
 Contributing
 ------------
