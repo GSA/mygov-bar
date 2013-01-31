@@ -4,9 +4,6 @@
     <span class="domain"><%= page.domain.hostname.replace("www.","") %></span></a>
     </li>
   <% }) %>
-<<<<<<< HEAD
-</ul>
-=======
 </ul>
 
 <div class="mini-feedback group">
@@ -17,4 +14,3 @@
 </div>
 
 </div>
->>>>>>> 07866a4... Added Fed Info number, USA Search logo and stars feedback on mini.
