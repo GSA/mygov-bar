@@ -1,8 +1,8 @@
 #config
 url: http://gsa-ocsit.github.com/mygov-bar #url to site
-api_url: http://staging.discovery.my.usa.gov #url to backend
+api_url: http://discovery.my.usa.gov #url to backend
 search_affiliate: mygov-bar
-version: '0.2.5'
+version: '0.2.6'
 widthMinimized: '30%'
 minWidth: 650
 trigger: '75'
