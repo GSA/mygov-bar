@@ -4,7 +4,7 @@ class MyGovRelated
 
   constructor: ->
    script = document.createElement 'script'
-   script.src = "http://staging.discovery.my.usa.gov/pages?url=" + document.location.href + "&callback=mygovrelated.callback"
+   script.src = "http://discovery.my.usa.gov/pages?url=" + document.location.href + "&callback=mygovrelated.callback"
    document.body.appendChild script
    
   callback: (data) ->
