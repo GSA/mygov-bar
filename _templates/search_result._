@@ -3,7 +3,7 @@
 <ul class="content-links search">
 <% results.forEach( function(result) { %>
   <li class="result">
-    <a class="title" href="<%= result.unescapedUrl %>"><%= result.title %>
+    <a class="title" href="<%= result.unescapedUrl %>" target="_blank"><%= result.title %>
     <span class="excerpt"><%= result.content %></span></a>
   </li>
 <% }) %>
