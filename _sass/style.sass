@@ -104,11 +104,11 @@ div.arrow
 .current div.arrow
   display: inline-block
   position: absolute
-  bottom: 0
+  top: -1px
   left: 40%
-  border-top: 8px solid transparent
-  border-bottom: 8px solid #606060
-  border-bottom: 8px solid rgba(70, 70, 70, 0.95)
+  border-bottom: 8px solid transparent
+  border-top: 8px solid #606060
+  border-top: 8px solid rgba(70, 70, 70, 0.95)
   border-right: 8px solid transparent
   border-left: 8px solid transparent
 
@@ -116,14 +116,13 @@ div.arrow
   position: absolute
   bottom: 0
   overflow: hidden
+  width: 100%
   &.mini a, &.expanded .content-links a
     -webkit-transition: all ease-in-out .13s
     -moz-transition: all ease-in-out .13s
     -ms-transition: all ease-in-out .13s
     -o-transition: all ease-in-out .13s
     transition: all ease-in-out .13s
-  position: absolute
-  left: -100%
   
 /*#bar.mini {width: auto; width: 95%;}
 
@@ -173,7 +172,7 @@ span.jujitsu
     padding: 1.3em 4% 1em 4%
     color: #fff
     position: relative
-    overflow-y: scroll
+    overflow-y: auto
     -webkit-box-shadow: 0 5px 4px rgba(0, 0, 0, 0.1) inset
     -moz-box-shadow: 0 5px 4px rgba(0, 0, 0, 0.1) inset
     -o-box-shadow: 0 5px 4px rgba(0, 0, 0, 0.1) inset
@@ -184,6 +183,8 @@ span.jujitsu
   &.expanded .row.content-pane
     height: 13em
   &.mini li.expand span.less, &.expanded li.expand span.more
+    display: none
+  &.collapsed .row.content-pane
     display: none
 
 /*
@@ -306,7 +307,7 @@ h2
   margin-right: 0%
 
 .row.content-pane
-  overflow: scroll
+  overflow: auto
   .left.first
     padding-left: 0
     border-left: none
@@ -565,8 +566,6 @@ a span.domain
 /*** BB ADDED **
 /*** #bar.signed-out li.notifications, #bar.signed-out li.settings {display: none;} **
 
-body
-  background: transparent
 
 /*** #bar.expanded .expand { display: none; } **
 
@@ -601,6 +600,14 @@ body
   .content-links li
     border-bottom: 1px solid #ccc
     border-bottom: 1px solid rgba(255, 255, 255, 0.075)
+  .close-this
+    position: absolute
+    top: 15px
+    right: 10px
+    a
+      color: #fff
+      padding-left: 32px
+      background: url("../img/sprite.png") 0 -1453px no-repeat
 
 /*** Search **
 

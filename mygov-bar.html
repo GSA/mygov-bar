@@ -2,41 +2,38 @@
 layout: main
 ---
 
-<div id="bar" class="mini hidden signed-out group">
+<div id="bar" class="signed-out group">
 
   <div class="primary group">
-
+    
+    <div class="row content-pane group">
+      <div class="close-this"><a href="#" id="close-bar"><span>Close</span></a></div>
+      <div class="first single" id="drawer">
+      </div><!-- /first single -->
+      
+    </div><!-- /content-pane -->
+    
     <div class="row navigation group">
     
       <!-- @todo: Make all this dynamic -->
       <ul class="left" id="tabs">
         <li class="mygov"><a href="http://my.usa.gov" target="_blank"><span>MyUSA</span><div class="arrow"></div></a></li>
-        <li class="related current"><a href="#"><span>More on this topic</span><div class="arrow"></div></a></li>
-        
+        <li class="related"><a href="#"><span>More on this topic</span><div class="arrow"></div></a></li>
         <li class="tags"><a href="#"><span>Tags</span><div class="arrow"></div></a></li>
         <li class="feedback"><a href="#"><span>Feedback</span><div class="arrow"></div></a></li>
         <li class="search"><a href="#"><span>Search</span><div class="arrow"></div></a></li>
-      </ul>  
+      </ul>
       
       <ul class="right">  
         {% comment %}
         To be added back in once MyGov integration is complete
         <li class="settings"><a href="#"><span>Settings</span></a></li>
         {% endcomment %}  
-        <li class="expand"><a href="#" id="toggle"><span class="more">More</span><span class="less">- Minimize</span></a></li>
         <li class="close-this"><a href="#" id="close-bar"><span>Close</span></a></li>      
       </ul>
      
     </div><!-- /row navigation -->
-    
-    <div class="row content-pane group">
-    
-      <div class="first single" id="drawer">
-    
-      </div><!-- /first single -->
       
-    </div><!-- /content-pane -->
-  
   </div><!-- /primary -->
 
 </div><!-- /bar -->

@@ -10,7 +10,6 @@ class MyGovBar.Views.Hidden extends Backbone.View
   reset: ->
     @$el.removeClass 'shown'
     @$el.addClass 'hidden'
-    @$el.removeClass 'mini'
     @$el.removeClass 'expanded'
     @$el.clearQueue()
     $('.row').css 'width', '100%'

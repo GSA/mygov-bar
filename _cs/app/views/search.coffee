@@ -6,10 +6,11 @@ class MyGovBar.Views.Search extends Backbone.View
     "submit #search": "submit"
   
   render: ->
+    MyGovBar.router.expand() unless $('#bar').hasClass 'expanded'
     @$el.html MyGovBar.Templates.search()
     
   submit: (e) =>
-    MyGovBar.router.go "search/" + $('#search_query').val(), e
+    MyGovBar.router.go("search/" + $('#search_query').val(), e) if $('#search_query').val()
 
 class MyGovBar.Views.SearchResult extends Backbone.View
   el: "#drawer"

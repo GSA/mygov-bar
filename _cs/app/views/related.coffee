@@ -5,6 +5,7 @@ class MyGovBar.Views.Related extends Backbone.View
   class: "related"
 
   render: ->
+    MyGovBar.router.expand() unless $('#bar').hasClass 'expanded'
     if @model.hasRelated()
       @$el.html MyGovBar.Templates.related( @model.toJSON() )
     else

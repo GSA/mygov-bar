@@ -3,31 +3,29 @@ class Router extends Backbone.Router
   routes:
     "hidden": "hide"
     "expanded": "expand"
+    "collapsed": "collapse"
     "related": "related"
     "tags": "tags"
     "search": "search"
     "search/:query": "searchResult"
     "feedback": "feedback"
-    "mini": "mini"
-    "*path": "minify"
-
+    "*path": "collapse"
+  
   initialize: ->
     MyGovBar.page = new MyGovBar.Models.Page()
     Backbone.history.on 'route', @setCurrent
     window.onbeforeunload = ->
-      sessionStorage.myGovBarExpanded = Backbone.history.fragment != "mini" and Backbone.history.fragment != "hidden"
+      sessionStorage.myGovBarExpanded = Backbone.history.fragment != "collapsed" and Backbone.history.fragment != "hidden"
       return
       
-  mini: ->
-    MyGovBar.CrossDomain.send 'mini'
-    new MyGovBar.Views.Mini(model: MyGovBar.page).render()
-    
-  minify: ->
-    @navigate 'mini', true
-    
   expand: ->
     MyGovBar.CrossDomain.send 'expanded'
     new MyGovBar.Views.Expanded().render()
+    @setCurrent()
+    
+  collapse: ->
+    MyGovBar.CrossDomain.send 'collapsed'
+    new MyGovBar.Views.Collapsed().render()
     @setCurrent()
     
   hide: ->
