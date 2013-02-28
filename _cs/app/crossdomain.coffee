@@ -5,14 +5,14 @@ class CrossDomain
   allowed_params: ['tabs', 'url']
 
   constructor: ->
-
+    
     params = $.deparam.fragment true
     @setConfig key, value for key, value of params
 
-    XD.receiveMessage @recieve, MyGovBar.config.parent_url
+    XD.receiveMessage @receive, MyGovBar.config.parent_url
     Backbone.history.on 'route', @sendHeight
 
-  recieve: (msg) =>
+  receive: (msg) =>
     MyGovBar.router.navigate msg.data, true
 
   send: (msg) =>

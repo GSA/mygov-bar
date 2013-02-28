@@ -109,7 +109,7 @@ class MyGovLoader
     
     if callback?
       callback()
-  
+
   # add margin to page (we do not just want to add to document.body.style['marginBottom']
   # because of all kinds of potential issues with adding margins with different units)
   addPageMargin: ->
@@ -117,8 +117,8 @@ class MyGovLoader
     div.id = @id + 'Margin'
     div.style.height = @style.height
     document.body.appendChild div
-  
-  # set width of MyGovBar iframe
+    
+  #set width of MyGovBar iframe
   setWidth: (width) ->
     @el.style.width = width
   
@@ -158,7 +158,7 @@ class MyGovLoader
     iframe = document.getElementById @id
     XD.postMessage msg, iframe.src, frames.myGovBar
     
-  recieve: (msg) =>
+  receive: (msg) =>
     msg = msg.data.split "-"
     switch msg[0]
       when "expanded" then @maximize()

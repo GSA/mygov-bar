@@ -1,10 +1,11 @@
 #config
 url: http://gsa-ocsit.github.com/mygov-bar #url to site
-api_url: http://discovery.my.usa.gov
+api_url: http://discovery.my.usa.gov #url to backend
 #url: http://localhost:4000
-#api_url: http://localhost:3000 #url to backend
+#api_url: http://localhost:3000
 search_affiliate: mygov-bar
 version: '1.0.6'
+widthMinimized: '30%'
 minWidth: 650
 trigger: '0'
 tabs:
@@ -15,7 +16,7 @@ tabs:
   - tags
   - feedback
   - mygov
-animation_speed: 500 #miliseconds
+animation_speed: 500 #milliseconds
 
 #build config
 exclude: [ 'Cakefile', 'package.json', 'Gruntfile.coffee', 'readme.md', 'node_modules', 'test' ]

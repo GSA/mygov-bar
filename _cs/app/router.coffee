@@ -59,7 +59,7 @@ class Router extends Backbone.Router
     
   go: (hash, e) ->
     e.preventDefault() if e?
-    @navigate hash, true
+    @navigate hash, { trigger: true, replace: true }
     false
     
 MyGovBar.router = new Router()
