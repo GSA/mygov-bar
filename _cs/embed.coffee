@@ -19,10 +19,15 @@ class MyGovLoader
     background: 'transparent'
     width: '100%'
     display: 'block'
-    height: '65px'
+    height: '57px'
     border: 0
     'z-index': 9999999
     overflow: 'hidden'
+    '-webkit-transition': "height {{ site.animation_speed }}ms"
+    '-moz-transition': "height {{ site.animation_speed }}ms"
+    '-ms-transition': "height {{ site.animation_speed }}ms"
+    '-o-transition': "height {{ site.animation_speed }}ms"
+    'transition': "height {{ site.animation_speed }}ms"
   
   # state and other instance variables
   isLoaded: false
@@ -104,7 +109,7 @@ class MyGovLoader
     document.body.appendChild @el
     @addPageMargin()
     
-    XD.receiveMessage @recieve, @rootUrl.match(/([^:]+:\/\/.[^/]+)/)[1]
+    XD.receiveMessage @receive, @rootUrl.match(/([^:]+:\/\/.[^/]+)/)[1]
     @isLoaded = true
     
     if callback?
