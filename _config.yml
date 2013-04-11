@@ -2,8 +2,8 @@
 url: http://gsa-ocsit.github.com/mygov-bar #url to site
 api_url: http://discovery.my.usa.gov #url to backend
 search_affiliate: mygov-bar
-version: '1.2.5'
-widthMinimized: '30%'
+version: '1.9.6'
+width_minimized: '45'
 minWidth: 650
 trigger: '0'
 tabs:

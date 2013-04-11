@@ -183,8 +183,13 @@ span.jujitsu
     height: 13em
   &.mini li.expand span.less, &.expanded li.expand span.more
     display: none
-  &.collapsed .row.content-pane
+  &.collapsed .row.content-pane, &.hidden .row.content-pane
     display: none
+  &.hidden .row.navigation
+    border-right: 1px solid rgba(0, 0, 0, 0.1)
+    ul
+      .mygov, .related, .tags, .feedback, .search, &.right
+        display: none !important
 
 /*
  *
@@ -319,7 +324,7 @@ ul.right
 /*** Icon Sprites **
 
 .navigation li
-  &.mygov a
+  &.icon a, &.mygov a
     background: url("../img/sprite.png") 0 -1308px no-repeat
   &.notifications a
     background: url("../img/sprite.png") 0 -109px no-repeat
@@ -413,7 +418,7 @@ ul.right
         float: none
         width: 100%
     .navigation li
-      &.mygov a
+      &.icon a, &.mygov a
         background: url("../img/sprite.png") 50% -1316px no-repeat
       &.expand a
         background: url("../img/sprite.png") -10px -1561px no-repeat
@@ -514,7 +519,7 @@ a span.domain
           margin: 0
           a
             padding: 1.8em 0
-          &.mygov a
+          &.icon a, &.mygov a
             background: url("../img/sprite.png") 50% -1308px no-repeat
           &.notifications a
             background: url("../img/sprite.png") 50% -110px no-repeat

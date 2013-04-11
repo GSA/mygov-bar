@@ -5,7 +5,7 @@ class MyGovLoader
   # settings
   rootUrl: '{{ site.url }}' #domain of iframe to embed
   scrollTrigger: '{{ site.trigger }}' # % down document to display discovery bar
-  widthMinimized: '{{ site.widthMinimized }}' # % of screen to consume when minimized
+  widthMinimized: '{{ site.width_minimized }}' # % of screen to consume when minimized
   minWidth: '{{ site.minWidth }}' #minimum width to allow "mini mode" to go before snapping to collapsed by default
   #minWidth: '100%' #minimum width to allow "mini mode" to go before snapping to expanded by default
   animationSpeed: '{{ site.animation_speed }}'
@@ -149,15 +149,16 @@ class MyGovLoader
     if @state is 'hidden'
       return   
     @setState 'hidden'
-    setTimeout =>
-      @el.style.display = 'none' if @state = "hidden"
-    , @animationSpeed
+    @minimize
+    #setTimeout =>
+    #  @el.style.display = 'none' if @state = "hidden"
+    #, @animationSpeed
     
   maximize: ->
     @setWidth '100%'
     
   minimize: ->
-    @setWidth @widthMinimized
+    @setWidth @width_minimized
        
   send: (msg) ->
     iframe = document.getElementById @id
@@ -167,6 +168,7 @@ class MyGovLoader
     msg = msg.data.split "-"
     switch msg[0]
       when "expanded" then @maximize()
+      when "hidden" then @hide()
       when "height" then @setHeight msg[1]
   
   setState: (state) ->

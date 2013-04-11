@@ -1,16 +1,10 @@
-class MyGovBar.Views.Hidden extends Backbone.View
-  
-  el: "#bar"
+class MyGovBar.Views.Hidden extends MyGovBar.Views.Collapsed
   
   render: ->
-    $('.row').css 'width', window.innerWidth + 'px'
-    @$el.animate {left: '-100%'}, MyGovBar.config.animation_speed, 'swing', =>
-      @reset()
-      
-  reset: ->
-    @$el.removeClass 'shown'
+    $("#tabs .icon").addClass "activated"
+    @$el.clearQueue()
+    @$el.css 'width', MyGovBar.config.width_minimized
     @$el.addClass 'hidden'
     @$el.removeClass 'expanded'
-    @$el.clearQueue()
-    $('.row').css 'width', '100%'
-    @$el.css 'left', '-100%'
+    @$el.removeClass 'collapsed'
+    MyGovBar.CrossDomain.sendHeight()

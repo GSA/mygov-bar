@@ -6,8 +6,10 @@ class MyGovBar.Views.Collapsed extends Backbone.View
     "click #tabs li.tags a": "tags"
     "click #tabs li.search a": "search"
     "click #tabs li.feedback a": "feedback"
+    "click li.hide a": "hide"
   
   render: ->
+    $("#tabs .icon").removeClass "activated"
     @$el.clearQueue()
     @$el.css 'width', '100%'
     @$el.addClass 'shown'
@@ -28,3 +30,6 @@ class MyGovBar.Views.Collapsed extends Backbone.View
 
   feedback: (e) ->
     MyGovBar.router.go 'feedback', e
+    
+  hide: (e) ->
+    MyGovBar.router.go 'hidden', e
