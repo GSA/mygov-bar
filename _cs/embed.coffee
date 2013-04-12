@@ -23,11 +23,11 @@ class MyGovLoader
     border: 0
     'z-index': 9999999
     overflow: 'hidden'
-    '-webkit-transition': "height {{ site.animation_speed }}ms"
-    '-moz-transition': "height {{ site.animation_speed }}ms"
-    '-ms-transition': "height {{ site.animation_speed }}ms"
-    '-o-transition': "height {{ site.animation_speed }}ms"
-    'transition': "height {{ site.animation_speed }}ms"
+    '-webkit-transition': "height {{ site.animation_speed }}ms, width {{ site.animation_speed }}ms"
+    '-moz-transition': "height {{ site.animation_speed }}ms, width {{ site.animation_speed }}ms"
+    '-ms-transition': "height {{ site.animation_speed }}ms, width {{ site.animation_speed }}ms"
+    '-o-transition': "height {{ site.animation_speed }}ms, width {{ site.animation_speed }}ms"
+    'transition': "height {{ site.animation_speed }}ms, width {{ site.animation_speed }}ms"
   
   # state and other instance variables
   isLoaded: false

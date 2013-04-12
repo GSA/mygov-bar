@@ -116,6 +116,11 @@ div.arrow
   bottom: 0
   overflow: hidden
   width: 100%
+  -webkit-transition: width .13s
+  -moz-transition: width .13s
+  -ms-transition: width .13s
+  -o-transition: width .13s
+  transition: width .13s
   &.mini a, &.expanded .content-links a
     -webkit-transition: all ease-in-out .13s
     -moz-transition: all ease-in-out .13s
@@ -185,6 +190,9 @@ span.jujitsu
     display: none
   &.collapsed .row.content-pane, &.hidden .row.content-pane
     display: none
+  &.collapsed .row.navigation, &.hidden .row.navigation
+    max-height: 57px
+    overflow: hidden
   &.hidden .row.navigation
     border-right: 1px solid rgba(0, 0, 0, 0.1)
     ul
