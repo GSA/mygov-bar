@@ -14,7 +14,8 @@ class MyGovBar.Views.Feedback extends Backbone.View
       click: @saveRating
     
   saveRating: (value, event) =>
-    @model.save rating: value
+    rating = new MyGovBar.Models.Rating page_id: @model.get 'id'
+    rating.save value: value
 
   submitComment: (e) =>
     input = $('#comment')
