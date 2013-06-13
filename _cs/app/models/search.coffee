@@ -5,7 +5,7 @@ class MyGovBar.Collections.SearchResults extends Backbone.Collection
   model: MyGovBar.Models.SearchResult
   
   url: ->
-    url = 'http://search.usa.gov/api/search.json?'
+    url = 'https://search.usa.gov/api/search.json?'
     url += 'affiliate=' + MyGovBar.config.search_affiliate
     url += '&query=' + @query
     url += '&callback=?'
