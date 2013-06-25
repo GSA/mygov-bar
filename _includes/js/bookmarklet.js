@@ -1,1 +1,1 @@
-(function(){var t;t=document.createElement("script"),t.src="{{ site.url }}/embed-code.js",document.body.appendChild(t)}).call(this);
+!function(){var a;a=document.createElement("script"),a.src="{{ site.url }}/embed-code.js",document.body.appendChild(a)}.call(this);
