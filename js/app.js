@@ -10,3 +10,4 @@ layout: nil
 {% include js/config.js %}
 {% include js/templates.js %}
 {% include js/mygovbar.js %}
+{% include js/related-widget.js %}
