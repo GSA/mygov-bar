@@ -4,3 +4,4 @@ node_modules
 css/style.css
 .sass-cache
 _app.coffee
+_*config.yml
