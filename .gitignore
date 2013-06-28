@@ -3,3 +3,4 @@ _site
 node_modules
 css/style.css
 .sass-cache
+_*config.yml
