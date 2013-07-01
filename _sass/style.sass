@@ -488,12 +488,14 @@ a span.domain
   input#search_query
     width: 100%
   #bar
+    .navigation
+      .left li a span
+        position: absolute
+        left: -9999em
+        display: block
     &.expanded
       .navigation
         .left li a span
-          position: absolute
-          left: -9999em
-          display: block
           &.jujitsu
             display: inline-block
             position: relative
