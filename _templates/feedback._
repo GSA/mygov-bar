@@ -5,7 +5,7 @@
 
   <div class="phone">
   <span>Questions by phone: </span>
-  <span class="tel">1-800-FED-INFO</span>
+  <span class="tel"><a href="tel:+18003334636" style="color: #fff;">1-800-FED-INFO</a></span>
   </div>
 
 </div>
@@ -13,7 +13,7 @@
 <div class="comments">
 
     <div class="feeback" id="comment_submitted">
-       Thanks for the feedback! We've got your comment.
+       Thanks for the feedback! We&rsquo;ve got your comment.
     </div>
 
 <form id="feedback">
