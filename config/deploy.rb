@@ -38,29 +38,45 @@ namespace :deploy do
 
     run commands.join(' && ') if commands.any?
   end
-  
+
   desc "Upload custom (branch-based) config to remote server(s)."
   task :upload_custom_config do
-    top.upload("_deploy_uat_apache_config.yml", "#{current_path}/", via: :scp)
+    puts "***** Uploading config file *****"
+    top.upload(upload_filename, "#{current_path}/", via: :scp)
   end
-  
+
   desc "chown & chmod to www"
   task :chown do
     sudo "chown -R ubuntu #{deploy_to}"
     sudo "chmod -R 775 #{deploy_to}"
   end
 
-  desc "start the server"
-  task :start do
+  desc "build static files with jekyll"
+  task :build_static_files do
+    puts "***** Building static files *****"
     run "cd #{deploy_to}/current;jekyll build #{config}"
   end
 
-  desc "restart the server"
-  task :restart do
-    stop
-    start
+  desc "install npm modules"
+  task :install_npm_modules do
+    puts "***** Installing NPM Modules *****"
+    run "cd #{deploy_to}/current;npm install"
   end
+
+  desc "Run grunt"
+  task :grunt do
+    puts "***** Invoking Grunt *****"
+    run "cd #{deploy_to}/current;grunt"
+  end
+
 end
 
 after 'deploy:setup', 'deploy:chown'
 after 'deploy:update', 'deploy:upload_custom_config'
+after 'deploy:upload_custom_config', 'deploy:install_npm_modules'
+after 'deploy:install_npm_modules', 'deploy:grunt'
+after 'deploy:grunt', 'deploy:build_static_files'
+
+def upload_filename
+  ENV['BRANCH'] ? "_#{ENV['BRANCH']}_config.yml" : "_deploy_uat_apache_config.yml"
+end
