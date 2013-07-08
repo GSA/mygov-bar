@@ -31,8 +31,7 @@ Simply remove the embed code, or to disable the plugin and bookmarklet on a page
 ```
 
 ## Bookmarklet
-{% include js/bookmarklet.js %}
-<p><a class="bookmarklet" href='javascript:addBookMarkletCode()'>MyGov</a></p>
+<p><a class="bookmarklet" href='javascript:{% include js/bookmarklet.js %}'>MyGov</a></p>
 
 *Instructions: Drag to your bookmark bar and click to enable MyGov on any webpage*
 
