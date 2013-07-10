@@ -25,10 +25,10 @@ class MyGovBar.Models.Page extends Backbone.Model
     url
 
   initialize: ->
-    @set 'tags', new MyGovBar.Collections.Tags
-    @lookup()
-    @on 'change:related', @renderRelated
-    @on 'change:tag_list', @renderTags
+    this.set 'tags', new MyGovBar.Collections.Tags()
+    this.lookup()
+    this.on 'change:related', this.renderRelated()
+    this.on 'change:tag_list', this.renderTags()
 
   defaults:
     url: document.referrer
