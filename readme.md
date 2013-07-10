@@ -30,11 +30,31 @@ Running
 
 The MyGov Discovery Bar renders down to a single flat HTML file (the iframe source) and a single javascript file (the embed code). To run locally for development purposes, install Jekyll, and simply run `jekyll --url http://localhost:4000`.
 
-### Setting up a development environment
+### Initial gem and modules setup
+This assumes Ruby, Node, and NPM are already installed
+1. Install Jekyll (`gem install jekyll`)
+2. Install Foreman: (`gem install foreman`)
+3. Install Grunt (`npm install -g grunt-cli`)
 
-1. Install Ruby
-2. Install Jekyll (`gem install jekyll`)
-3. `jekyll --server --url http://localhost:4000`
+### Setting up a local development environment to run with the [mygov-discovery](https://github.com/GSA-OCSIT/mygov-discovery, "github: mygov-discovery") service
+
+Govbar
+1. Create a development configuration (or use _config_dev.yml)
+2. Run `npm install`
+3. Run `grunt`
+4. Run with  `jekyll serve --config _config_dev.yml --watch` where 'my_custom_config_dev.yml' is the path to your dev config.
+
+API
+clone the mygov-disovery repository and cd into that directory
+1. Run the seed: `rake db:seed`
+2. Run `foreman start`
+3. View on http://localhost:4000
+
+
+Deploying to a test server
+------------
+This content to be written.
+
 
 Contributing
 ------------
