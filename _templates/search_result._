@@ -1,4 +1,4 @@
-<h3>Results for <em><%= query %></em> <a href="http://search.usa.gov/search?affiliate=<%= MyGovBar.config.search_affiliate %>&query=<%= query %>" class="more-results" target="_blank">More results</a></h3>
+<h3>Results for <em><%= query %></em> <a href="https://search.usa.gov/search?affiliate=<%= MyGovBar.config.search_affiliate %>&query=<%= query %>" class="more-results" target="_blank">More results</a></h3>
 
 <ul class="content-links search">
 <% results.forEach( function(result) { %>
