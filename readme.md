@@ -47,8 +47,9 @@ Govbar
 API
 clone the mygov-disovery repository and cd into that directory
 1. Run the seed: `rake db:seed`
-2. Run `foreman start`
-3. View on http://localhost:4000
+2. Bundle: `bundle install`
+3. Run `foreman start`
+4. View on http://localhost:4000
 
 
 Deploying to a test server
