@@ -54,8 +54,13 @@ clone the mygov-disovery repository and cd into that directory
 
 Deploying to a test server
 ------------
-This content to be written.
 
+This content is yet to be written.
+
+Test Environment
+------------
+
+This content is yet to be written.
 
 Contributing
 ------------

@@ -5,3 +5,5 @@ css/style.css
 .sass-cache
 _app.coffee
 _*config.yml
+_test/javascript/*
+!_test/javascript/support

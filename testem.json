@@ -1,0 +1,21 @@
+{
+  "framework": "jasmine",
+  "src_files": [
+    "./_site/js/jquery*.js",
+    "./_site/js/app.js",
+    "./_includes/js/vendor/underscore.js",
+    "./_includes/js/vendor/backbone.js",
+    "./_includes/js/vendor/jquery.raty.js",
+    "./_includes/js/vendor/textext.js",
+    "./_includes/js/vendor/bbq.js",
+    "./_includes/js/config.js",
+    "./_includes/js/templates.js",
+    "./_includes/js/mygovbar.js",
+    "./_includes/js/related-widget.js",
+    "_test/javascript/**/*.js"
+  ],
+  "before_tests": "grunt;coffee -c -o _test/javascript/ _test/coffeescript/"
+}
+
+
+
