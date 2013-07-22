@@ -4,6 +4,7 @@ set :application, "myusa_discovery_bar"
 set :repository,  "git@github.com:GSA-OCSIT/mygov-bar.git"
 set :user, "ubuntu"
 set :rvm_type, :user
+set :rvm_bin_path, "/home/ubuntu/.rvm/bin"
 set :deploy_to, "/var/www/myusa_discovery_bar"
 set :deploy_via, :remote_cache
 set :branch, ENV['BRANCH'] || 'gh-pages'
